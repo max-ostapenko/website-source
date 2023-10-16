@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <title>Ad Experience Report Dataset</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="prose">
+  <h2>Overview</h2>
+<p>The Ad Experience Report provides information on the combination of site layout
+and behaviour, content, and ads that users are exposed to. It lists ad
+experiences that violate the Better Ads Standards, which have been determined to
+be highly annoying to users by the Coalition for Better Ads. The report includes
+a brief definition, the URL of the page where the ad experience was found, and
+images or videos if available. By fixing these ad experiences, website owners
+can increase visitors' enjoyment and the likelihood of their return, and improve
+the overall health of the online ecosystem.</p>
+<h2>Schema</h2>
+<table style="font-family: monospace;">
+  <tbody><tr>
+    <th>Field</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>reviewedSite</td>
+    <td>The name of the reviewed site, e.g. google.com.</td>
+  </tr>
+  <tr>
+    <td>lastChangeTime</td>
+    <td>The time at which the site's status last changed.</td>
+  </tr>
+  <!-- Add more schema fields as needed -->
+</tbody></table>
+<ul>
+<li>reviewedSite - the name of the reviewed site, e.g. google.com.</li>
+<li>lastChangeTime - the time at which the site's status last changed.</li>
+<li>abusiveStatus - the site's Abusive Experience Report status.</li>
+<li>underReview - whether the site is currently under review.</li>
+<li>enforcementTime - the time at which
+<a href="https://support.google.com/webtools/answer/7538608">enforcement</a> against the
+site began or will begin.</li>
+<li>filterStatus - the site's
+<a href="https://support.google.com/webtools/answer/7538608">enforcement status</a>.</li>
+</ul>
+<p>Available at: BigQuery table at
+<a href="https://console.cloud.google.com/bigquery/analytics-hub/exchanges/projects/390347019852/locations/us/dataExchanges/data_hub_186a1c3eafa/listings/ad_experience_report_186a1de7b19">Google Analytics Hub</a>
+JSON at <a href="https://developers.google.com/ad-experience-report">Google API</a></p>
+<h2>Preview</h2>
+<iframe width="80%" height="800px" src="https://lookerstudio.google.com/embed/reporting/6909fab3-b9d3-4f92-b355-b17ab4f07c3e/page/fZGHD" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+
+
+
+  <footer role="contentinfo" class="mb3">
+  <nav>
+    <ul style=" display: flex; justify-content: center; list-style: none; padding-left: 0;">
+      <li><a href="/">Home</a></li>
+      <li><a rel="me" href="https://www.linkedin.com/in/max-ostapenko/">LinkedIn</a></li>
+      <li><a rel="me" href="https://github.com/max-ostapenko">Github</a></li>
+		  <li><a rel="me" href="https://twitter.com/themax_o">Twitter</a></li>
+    </ul>
+  </nav>
+</footer>
+
+
+
+
+</body></html>
