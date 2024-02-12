@@ -1,4 +1,4 @@
-# quarto-website
+# personal website
 
 ## Development
 
@@ -24,4 +24,4 @@
 
 9. Commit and push the changes to the repository to publish the site
 
-10. If you are using GitHub Pages, you can configure the repository to publish the `site` folder to the `gh-pages` branch
+10. Publish the `site` folder to the Firebase Hosting

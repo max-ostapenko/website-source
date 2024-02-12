@@ -1,7 +1,4 @@
-.quarto/
-_site/
+public/
 .venv/
-.github/
 _freeze/
-
 /.quarto/
