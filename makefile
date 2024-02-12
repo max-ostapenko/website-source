@@ -10,7 +10,7 @@ quarto:
 # Create virtual environment and install dependencies
 env:
 	$(PYTHON) -m venv $(VENV_NAME)
-	$(VENV_NAME)/bin/$(PYTHON) -m pip install -r $(REQUIREMENTS)
+	$(VENV_NAME)/bin/$(PYTHON) -m pip install -q -r $(REQUIREMENTS)
 	$(VENV_NAME)/bin/$(PYTHON) -m pip install --upgrade pip
 
 render:

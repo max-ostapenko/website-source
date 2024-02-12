@@ -7,7 +7,8 @@ on:
 
 jobs:
   build_and_preview:
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    permissions:
+      checks: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v3
@@ -15,10 +16,10 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: make env
       - run: . .venv/bin/activate && quarto check
+
       - run: make render
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MAX_OSTAPENKO }}'
           projectId: max-ostapenko
-          channelId: ${{ github.event.pull_request.number }}
