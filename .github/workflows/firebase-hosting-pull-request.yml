@@ -13,11 +13,9 @@ jobs:
       - uses: actions/setup-python@v3
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
-      - run: quarto check
       - run: make env
-      - run: make quarto
       - run: quarto check
-      - run: make render
+      - run: quarto render
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

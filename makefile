@@ -2,14 +2,15 @@
 VENV_NAME := .venv
 PYTHON := python3
 REQUIREMENTS := requirements.txt
+QUARTO_VERSION := 1.4.549
 
 quarto:
-	if [ "$(uname)" == "Darwin" ]; then brew install quarto; fi
-	$(PYTHON) -m pip install nbformat nbclient
+	if [ "$(shell uname)" == "Darwin" ]; then brew install quarto; fi
 
 # Create virtual environment and install dependencies
 env:
 	$(PYTHON) -m venv $(VENV_NAME)
+	$(VENV_NAME)/bin/$(PYTHON) -m pip install nbformat nbclient jupyter
 	$(VENV_NAME)/bin/$(PYTHON) -m pip install -r $(REQUIREMENTS)
 	$(VENV_NAME)/bin/$(PYTHON) -m pip install --upgrade pip
 
