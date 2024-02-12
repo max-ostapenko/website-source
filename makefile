@@ -15,8 +15,6 @@ env:
 
 render:
 	make clean
-	make quarto
-	make env
 	quarto render
 
 publish:
