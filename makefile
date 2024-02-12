@@ -9,6 +9,7 @@ quarto:
 # Create virtual environment and install dependencies
 env:
 	$(PYTHON) -m venv $(VENV_NAME)
+	$(PYTHON) -m pip install nbformat
 	$(VENV_NAME)/bin/$(PYTHON) -m pip install -r $(REQUIREMENTS)
 	$(VENV_NAME)/bin/$(PYTHON) -m pip install --upgrade pip
 

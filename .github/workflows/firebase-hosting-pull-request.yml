@@ -12,7 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
+      - run: quarto check
       - run: make env
+      - run: quarto check
       - run: make render
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

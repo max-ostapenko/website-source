@@ -6,8 +6,9 @@ Website built using [Quarto publishing system](https://quarto.org/).
 
 1. Install Quarto CLI
 
-    ```bash
+    ```shell
     brew install quarto
+    python3 -m pip install nbformat, PyYAML
     ```
 
 2. Clone this repository
@@ -28,40 +29,40 @@ Website built using [Quarto publishing system](https://quarto.org/).
 
 1. Install the Firebase CLI
 
-    ```bash
+    ```shell
     curl -sL https://firebase.tools | bash
     ```
 
 2. Login to Firebase
 
-    ```bash
+    ```shell
     firebase login
     firebase init hosting
     ```
 
 3. Emulate locally
 
-    ```bash
+    ```shell
     firebase emulators:start
     ```
 
 4. Deploy the staging site and open the console
 
-    ```bash
+    ```shell
     firebase hosting:channel:deploy staging
     firebase open hosting
     ```
 
 5. Deploy the production site and open it
 
-    ```bash
+    ```shell
     firebase deploy --only hosting
     firebase open hosting:site
     ```
 
 6. Clone from a preview channel
 
-    ```bash
+    ```shell
     SITE_ID=max-ostapenko
     firebase hosting:clone $SITE_ID:staging $SITE_ID:live
     ```

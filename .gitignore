@@ -1,8 +1,9 @@
 public/
 .venv/
 _freeze/
-.quarto/
 _site/
 .DS_Store
 .firebase/
 .firebaserc
+/.quarto/
+.DS_Store
