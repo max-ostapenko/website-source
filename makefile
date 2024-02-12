@@ -15,11 +15,11 @@ env:
 
 render:
 	make clean
-	source $(VENV_NAME)/bin/activate && quarto render
+	. $(VENV_NAME)/bin/activate && quarto render
 
 publish:
 	make clean
-	source $(VENV_NAME)/bin/activate && quarto publish
+	. $(VENV_NAME)/bin/activate && quarto publish
 
 clean:
 	rm -rf _site/
