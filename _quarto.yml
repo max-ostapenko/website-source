@@ -63,6 +63,8 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     fig-cap-location: margin
+    code-fold: true
+    code-line-numbers: true
 
 execute:
   freeze: true

@@ -2,6 +2,8 @@
 
 ## Development
 
+Website built using [Quarto publishing system](https://quarto.org/).
+
 1. [Download Quarto CLI](https://quarto.org/docs/get-started/)
 
 2. Clone this repository
