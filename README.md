@@ -66,3 +66,15 @@ Website built using [Quarto publishing system](https://quarto.org/).
     SITE_ID=max-ostapenko
     firebase hosting:clone $SITE_ID:staging $SITE_ID:live
     ```
+
+### Netlify (todo)
+
+1. [Project settings](https://app.netlify.com/sites/max-ostapenko/)
+
+### Vercel (todo)
+
+1. [Project settings](https://vercel.com/max-ostapenko/website-source/)
+
+### GitHub Pages (todo)
+
+1. [Project settings](https://github.com/max-ostapenko/website-source/settings/pages)
