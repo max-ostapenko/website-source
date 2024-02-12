@@ -1,12 +1,24 @@
 project:
   type: website
-  output-dir: public
+  render:
+    - "*.{qmd}"
 
 website:
   title: max ostapenko
   description: Max Ostapenko's personal website
-  image: static/images/profile.jpg
   site-url: https://www.maxostapenko.com/
+  image: static/images/profile.jpg
+  favicon: static/images/logo.png
+  twitter-card:
+    creator: "@themax_o"
+  open-graph: true
+  back-to-top-navigation: true
+  google-analytics:
+    tracking-id: G-9B07JCCPN7
+    storage: none
+  repo-url: https://github.com/max-ostapenko/website-source
+  repo-actions: []
+
   navbar:
     logo: static/images/logo.png
     left:
@@ -25,8 +37,6 @@ website:
         href: https://github.com/max-ostapenko
       - icon: twitter
         href: https://twitter.com/themax_o/
-      - icon: rss
-        href: blog.xml
 
   sidebar:
     - id: learning
@@ -43,24 +53,22 @@ website:
               href: https://almanac.httparchive.org/en/2022/privacy
               target: _blank
 
-  back-to-top-navigation: true
-  favicon: static/images/logo.png
-  page-footer: "© 2024 Max Ostapenko"
-  repo-url: https://github.com/max-ostapenko/quarto-website
-  repo-actions: [issue]
-  twitter-card:
-    creator: "@themax_o"
-    site: "@themax_o"
-  open-graph: true
-  google-analytics: G-9B07JCCPN7
+  page-footer:
+    left: |
+      Built with [Quarto](https://quarto.org).
+    center: "© 2024 Max Ostapenko"
+    right:
+      - icon: rss
+        href: blog.xml
 
 format:
   html:
-    light: default
-    dark: darkly
+    theme:
+      light: flatly
+      dark: darkly
     css: static/styles.css
     toc: true
-    link-external-icon: true
+    link-external-icon: false
     link-external-newwindow: true
     fig-cap-location: margin
     code-fold: true

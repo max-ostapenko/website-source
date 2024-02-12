@@ -1,4 +1,6 @@
-# selected sources
+---
+title: Product management sources
+---
 
 ## read
 

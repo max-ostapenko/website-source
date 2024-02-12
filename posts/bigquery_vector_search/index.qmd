@@ -7,11 +7,14 @@ categories:
     - ML
 notebook-view:
   - notebook: notebook.ipynb
-    title: "Get started with vector search"
-    url: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/posts/bigquery_vector_search/notebook.ipynb
+    title: Get started with vector search
+    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/posts/bigquery_vector_search/notebook.ipynb
+code-links:
+  - text: Get started with vector search
+    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/posts/bigquery_vector_search/notebook.ipynb
 draft: true
 ---
 
 ## Intro
 
-{{< embed notebook.ipynb >}}
+{{< embed notebook.ipynb echo=true >}}

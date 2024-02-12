@@ -1,6 +1,7 @@
 ---
 title: "Welcome"
 repo-actions: false
+image: static/images/profile.jpg
 ---
 
 My name is Max.
@@ -12,6 +13,7 @@ It's about the things that are related to my professional interests and passion 
 
 
 Mostly you'll see here the learnings about:
+
 - product management,
 - marketing and advertising business,
 - engineering, analysis and privacy.
