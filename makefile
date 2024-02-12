@@ -10,17 +10,16 @@ quarto:
 # Create virtual environment and install dependencies
 env:
 	$(PYTHON) -m venv $(VENV_NAME)
-	$(VENV_NAME)/bin/$(PYTHON) -m pip install nbformat nbclient jupyter
 	$(VENV_NAME)/bin/$(PYTHON) -m pip install -r $(REQUIREMENTS)
 	$(VENV_NAME)/bin/$(PYTHON) -m pip install --upgrade pip
 
 render:
 	make clean
-	quarto render
+	source $(VENV_NAME)/bin/activate && quarto render
 
 publish:
 	make clean
-	quarto publish
+	source $(VENV_NAME)/bin/activate && quarto publish
 
 clean:
 	rm -rf _site/

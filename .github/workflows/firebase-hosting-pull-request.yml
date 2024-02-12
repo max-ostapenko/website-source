@@ -15,7 +15,7 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: make env
       - run: quarto check
-      - run: quarto render
+      - run: make render
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
