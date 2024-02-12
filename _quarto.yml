@@ -1,0 +1,67 @@
+project:
+  type: website
+
+website:
+  title: max ostapenko
+  description: Max Ostapenko's personal website
+  image: static/images/profile.jpg
+  site-url: https://www.maxostapenko.com/
+  navbar:
+    logo: static/images/logo.png
+    left:
+      - text: home
+        href: index.qmd
+      - sidebar:learning
+      - text: blog
+        href: blog.qmd
+      - sidebar:projects
+      - text: about
+        href: about.qmd
+    tools:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/max-ostapenko/
+      - icon: github
+        href: https://github.com/max-ostapenko
+      - icon: twitter
+        href: https://twitter.com/themax_o/
+      - icon: rss
+        href: blog.xml
+
+  sidebar:
+    - id: learning
+      contents:
+        - auto: learning/*.qmd
+
+    - id: projects
+      contents:
+        - auto: projects/**
+        - text: ---
+        - section: external
+          contents:
+            - text: Web Almanac - Privacy
+              href: https://almanac.httparchive.org/en/2022/privacy
+              target: _blank
+
+  back-to-top-navigation: true
+  favicon: static/images/logo.png
+  page-footer: "© 2024 Max Ostapenko"
+  repo-url: https://github.com/max-ostapenko/quarto-website
+  repo-actions: [issue]
+  twitter-card:
+    creator: "@themax_o"
+    site: "@themax_o"
+  open-graph: true
+  google-analytics: G-9B07JCCPN7
+
+format:
+  html:
+    light: default
+    dark: darkly
+    css: static/styles.css
+    toc: true
+    link-external-icon: true
+    link-external-newwindow: true
+    fig-cap-location: margin
+
+execute:
+  freeze: true

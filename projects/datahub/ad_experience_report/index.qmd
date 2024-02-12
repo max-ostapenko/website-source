@@ -1,0 +1,29 @@
+---
+title: Ad Experience Report
+---
+
+## Overview
+
+The Ad Experience Report provides information on the combination of site layout and behaviour, content, and ads that users are exposed to. It lists ad experiences that violate the Better Ads Standards, which have been determined to be highly annoying to users by the Coalition for Better Ads. The report includes a brief definition, the URL of the page where the ad experience was found, and images or videos if available. By fixing these ad experiences, website owners can increase visitors' enjoyment and the likelihood of their return, and improve the overall health of the online ecosystem.
+
+Available at:
+
+-   BigQuery table at [Google Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/exchanges/projects/390347019852/locations/us/dataExchanges/data_hub_186a1c3eafa/listings/ad_experience_report_186a1de7b19)
+-   JSON at [Google API](https://developers.google.com/ad-experience-report)
+
+Provider: [Google](https://www.google.com/webmasters/tools/ad-experience-unverified)
+
+## Schema
+
+1.  reviewedSite - the name of the reviewed site, e.g. google.com.
+2.  lastChangeTime - the time at which the site's status last changed.
+3.  abusiveStatus - the site's Abusive Experience Report status.
+4.  underReview - whether the site is currently under review.
+5.  enforcementTime - the time at which [enforcement](https://support.google.com/webtools/answer/7538608) against the site began or will begin.
+6.  filterStatus - the site's [enforcement status](https://support.google.com/webtools/answer/7538608).
+
+## Preview
+
+```{=html}
+<iframe width="100%" height="600" src="https://lookerstudio.google.com/embed/reporting/6909fab3-b9d3-4f92-b355-b17ab4f07c3e/page/fZGHD" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+```

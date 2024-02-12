@@ -1,0 +1,9 @@
+---
+title: "Google Drive permissions control"
+---
+
+Take over control of your Google Drive permissions
+
+(security checker)
+
+[Google Drive access control](https://drive.google.com/open?id=1lEHL0TVndOq0_vVVC8tVZ4FaiIu94HuP8yYdVLthBgM&usp=drive_copy)

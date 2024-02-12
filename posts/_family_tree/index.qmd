@@ -1,0 +1,12 @@
+---
+title: Family Tree
+author: Max Ostapenko
+date: today
+categories:
+    - visualisation
+draft: true
+---
+
+## Intro
+
+https://graphviz.gitlab.io/_pages/Gallery/directed/kennedyanc.gv.txt

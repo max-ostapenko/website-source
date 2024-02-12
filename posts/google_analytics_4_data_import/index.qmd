@@ -1,0 +1,196 @@
+---
+title: Google Analytics 4 Data Import
+author: Max Ostapenko
+date: "6/5/2023"
+categories:
+    - google analytics
+---
+
+## Intro
+
+Google Analytics has long been a trusted tool. But with a release of Google Analytics 4 (GA4) users face multiple challenges configuring and maintaining their operational insights available.
+
+The migration effort is huge. And there are not many automation solutions for managing GA4 data either, because Admin and Data API are still being actively developed.
+
+For data import GA4 offers only two import interfaces:
+
+- manual CSV upload
+- and SFTP (Secure File Transfer Protocol).
+
+It seems quite strange and limiting choice compared to previously available Uploads API or other modern data integration options.
+
+There are also not many comprehensive articles on how to migrate your pipelines. The best I've seen so far is from [Ahmed Ali on SFTP to GA](https://www.ga4auditor.com/blog/automating-ga4-cost-data-import-comprehensive-guide-part-1).
+
+In this article, we will explore how to:
+
+1. extend the pipeline to source the data from BigQuery to Google Analytics,
+2. and automate configuration so that it takes just a few clicks.
+
+## Architecture
+
+### Why SFTP?
+
+GA4's reliance on SFTP as the primary import interface stems from its focus on security and interoperability. By utilising SFTP, GA4 ensures a secure transfer of data between systems, reducing the risk of data breaches or unauthorised access. And at the same time it aligns with Google's commitment to data privacy and protection, an aspect of utmost importance in today's data-centric landscape.
+
+What other existing interface could allow GA4 to import CSV data from arbitrate storages?
+
+### Google Cloud Storage as file system
+
+Creating an SFTP Gateway in Google Cloud Platform (GCP) is an effective solution to bridge the gap between your data warehouse and GA4. The SFTP gateway may act as an intermediary, granting GA4 access to Google Cloud Storage (GCS) objects, where data exported from BigQuery resides. This setup allows for a seamless transfer of data from BigQuery to GA4, while maintaining the stringent security measures enforced by the SFTP protocol.
+
+By mounting GCS, the SFTP server treats GCS buckets and objects as if they were part of the local file system. This allows users to interact with GCS data through standard SFTP operations.
+
+To mount GCS, you can leverage various tools and libraries available, such as Cloud Storage FUSE. It interprets the forward slash character ("/") in object names as a separator for directories, effectively organizing objects with a common prefix as files within the same directory structure.
+
+![Google Analytics 4 Data Import diagram](./images/diagram_ga4_data_import.png){.preview-image}
+
+### BigQuery to Cloud Storage
+
+There are multiple ways of doing this. Let's review some of the easiest ways to start.
+
+![Scheduled queries](./images/scheduled_queries.png)
+
+To leverage the power of BigQuery, users can set up [regular queries](https://cloud.google.com/bigquery/docs/scheduling-queries) to extract data in the expected schema and export it to GCS. This process enables the transformation and preparation of data within BigQuery itself, ensuring the data exported to GA4 aligns with the desired format and structure.
+
+Disadvantage: when using [`EXPORT DATA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/other-statements#export_data_statement) statement BigQuery will automatically do file partitioning and create multiple files in the destination Cloud Storage path. You must provide wildcard URI for destination.
+
+It seems unlikely that Google Analytics will change that as current [data source limit is 1GB](https://support.google.com/analytics/answer/10071301#:~:text=time%20event%20collection-,Limits,-Total%20storage) - meaning single uploads are less then that and partitioning not required.
+
+#### Cloud Workflows
+
+We can quickly fix the limitation of scheduled queries by using a Cloud Workflow automation.
+
+As in queries, we will provide:
+
+- a query to run
+- and a Cloud Storage destination to push the data to.
+
+We can use a generic template for the workflow itself and pass these from a Cloud Scheduler job as runtime arguments.
+
+This way we can define a workflow only once and a trigger for each table export.
+
+![GCP Workflow](./images/gcp_workflow.png)
+
+#### Other data orchestration tools
+
+If you are already using some data orchestration - it's going to be easier to add this step there.
+
+Mounted GCS to the SFTP server enhances the integration between BigQuery, GCS and GA4, enabling a smooth and efficient flow of data from BigQuery to GA4 for analysis and activation.
+
+Once the data is exported to GCS, GA4 can fetch the data following a predefined schedule set in the data source configuration. This scheduled fetching mechanism ensures that GA4 stays up-to-date with the latest data available in GCS, maintaining data consistency and accuracy.
+
+While GA4's scheduling feature simplifies the process of keeping data synchronized, it is crucial to consider the frequency and timing of data fetches to strike the right balance between timely insights and resource utilization.
+
+In conclusion, although GA4's reliance on SFTP as the sole import interface may initially seem limited, it aligns with Google's security-first approach. As GA4 advances, it is conceivable that Google will expand import interface options in the future, further enhancing the automation and flexibility of data integration within GA4.
+
+## Automation
+
+As we would prefer to maintain control and focus on security - we'll deploy everything ourselves in our GCP project.
+
+You'll need Google Cloud permissions:
+
+- create VM instance and manage network for it
+- create Cloud Storage buckets and set their permissions
+- create Cloud Workflows and Cloud Scheduler jobs (optional)
+
+This is where we will look into how to implement these steps using Python code and Google Colab notebook.
+
+[Open in Google Colab](https://colab.research.google.com/github/max-ostapenko/ga4_data_import/blob/main/scripts/GA4_Data_Import.ipynb) and get your pipeline now.
+
+![Configuration notebook](./images/configuration_notebook.png)
+
+![GA4 Data Source](./images/ga4_data_source.png)
+
+So let's list the steps end-to-end:
+
+1. Create SFTP server with public static address
+2. Create and mount Cloud Storage bucket on SFTP server
+3. Configure regular pipeline for exporting BigQuery data to the bucket
+4. Create a Data Source in [GA4 Admin Panel](https://analytics.google.com/analytics/web/#/admin/data-import/)
+5. Upload GA4 public key to SFTP server
+
+All the steps that can be automated are also available as part of [`ga4-data-import` Python package](https://pypi.org/project/ga4-data-import/).
+
+Let's through each of these.
+
+### 1. SFTP server
+
+Cloud Storage FUSE needs to be [installed](https://cloud.google.com/storage/docs/gcsfuse-quickstart-mount-bucket#install) additionally to the instance to mount the Cloud Storage bucket.
+
+We'll need to create a dedicated system user to be used for SFTP authorisation. This user's home directory will contain the mounted folder. Only this location to be set as a root location for SFTP access to restrict visibility of the rest of filesystem.
+
+In order to allow only SFTP incoming traffic we can use the `default-allow-ssh` networking tag that whitelists port 22 for all incoming external traffic.
+
+As the permissions for the instance itself (to be able to read from Cloud Storage, for example) we can use Compute Engine default service account (or you may create and specify a dedicated one).
+
+The cheapest machine type available in GCP VMs will satisfy our requirements - so let's start with `f1-micro`.
+
+### 2. Mounted Cloud Storage bucket
+
+In contrast to creating a Cloud Storage bucket mounting it is not a trivial task.
+
+We'll need to make sure that:
+
+- user home folder is owned by the root user
+```bash
+$ chown root:root /home/{sftp_username}
+```
+- the bucket is mounted into a folder that has different name from the bucket ([read more](https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/mounting.md#static-mounting))
+- the `--implicit-dirs` flag is included if you plan to use other than root locations in the bucket ([read more](https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/semantics.md))
+
+### 3. BigQuery data export to bucket
+
+Our Scheduler job will define a cron syntax for a schedule, SQL to query the data and location in Cloud Storage where to store the exported files.
+
+As each query result is stored in a temporary table, we'll be using it an intermediate step. This way we can rely on all the processing done with native BigQuery operations.
+
+We don't need to "allow large results" for the query as it already covers the Google Analytics data import file size.
+
+### 4. Data source in GA4
+
+This step can't be automated due to the lack of corresponding [Admin API methods](https://developers.google.com/analytics/devguides/config/admin/v1/rest).
+
+Looking at the level of detail of the existing admin operations available over API I expect these methods will become available later. So we'll be able to create and fetch all the data source configurations, including public key. 
+
+For now let's do it manually in the GA4 UI.
+
+### 5. Authorising GA4 public key
+
+All the public key are stored as part of the VM instance metadata. So we can update it and verify in the instance details:
+
+![Public key on VM instance](./images/public_key_on_vm_instance.png)
+
+### Cost
+
+Monthly expected cost of self-deployed solution can be verified in [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator/#id=3460b16c-bf8e-4fc5-b5e4-707ef9dcb34f). It is still under USD 10 for US region or EUR 10 for EU.
+
+Each additional property with 4 data sources, 10MB daily imports each increases it on ~20 cents.
+
+There is no serverless version of SFTP so at some point you'll need to use a more powerful machine type.
+
+## Advanced use cases
+
+### Multi-property usage
+
+If you need to manage imports for several properties it could be done via single SFTP server.
+
+For example, use partitioning in the object path:
+    `gs://bucket_name/{PROPERTY_ID}/{IMPORT_TYPE}.csv`
+
+and you will have corresponding SFTP URLs:
+`sftp://{SFTP_ADDRESS}/{PROPERTY_ID}/{IMPORT_TYPE}.csv`
+
+Or if you need to separate data access along the data pipeline, match distinct permissions to particular GA property:
+
+-   Property A: sftp_user_a + bucket_a + public_key_a
+-   Property B: sftp_user_b + bucket_b + public_key_b
+
+### Your data is in Amazon S3 buckets
+
+You could use [a native SFTP solution from AWS](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-sftp.html) where S3 bucket is mounted directly to gain a similar result.
+
+### Scaling up SFTP server
+
+In case when you want to push big amounts of data for many properties, you can simply [upgrade your machine type](https://cloud.google.com/compute/docs/instances/changing-machine-type-of-stopped-instance#changing_machine_type) in VM Instance settings.
+
+All the configurations will be preserved during such upgrade.
