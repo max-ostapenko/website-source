@@ -2,10 +2,10 @@ name: Render and Deploy
 on:
   push:
     branches:
-      - main
+      - main1
   pull_request_target:
     branches:
-      - main
+      - main1
 
 # you need these permissions to publish to GitHub pages
 # permissions:
