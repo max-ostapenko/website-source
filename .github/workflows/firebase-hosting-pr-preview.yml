@@ -7,8 +7,6 @@ on:
 
 jobs:
   build_and_preview:
-    permissions:
-      checks: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v3
