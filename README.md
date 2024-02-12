@@ -4,11 +4,14 @@
 
 Website built using [Quarto publishing system](https://quarto.org/).
 
-1. [Download Quarto CLI](https://quarto.org/docs/get-started/)
+1. Install Quarto CLI
+
+    ```bash
+    brew install quarto
+    ```
 
 2. Clone this repository
-3. Open a terminal and navigate to the repository
-4. Restore development environment
+3. Navigate to the repository and restore development environment
 
     ```python
     python3 -m venv .env
@@ -16,14 +19,49 @@ Website built using [Quarto publishing system](https://quarto.org/).
     python3 -m pip install -r requirements.txt
     ```
 
-5. Run `quarto serve` to start a local server
+4. Run `quarto preview` to start a local server
+5. Edit the content in the `src` folder and see the changes live in the browser
 
-6. Open a web browser and navigate to `http://localhost:4000` to see the website
+## Hosting options
 
-7. Edit the content in the `content` folder and see the changes live in the browser
+### Firebase
 
-8. When you are ready to publish, run `quarto render` to render the site to the `site` folder
+1. Install the Firebase CLI
 
-9. Commit and push the changes to the repository to publish the site
+    ```bash
+    curl -sL https://firebase.tools | bash
+    ```
 
-10. Publish the `site` folder to the Firebase Hosting
+2. Login to Firebase
+
+    ```bash
+    firebase login
+    firebase init hosting
+    ```
+
+3. Emulate locally
+
+    ```bash
+    firebase emulators:start
+    ```
+
+4. Deploy the staging site and open the console
+
+    ```bash
+    firebase hosting:channel:deploy staging
+    firebase open hosting
+    ```
+
+5. Deploy the production site and open it
+
+    ```bash
+    firebase deploy --only hosting
+    firebase open hosting:site
+    ```
+
+6. Clone from a preview channel
+
+    ```bash
+    SITE_ID=max-ostapenko
+    firebase hosting:clone $SITE_ID:staging $SITE_ID:live
+    ```
