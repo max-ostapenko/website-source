@@ -4,7 +4,7 @@ PYTHON := python3
 REQUIREMENTS := requirements.txt
 
 quarto:
-	if [ "$(uname)" == "Darwin" ]; then brew install quarto fi
+	if [ "$(uname)" == "Darwin" ]; then brew install quarto; fi
 	$(PYTHON) -m pip install nbformat nbclient
 
 # Create virtual environment and install dependencies
