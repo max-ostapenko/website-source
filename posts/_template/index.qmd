@@ -1,0 +1,127 @@
+---
+title: Template
+author: Max Ostapenko
+date: today
+categories:
+    - test
+draft: true
+---
+
+## Ads.txt
+
+-   <https://twitter.com/thezedwards/status/1463353995813023751>
+
+-   <https://iabtechlab.com/ads-txt/ads-txt-aggregator/>
+
+-   <https://github.com/InteractiveAdvertisingBureau>
+
+-   <https://sellers.guide/domain/opera.com>
+
+-   <https://iabtechlab.com/ads-txt/>
+
+-   https://adagioio.notion.site/Supply-Chain-Object-Requirements-a4ccb611238748dba7b77c1c2cce9548
+
+
+## Prompts engineering
+Create questions for user surveys to research {subject} for {actor}. The questions should have a single or multi choice answer. Survey should not mention the goal of the survey directly. Do it completely indirectly, but the answers should give a good idea for {expected action}.
+
+
+## API Updates notifications bot
+https://github.com/max-ostapenko/discovery-artifact-manager
+https://platform.openai.com/playground/p/UmLP14hEBE0EBHXBiy24iPrX
+https://api-discovery.blogspot.com/2023/07/analytics-data-api-v1beta-reference.html?lr=1
+https://developer.twitter.com/en/docs/tutorials/creating-a-twitter-bot-with-python--oauth-2-0--and-v2-of-the-twi
+
+## Update dev environment article
+
+-   [brew install tflint](https://github.com/terraform-linters/tflint)
+
+## Article about interviewing (radical candor track 22)
+
+
+## A range of AI product strategies
+
+https://library.relume.io/site-builder
+
+## Why Google stopped talking about cohorts
+
+https://twitter.com/KarstenW/status/1686846048332066816?t=AC5DOGv839hqQezkWRk1kQ&s=19
+https://www.adexchanger.com/content-studio/forget-floc-but-not-cohorts-why-cohorts-still-represent-the-future-of-targeting/
+
+## Enhance your creativity
+
+Convergent and Divergent thinking
+
+Morphological Analysis
+
+    example: features/means matrix
+
+Resources
+---------
+
+1.  [The Creativity Diamond---A Framework to Aid Creativity](https://www.mdpi.com/2079-3200/10/4/73/htm)
+
+
+## Safe characters
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+https://tools.ietf.org/html/rfc3986#section-2.3
+https://ga-dev-tools.appspot.com/hit-builder/?v=1&t=pageview&dp=-._~
+https://support.google.com/analytics/answer/9267744?hl=en&ref_topic=9756175
+https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events#limitations
+https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
+https://ga-dev-tools.appspot.com/aw-event-builder/
+
+## Geolocation usage analysis
+
+https://console.cloud.google.com/bigquery?project=max-ostapenko&j=bq:US:bquxjob_734d5e4b_170e0df3303&page=queryresults
+https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/watchPosition
+https://discuss.httparchive.org/t/exploring-usage-of-the-console-api/1656
+
+SELECT
+  *,
+IF
+  (REGEXP_CONTAINS(body, r"geolocation\.getCurrentPosition"),
+    TRUE,
+    FALSE) AS getCurrentPosition,
+IF
+  (REGEXP_CONTAINS(body, r"geolocation\.watchPosition"),
+    TRUE,
+    FALSE) AS watchPosition
+FROM
+  `httparchive.sample_data.response_bodies_desktop_1k`
+WHERE
+  REGEXP_CONTAINS(body, r"geolocation\.getCurrentPosition")
+  OR REGEXP_CONTAINS(body, r"geolocation\.watchPosition")
+
+
+## BigQuery UNNEST - Simply Explained
+
+
+## Tracker for proprietary JS libraries
+
+Goal:
+- bring transparency to changes released
+- track changes that are released without public information
+- enable discussions on the changes made
+- improve the security of the proprietary tags usage
+
+https://github.com/max-ostapenko/js_library_parser
+https://github.com/max-ostapenko/js_library_tracker
+
+## alternative id solutions
+
+https://blog.admixer.com/cookie-alternatives/
+https://www.kussin.de/marketing/advertising-identity-zukunft-der-post-cookie-ara/
+https://www.tapad.com/solutions/switchboard
+
+1. verify wappalyzer has top5-10 solutions identified
+2. test crawling
+3. check data volumes and consistency (anomalies)
+4. run queries
+5. build charts
+
+## Google Fonts analytics
+
+https://docs.google.com/document/d/1hrPWqBHMVlGmbAc8t4xQyvr4vC9WqCLtM1-DH6vEP7k/edit
+https://developers.google.com/fonts/faq

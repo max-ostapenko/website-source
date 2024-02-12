@@ -1,0 +1,21 @@
+---
+title: "Welcome"
+repo-actions: false
+image: static/images/profile.jpg
+---
+
+My name is Max.
+
+Whether you know me or not, here you may find some things about me and my ideas.
+
+This website is a rough attempt to consolidate and share my writing and learning.
+It's about the things that are related to my professional interests and passion about technology in general.
+
+
+Mostly you'll see here the learnings about:
+
+- product management,
+- marketing and advertising business,
+- engineering, analysis and privacy.
+
+If you want to connect - check my social profiles.
