@@ -2,7 +2,6 @@ public/
 .venv/
 _freeze/
 _site/
-.DS_Store
 .firebase/
 .firebaserc
 /.quarto/
