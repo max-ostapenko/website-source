@@ -8,3 +8,5 @@ PyYAML==6.0.1
 referencing==0.33.0
 rpds-py==0.17.1
 traitlets==5.14.1
+nbformat
+nbclient

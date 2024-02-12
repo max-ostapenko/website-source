@@ -10,10 +10,12 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-python@v3
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: quarto check
       - run: make env
+      - run: make quarto
       - run: quarto check
       - run: make render
       - uses: FirebaseExtended/action-hosting-deploy@v0
