@@ -42,7 +42,7 @@ By mounting GCS, the SFTP server treats GCS buckets and objects as if they were 
 
 To mount GCS, you can leverage various tools and libraries available, such as Cloud Storage FUSE. It interprets the forward slash character ("/") in object names as a separator for directories, effectively organizing objects with a common prefix as files within the same directory structure.
 
-![Google Analytics 4 Data Import diagram](./images/diagram_ga4_data_import.png){.preview-image}
+![Google Analytics 4 Data Import diagram](../../projects/google_analytics_4_data_import/images/diagram_ga4_data_import.png){.preview-image}
 
 ### BigQuery to Cloud Storage
 
@@ -95,11 +95,7 @@ You'll need Google Cloud permissions:
 
 This is where we will look into how to implement these steps using Python code and Google Colab notebook.
 
-[Open in Google Colab](https://colab.research.google.com/github/max-ostapenko/ga4_data_import/blob/main/scripts/GA4_Data_Import.ipynb) and get your pipeline now.
-
-![Configuration notebook](./images/configuration_notebook.png)
-
-![GA4 Data Source](./images/ga4_data_source.png)
+<a href="https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/projects/google_analytics_4_data_import/notebook.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 So let's list the steps end-to-end:
 
@@ -111,7 +107,7 @@ So let's list the steps end-to-end:
 
 All the steps that can be automated are also available as part of [`ga4-data-import` Python package](https://pypi.org/project/ga4-data-import/).
 
-Let's through each of these.
+Let's go through each of these.
 
 ### 1. SFTP server
 
@@ -146,6 +142,8 @@ As each query result is stored in a temporary table, we'll be using it an interm
 
 We don't need to "allow large results" for the query as it already covers the Google Analytics data import file size.
 
+{{< embed ../../projects/google_analytics_4_data_import/notebook.ipynb#bq-to-gcs echo=true >}}
+
 ### 4. Data source in GA4
 
 This step can't be automated due to the lack of corresponding [Admin API methods](https://developers.google.com/analytics/devguides/config/admin/v1/rest).
@@ -153,6 +151,8 @@ This step can't be automated due to the lack of corresponding [Admin API method
 Looking at the level of detail of the existing admin operations available over API I expect these methods will become available later. So we'll be able to create and fetch all the data source configurations, including public key. 
 
 For now let's do it manually in the GA4 UI.
+
+![GA4 Data Source](./images/ga4_data_source.png)
 
 ### 5. Authorising GA4 public key
 

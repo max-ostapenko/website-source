@@ -12,9 +12,8 @@ listing:
     type: partial
 page-layout: full
 repo-actions: false
-sidebar:
-  contents:
-    auto: posts/**
+aliases:
+  - /blog
 ---
 
 ::: {#posts}

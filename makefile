@@ -14,7 +14,7 @@ env:
 
 render:
 	make clean
-	. $(VENV_NAME)/bin/activate && quarto render
+	. $(VENV_NAME)/bin/activate && quarto render src/
 
 publish:
 	make clean
@@ -22,5 +22,3 @@ publish:
 
 clean:
 	rm -rf _site/
-	rm -rf _freeze/
-	rm -rf public/
