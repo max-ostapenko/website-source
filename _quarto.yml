@@ -2,11 +2,14 @@ project:
   type: website
   render:
     - "*.{qmd}"
+  preview:
+    port: 4200
+    browser: true
 
 website:
   title: max ostapenko
   description: Max Ostapenko's personal website
-  site-url: https://www.maxostapenko.com/
+  site-url: https://maxostapenko.com/
   image: static/images/profile.jpg
   favicon: static/images/logo.png
   twitter-card:
