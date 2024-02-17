@@ -1,20 +1,15 @@
 ---
-title: BigQuery vector search
-author: Max Ostapenko
+title: Google BigQuery Vector Search
 date: today
 categories:
     - BigQuery
     - ML
 notebook-view:
   - notebook: notebook.ipynb
-    title: Get started with vector search
-    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/bigquery_vector_search/notebook.ipynb
-code-links:
-  - text: Get started with vector search
-    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/bigquery_vector_search/notebook.ipynb
+keep-ipynb: true
 draft: true
 ---
 
 ## Intro
 
-{{< embed notebook.ipynb#test echo=true >}}
+{{< embed ./notebook.ipynb#test echo=true >}}

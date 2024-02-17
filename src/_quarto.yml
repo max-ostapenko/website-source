@@ -5,6 +5,7 @@ project:
   output-dir: ../_site
   resources:
     - static/**
+    - notebook.ipynb
   preview:
     port: 4200
 
@@ -18,11 +19,12 @@ website:
     creator: "@themax_o"
   open-graph: true
   back-to-top-navigation: true
+  page-navigation: true
   google-analytics:
     tracking-id: G-9B07JCCPN7
     storage: none
   repo-url: https://github.com/max-ostapenko/website-source
-  repo-actions: [issue]
+  repo-actions: []
   repo-subdir: src/
 
   navbar:
@@ -73,11 +75,18 @@ format:
       light: flatly
       dark: darkly
     toc: true
+    toc-location: right
     link-external-icon: false
     link-external-newwindow: true
     fig-cap-location: margin
-    code-fold: true
-    code-line-numbers: true
+    code-tools:
+      source: false
+      toggle: true
+    code-line-numbers: false
+    code-link: true
+    highlight-style: github
+    code-overflow: wrap
+    page-layout: full
+    lightbox: true
+    smooth-scroll: true
 
-execute:
-  freeze: true
