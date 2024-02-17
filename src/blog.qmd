@@ -13,7 +13,7 @@ listing:
 page-layout: full
 repo-actions: false
 aliases:
-  - /blog
+  - /blog/
 ---
 
 ::: {#posts}
