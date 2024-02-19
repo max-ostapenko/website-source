@@ -2,8 +2,6 @@
 title: Max Ostapenko
 link-external-icon: false
 repo-actions: false
-aliases:
-  - /about
 about:
     template: trestles
     image: static/images/profile.jpg

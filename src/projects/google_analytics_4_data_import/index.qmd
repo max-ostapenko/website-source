@@ -1,13 +1,11 @@
 ---
 title: Google Analytics 4 Data Import
-format:
-  html:
-    code-links:
-      - text: Python package
-        href: https://pypi.org/project/ga4-data-import/
-      - text: Package source
-        icon: file-code
-        href: https://github.com/max-ostapenko/ga4_data_import/
+code-links:
+  - text: Python package
+    href: https://pypi.org/project/ga4-data-import/
+  - text: Package source
+    icon: file-code
+    href: https://github.com/max-ostapenko/ga4_data_import/
 ---
 
 ## Overview
