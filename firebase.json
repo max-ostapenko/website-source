@@ -11,22 +11,22 @@
     ],
     "redirects": [
       {
-        "source": "/project/",
+        "source": "project/",
         "destination": "/",
         "type": 301
       },
       {
-        "source": "/tag/programming/",
+        "source": "tag/programming/",
         "destination": "/",
         "type": 301
       },
       {
-        "source": "/index.xml",
+        "source": "index.xml",
         "destination": "/",
         "type": 301
       },
       {
-        "source": "/project/hands-on-best-practice/",
+        "source": "project/hands-on-best-practice/",
         "destination": "/",
         "type": 301
       }
@@ -35,7 +35,7 @@
     ],
     "headers": [
       {
-        "source": "/site_libs/(.*)",
+        "source": "site_libs/(.*)",
         "headers": [
           {
             "key": "Cache-Control",
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "source": "/static/(.*)",
+        "source": "static/(.*)",
         "headers": [
           {
             "key": "Cache-Control",
