@@ -8,23 +8,30 @@ other-links:
 
 ## Overview
 
-The Ad Experience Report provides information on the combination of site layout and behaviour, content, and ads that users are exposed to. It lists ad experiences that violate the Better Ads Standards, which have been determined to be highly annoying to users by the Coalition for Better Ads. The report includes a brief definition, the URL of the page where the ad experience was found, and images or videos if available. By fixing these ad experiences, website owners can increase visitors' enjoyment and the likelihood of their return, and improve the overall health of the online ecosystem.
+The Ad Experience Report dataset provides valuable insights into the ad experience quality of various websites. Each entry in the dataset includes essential information such as the name of the reviewed site, its Ad Experience Report status, enforcement status, and whether it's currently under review. Additionally, the dataset records timestamps for the last status change and enforcement actions, facilitating temporal analysis of site behavior. Stakeholders can utilize this dataset to gain a deeper understanding of reported issues and take necessary actions to improve user experience and compliance with ad standards. With its comprehensive information, the Ad Experience Report dataset serves as a crucial resource for enhancing ad quality and fostering a more positive online advertising ecosystem.
 
 Available at:
 
 - JSON at [Google API](https://developers.google.com/ad-experience-report)
-- BigQuery table at [Google Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/exchanges/projects/390347019852/locations/us/dataExchanges/data_hub_186a1c3eafa/listings/ad_experience_report_186a1de7b19)
+- Public Dataset at [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/exchanges/projects/390347019852/locations/us/dataExchanges/data_hub_186a1c3eafa/listings/ad_experience_report_186a1de7b19)
 
 Provider: [Google](https://www.google.com/webmasters/tools/ad-experience-unverified)
 
 ## Schema
 
-1.  reviewedSite - the name of the reviewed site, e.g. google.com.
-2.  lastChangeTime - the time at which the site's status last changed.
-3.  abusiveStatus - the site's Abusive Experience Report status.
-4.  underReview - whether the site is currently under review.
-5.  enforcementTime - the time at which enforcement against the site began or will begin.
-6.  filterStatus - the site's [enforcement status](https://support.google.com/webtools/answer/7538608).
+| Column Name               | Description                                                                                   |
+|---------------------------|-----------------------------------------------------------------------------------------------|
+| reviewedSite             | The name of the reviewed site, e.g., google.com.                                            |
+| desktopSummary.underReview         | Indicates whether the site is currently under review on desktop platform.                     |
+| desktopSummary.enforcementTime     | The time at which enforcement against the site began or will begin on desktop platform.       |
+| desktopSummary.betterAdsStatus     | The site's Ad Experience Report status on desktop platform.                                  |
+| desktopSummary.filterStatus        | The site's [enforcement status](https://support.google.com/webtools/answer/7308033) for ad filtering on desktop platform.                          |
+| desktopSummary.lastChangeTime      | The time at which the site's status last changed on desktop platform.                        |
+| mobileSummary.underReview          | Indicates whether the site is currently under review on mobile platform.                      |
+| mobileSummary.enforcementTime      | The time at which enforcement against the site began or will begin on mobile platform.        |
+| mobileSummary.betterAdsStatus      | The site's Ad Experience Report status on mobile platform.                                   |
+| mobileSummary.filterStatus         | The site's enforcement status for ad filtering on mobile platform.                           |
+| mobileSummary.lastChangeTime       | The time at which the site's status last changed on mobile platform.                         |
 
 ## Preview
 
