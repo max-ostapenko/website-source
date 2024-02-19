@@ -2,13 +2,15 @@ project:
   type: website
   render:
     - "*.{qmd}"
+  output-dir: ../_site
+  resources:
+    - static/**
   preview:
     port: 4200
-    browser: true
 
 website:
   title: max ostapenko
-  description: Max Ostapenko's personal website
+  description: Data Product Management | Max Ostapenko
   site-url: https://maxostapenko.com/
   image: static/images/profile.jpg
   favicon: static/images/logo.png
@@ -16,11 +18,13 @@ website:
     creator: "@themax_o"
   open-graph: true
   back-to-top-navigation: true
+  page-navigation: true
   google-analytics:
     tracking-id: G-9B07JCCPN7
     storage: none
   repo-url: https://github.com/max-ostapenko/website-source
   repo-actions: []
+  repo-subdir: src/
 
   navbar:
     logo: static/images/logo.png
@@ -69,13 +73,21 @@ format:
     theme:
       light: flatly
       dark: darkly
-    css: static/styles.css
     toc: true
+    toc-location: right
     link-external-icon: false
     link-external-newwindow: true
     fig-cap-location: margin
+    code-tools:
+      source: false
+      toggle: true
+    code-line-numbers: false
+    code-link: true
+    highlight-style: github
+    code-overflow: wrap
+    page-layout: full
+    lightbox: true
+    smooth-scroll: true
+    notebook-links: false
     code-fold: true
-    code-line-numbers: true
-
-execute:
-  freeze: true
+    code-summary: "Show code"

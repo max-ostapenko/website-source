@@ -1,9 +1,12 @@
 ---
 title: Google Analytics 4 Data Import
-author: Max Ostapenko
 date: "6/5/2023"
 categories:
     - google analytics
+code-links:
+  - text: Open in Colab
+    icon: google
+    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/google_analytics_4_data_import/notebook.ipynb
 ---
 
 ## Intro
@@ -42,7 +45,7 @@ By mounting GCS, the SFTP server treats GCS buckets and objects as if they were 
 
 To mount GCS, you can leverage various tools and libraries available, such as Cloud Storage FUSE. It interprets the forward slash character ("/") in object names as a separator for directories, effectively organizing objects with a common prefix as files within the same directory structure.
 
-![Google Analytics 4 Data Import diagram](./images/diagram_ga4_data_import.png){.preview-image}
+![Google Analytics 4 Data Import diagram](../../projects/google_analytics_4_data_import/images/diagram_ga4_data_import.png){.preview-image}
 
 ### BigQuery to Cloud Storage
 
@@ -95,11 +98,7 @@ You'll need Google Cloud permissions:
 
 This is where we will look into how to implement these steps using Python code and Google Colab notebook.
 
-[Open in Google Colab](https://colab.research.google.com/github/max-ostapenko/ga4_data_import/blob/main/scripts/GA4_Data_Import.ipynb) and get your pipeline now.
-
-![Configuration notebook](./images/configuration_notebook.png)
-
-![GA4 Data Source](./images/ga4_data_source.png)
+<a href="https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/google_analytics_4_data_import/notebook.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 So let's list the steps end-to-end:
 
@@ -111,7 +110,7 @@ So let's list the steps end-to-end:
 
 All the steps that can be automated are also available as part of [`ga4-data-import` Python package](https://pypi.org/project/ga4-data-import/).
 
-Let's through each of these.
+Let's go through each of these.
 
 ### 1. SFTP server
 
@@ -124,6 +123,8 @@ In order to allow only SFTP incoming traffic we can use the `default-allow-ssh` 
 As the permissions for the instance itself (to be able to read from Cloud Storage, for example) we can use Compute Engine default service account (or you may create and specify a dedicated one).
 
 The cheapest machine type available in GCP VMs will satisfy our requirements - so let's start with `f1-micro`.
+
+{{< embed ./notebook.ipynb#create_instance echo=true >}}
 
 ### 2. Mounted Cloud Storage bucket
 
@@ -138,6 +139,8 @@ $ chown root:root /home/{sftp_username}
 - the bucket is mounted into a folder that has different name from the bucket ([read more](https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/mounting.md#static-mounting))
 - the `--implicit-dirs` flag is included if you plan to use other than root locations in the bucket ([read more](https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/semantics.md))
 
+{{< embed ./notebook.ipynb#mount_bucket echo=true >}}
+
 ### 3. BigQuery data export to bucket
 
 Our Scheduler job will define a cron syntax for a schedule, SQL to query the data and location in Cloud Storage where to store the exported files.
@@ -145,6 +148,8 @@ Our Scheduler job will define a cron syntax for a schedule, SQL to query the dat
 As each query result is stored in a temporary table, we'll be using it an intermediate step. This way we can rely on all the processing done with native BigQuery operations.
 
 We don't need to "allow large results" for the query as it already covers the Google Analytics data import file size.
+
+{{< embed ./notebook.ipynb#bg_to_gcs echo=true >}}
 
 ### 4. Data source in GA4
 
@@ -154,11 +159,17 @@ Looking at the level of detail of the existing admin operations available over A
 
 For now let's do it manually in the GA4 UI.
 
+![GA4 Data Source](./images/ga4_data_source.png)
+
+{{< embed ./notebook.ipynb#configure_data_source echo=true >}}
+
 ### 5. Authorising GA4 public key
 
 All the public key are stored as part of the VM instance metadata. So we can update it and verify in the instance details:
 
 ![Public key on VM instance](./images/public_key_on_vm_instance.png)
+
+{{< embed ./notebook.ipynb#add_server_pub_key echo=true >}}
 
 ### Cost
 

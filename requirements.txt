@@ -1,3 +1,2 @@
-nbformat
-nbclient
-jupyter
+-r requirements-exec.txt
+-r requirements-dev.txt

@@ -13,22 +13,22 @@
       {
         "source": "/project/",
         "destination": "/",
-        "statusCode": 301
+        "type": 301
       },
       {
         "source": "/tag/programming/",
         "destination": "/",
-        "statusCode": 301
+        "type": 301
       },
       {
         "source": "/index.xml",
         "destination": "/",
-        "statusCode": 301
+        "type": 301
       },
       {
         "source": "/project/hands-on-best-practice/",
         "destination": "/",
-        "statusCode": 301
+        "type": 301
       }
     ],
     "rewrites": [
