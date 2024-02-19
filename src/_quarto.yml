@@ -5,7 +5,6 @@ project:
   output-dir: ../_site
   resources:
     - static/**
-    - notebook.ipynb
   preview:
     port: 4200
 
@@ -89,4 +88,6 @@ format:
     page-layout: full
     lightbox: true
     smooth-scroll: true
-
+    notebook-links: false
+    code-fold: true
+    code-summary: "Show code"

@@ -1,13 +1,14 @@
 ---
 title: Google BigQuery Vector Search
-date: today
+date: "2/8/2024"
 categories:
     - BigQuery
     - ML
-notebook-view:
-  - notebook: notebook.ipynb
-keep-ipynb: true
 draft: true
+code-links:
+  - text: Open in Colab
+    icon: google
+    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/bigquery_vector_search/notebook.ipynb
 ---
 
 ## Intro
