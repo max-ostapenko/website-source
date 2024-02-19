@@ -13,7 +13,7 @@ website:
   description: Data Product Management | Max Ostapenko
   site-url: https://maxostapenko.com/
   image: static/images/profile.jpg
-  favicon: static/images/logo.png
+  favicon: static/images/logo.svg
   twitter-card:
     creator: "@themax_o"
   open-graph: true
@@ -27,7 +27,7 @@ website:
   repo-subdir: src/
 
   navbar:
-    logo: static/images/logo.png
+    logo: static/images/logo.svg
     left:
       - text: home
         href: index.qmd
@@ -39,10 +39,13 @@ website:
         href: about.qmd
     tools:
       - icon: linkedin
+        text: LinkedIn profile
         href: https://www.linkedin.com/in/max-ostapenko/
       - icon: github
+        text: GitHub account
         href: https://github.com/max-ostapenko
       - icon: twitter
+        text: Twitter account
         href: https://twitter.com/themax_o/
 
   sidebar:
@@ -54,7 +57,7 @@ website:
       contents:
         - auto: projects/**
         - text: ---
-        - section: external
+        - section: External
           contents:
             - text: Web Almanac - Privacy
               href: https://almanac.httparchive.org/en/2022/privacy

@@ -13,7 +13,7 @@ about:
         - text: GitHub
           href: https://github.com/max-ostapenko
           icon: github
-        - text: X.com
+        - text: Twitter
           href: https://twitter.com/themax_o/
           icon: twitter
 ---
