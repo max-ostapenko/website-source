@@ -33,10 +33,10 @@ website:
         href: index.qmd
       - sidebar:learning
       - text: blog
-        href: blog.qmd
+        href: posts/index.qmd
       - sidebar:projects
       - text: about
-        href: about.qmd
+        href: about/index.qmd
     tools:
       - icon: linkedin
         text: LinkedIn profile
@@ -51,7 +51,7 @@ website:
   sidebar:
     - id: learning
       contents:
-        - auto: learning/*.qmd
+        - auto: learning/**
 
     - id: projects
       contents:

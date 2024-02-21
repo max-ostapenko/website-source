@@ -27,44 +27,41 @@ Website built using [Quarto publishing system](https://quarto.org/).
 
 ### Firebase
 
-1. Install the Firebase CLI
+[Firbase Hosting console](https://console.firebase.google.com/u/0/project/max-ostapenko/hosting/sites)
+
+1. Install the Firebase CLI and login
 
     ```sh
     curl -sL https://firebase.tools | bash
-    ```
-
-2. Login to Firebase
-
-    ```sh
     firebase login
-    firebase init hosting
     ```
 
-3. Emulate locally
+2. Emulate locally
 
     ```sh
     firebase emulators:start
     ```
 
-4. Deploy the staging site and open the console
+3. Deploy the staging site
 
     ```sh
     firebase hosting:channel:deploy staging
-    firebase open hosting
     ```
 
-5. Deploy the production site and open it
+    on PR [.github/workflows/firebase-hosting-pr-preview.yml](.github/workflows/firebase-hosting-pr-preview.yml)
+
+4. Deploy the production site
 
     ```sh
     firebase deploy --only hosting
-    firebase open hosting:site
     ```
 
-6. Clone from a preview channel
+    on merge [.github/workflows/firebase-hosting-merge-live.yml](.github/workflows/firebase-hosting-merge-live.yml)
+
+5. Clone from the staging channel
 
     ```sh
-    SITE_ID=max-ostapenko
-    firebase hosting:clone $SITE_ID:staging $SITE_ID:live
+    firebase hosting:clone max-ostapenko:staging max-ostapenko:live
     ```
 
 ### Netlify (todo)
