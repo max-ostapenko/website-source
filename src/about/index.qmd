@@ -4,7 +4,7 @@ link-external-icon: false
 repo-actions: false
 about:
     template: trestles
-    image: static/images/profile.jpg
+    image: ../static/images/profile.jpg
     image-shape: round
     links:
         - text: LinkedIn
