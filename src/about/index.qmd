@@ -24,7 +24,7 @@ With Math, Economics and Entrepreneurship background I went into product managem
 
 I believe simplicity and structure are the foundation for great experiences.
 
-[I invite you for a chat](https://cal.com/max-ostapenko/60min?duration=30) about products, advertising, data and business.
+[I invite you for a chat](../appointments/) about products, advertising, data and business.
 
 ---
 
@@ -36,44 +36,42 @@ Outside of professional interests I love dinghy sailing, kayaking, cycling and w
 
 ## currently reading
 
-```{=html}
 <style type="text/css">
+    .gr_custom_each_container_1699272653 {
+        /* customize each individual book container here */
+        width: 100%;
+        clear: both;
+        margin-bottom: 10px;
+        overflow: auto;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #aaa;
+    }
 
-        .gr_custom_each_container_1699272653 {
-            /* customize each individual book container here */
-            width: 100%;
-            clear: both;
-            margin-bottom: 10px;
-            overflow: auto;
-            padding-bottom: 4px;
-            border-bottom: 1px solid #aaa;
-        }
+    .gr_custom_book_container_1699272653 {
+        /* customize your book covers here */
+        overflow: hidden;
+        height: 75px;
+        float: right;
+        margin-right: 4px;
+        width: 49px;
+    }
 
-        .gr_custom_book_container_1699272653 {
-            /* customize your book covers here */
-            overflow: hidden;
-            height: 75px;
-            float: right;
-            margin-right: 4px;
-            width: 49px;
-        }
+    .gr_custom_author_1699272653 {
+        /* customize your author names here */
+        font-size: 12px;
+    }
+    .gr_custom_header_1699272653 {
+        display: none;
+    }
 
-        .gr_custom_author_1699272653 {
-            /* customize your author names here */
-            font-size: 12px;
-        }
-        .gr_custom_header_1699272653 {
-            display: none;
-        }
+    .gr_custom_container_1699272653 center {
+        display: none;
+    }
 
-        .gr_custom_container_1699272653 center {
-            display: none;
-        }
-
-    </style>
-    <div id="gr_custom_widget_1699272653"></div>
-    <script
-        src="https://www.goodreads.com/review/custom_widget/70245794.My%20bookshelf?cover_position=left&cover_size=small&num_books=5&order=a&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=0&widget_id=1699272653&widget_text_color=000000&widget_title_size=small&widget_width=small"
-        type="text/javascript" charset="utf-8"></script>
-```
+</style>
+<div id="gr_custom_widget_1699272653"></div>
+<script
+    src="https://www.goodreads.com/review/custom_widget/70245794.My%20bookshelf?cover_position=left&cover_size=small&num_books=5&order=a&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=0&widget_id=1699272653&widget_text_color=000000&widget_title_size=small&widget_width=small"
+    type="text/javascript" charset="utf-8">
+</script>
 

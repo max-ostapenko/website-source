@@ -1,12 +1,9 @@
 ---
 title: Engineering
-draft: true
 ---
 
 Collection of best practices to follow in your coding hobby-projects
 
 https://12factor.net/
 
-```{=html}
 <iframe src="https://embed.stackshare.io/stacks/embed/53a323c904002835d2048ea4fbc7ae?theme=light&layers=1,2,4,3" width="100%" height="1269" data-embed-code="53a323c904002835d2048ea4fbc7ae" style="border-width: 0px; position: inherit;"></iframe>
-```

@@ -22,31 +22,31 @@ website:
   google-analytics:
     tracking-id: G-9B07JCCPN7
     storage: none
-  repo-url: https://github.com/max-ostapenko/website-source
-  repo-actions: []
-  repo-subdir: src/
 
   navbar:
     logo: static/images/logo.svg
     left:
       - text: home
-        href: index.qmd
+        href: /
       - sidebar:learning
       - text: blog
-        href: posts/index.qmd
+        href: posts/
       - sidebar:projects
       - text: about
-        href: about/index.qmd
+        href: about/
     tools:
-      - icon: linkedin
-        text: LinkedIn profile
+      - text: LinkedIn profile
+        icon: linkedin
         href: https://www.linkedin.com/in/max-ostapenko/
-      - icon: github
-        text: GitHub account
+      - text: GitHub account
+        icon: github
         href: https://github.com/max-ostapenko
-      - icon: twitter
-        text: Twitter account
+      - text: Twitter account
+        icon: twitter
         href: https://twitter.com/themax_o/
+      - text: Appointments calendar
+        icon: calendar-week
+        href: appointments/
 
   sidebar:
     - id: learning
@@ -69,7 +69,7 @@ website:
     center: "© 2024 Max Ostapenko"
     right:
       - icon: rss
-        href: blog.xml
+        href: posts/index.xml
 
 format:
   html:
