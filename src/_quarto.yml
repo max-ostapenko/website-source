@@ -22,9 +22,6 @@ website:
   google-analytics:
     tracking-id: G-9B07JCCPN7
     storage: none
-  repo-url: https://github.com/max-ostapenko/website-source
-  repo-actions: []
-  repo-subdir: src/
 
   navbar:
     logo: static/images/logo.svg
