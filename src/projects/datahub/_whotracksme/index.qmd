@@ -1,0 +1,30 @@
+---
+title: Abusive Experience Report
+other-links:
+    - text: Open in BigQuery
+      icon: google
+      href: https://console.cloud.google.com/bigquery/analytics-hub/exchanges/projects/390347019852/locations/us/dataExchanges/data_hub_186a1c3eafa/listings
+---
+
+## Overview
+
+The
+
+Available at:
+
+- JSON at [API](https://haveibeenpwned.com/API/v3#AllBreaches)
+- Public Dataset at [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/exchanges/projects/390347019852/locations/us/dataExchanges/data_hub_186a1c3eafa/listings)
+
+Provider: [haveibeenpwned)](https://haveibeenpwned.com/)
+
+## Schema
+
+| Column Name       | Description                                                                           |
+|-------------------|---------------------------------------------------------------------------------------|
+
+
+## Preview
+
+```{=html}
+<iframe width="100%" height="300" src="https://lookerstudio.google.com/embed/reporting/a80ac879-8931-42be-861f-76882c0d22fc/"></iframe>
+```
