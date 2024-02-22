@@ -2,7 +2,6 @@
 VENV_NAME := .venv
 PYTHON := python3
 REQUIREMENTS := requirements-dev.txt
-QUARTO_VERSION := 1.4.549
 
 quarto:
 	if [ "$(shell uname)" == "Darwin" ]; then brew install quarto; fi
@@ -20,6 +19,10 @@ render:
 publish:
 	make clean
 	. $(VENV_NAME)/bin/activate && quarto publish
+
+emulate:
+	make render
+	firebase emulators:start --project max-ostapenko
 
 clean:
 	rm -rf _site/
