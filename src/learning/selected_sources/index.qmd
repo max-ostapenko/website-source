@@ -4,17 +4,16 @@ title: Product management sources
 
 ## read
 
+-   [Marty Cagan (SVPG)](https://www.svpg.com/articles/)
 -   [Benedict Evans](https://www.ben-evans.com/benedictevans/)
 -   [Ben Thompson (Stratechery)](https://stratechery.com/)
--   [Elena Verna](https://elenaverna.substack.com/)
--   [John Cutler](https://cutlefish.substack.com/)
 -   [Martin Fowler](https://martinfowler.com/)
--   [Marty Cagan (SVPG)](https://www.svpg.com/articles/)
 -   [Paul Graham](http://www.paulgraham.com/articles.html)
+-   [John Cutler](https://cutlefish.substack.com/)
+-   [Elena Verna](https://elenaverna.substack.com/)
 -   [Teresa Torres](https://www.producttalk.org/blog/)
 
 and  [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/70245794?return_url=%2Fmax_ostapenko)
-
 
 ## listen
 
