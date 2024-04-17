@@ -9,8 +9,8 @@ title: Product management sources
 -   [Ben Thompson (Stratechery)](https://stratechery.com/)
 -   [Martin Fowler](https://martinfowler.com/)
 -   [Paul Graham](http://www.paulgraham.com/articles.html)
--   [Elena Verna](https://elenaverna.substack.com/)
 -   [John Cutler](https://cutlefish.substack.com/)
+-   [Elena Verna](https://elenaverna.substack.com/)
 -   [Teresa Torres](https://www.producttalk.org/blog/)
 
 and [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/70245794?return_url=%2Fmax_ostapenko)
