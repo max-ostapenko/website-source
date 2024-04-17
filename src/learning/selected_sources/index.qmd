@@ -4,60 +4,50 @@ title: Product management sources
 
 ## read
 
+-   [Marty Cagan (SVPG)](https://www.svpg.com/articles/)
 -   [Benedict Evans](https://www.ben-evans.com/benedictevans/)
 -   [Ben Thompson (Stratechery)](https://stratechery.com/)
+-   [Martin Fowler](https://martinfowler.com/)
+-   [Paul Graham](http://www.paulgraham.com/articles.html)
 -   [Elena Verna](https://elenaverna.substack.com/)
 -   [John Cutler](https://cutlefish.substack.com/)
--   [Martin Fowler](https://martinfowler.com/)
--   [Marty Cagan (SVPG)](https://www.svpg.com/articles/)
--   [Paul Graham](http://www.paulgraham.com/articles.html)
 -   [Teresa Torres](https://www.producttalk.org/blog/)
 
-and  [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/70245794?return_url=%2Fmax_ostapenko)
-
+and [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/70245794?return_url=%2Fmax_ostapenko)
 
 ## listen
 
--   [Eric Seufert (MobileDevMemo)](https://mobiledevmemo.com/)
--   [Lenny Rachitsky](https://www.lennyspodcast.com/)
 -   [Lex Fridman](https://lexfridman.com/podcast/)
--   [Matt Abrahams (Think Fast Talk Smart)](https://www.gsb.stanford.edu/business-podcasts/think-fast-talk-smart-podcast)
+-   [Lenny Rachitsky](https://www.lennyspodcast.com/)
+-   [Matt Abrahams (Think Fast, Talk Smart)](https://www.gsb.stanford.edu/business-podcasts/think-fast-talk-smart-podcast)
 -   [Melissa Perri (Product Thinking)](https://produxlabs.com/product-thinking)
 -   [Talks at Google](https://www.youtube.com/TalksAtGoogle)
 -   [The Product Experience](https://www.mindtheproduct.com/the-product-experience/)
+-   [Eric Seufert (MobileDevMemo)](https://mobiledevmemo.com/)
 
 ## visit
 
-### 2024
-
--   Feb 20 --  [ProductCon](https://productschool.com/productcon/london-2024) / London, UK + online
-
--   Feb 21 --  [ProductWorld](https://productworld.co/) / SF Bay Area + online
-
--   Mar 20 --  [UX Copenhagen](https://uxcopenhagen.com/) / Copenhagen, DK
-
--   Apr 15 --  [Web Summit](https://rio.websummit.com/) / Rio de Janeiro, BR
-
--   May 10 --  [Product Led Summit](https://world.productledalliance.com/location/amsterdam/speakers) / Amsterdam, NL
-
--   May 15 --  [La Product Conf](https://www.laproductconf.com/) / Paris, FR + Madrid, ES
-
--   May 29 --  [Dublin Tech Summit](https://dublintechsummit.tech/) / Dublin, IR
-
--   Jun 4 --  [SaaStr Europa](https://www.saastreuropa2024.com/) / London, UK
-
--   Jun 13 --  [ACE!](https://aceconf.com/) / Krakow, PL
-
--   Jun 17 --  [Industry EUROPE](https://www.industryconference.com/europe) / Dublin, IR
-
--   Jun 19 --  [growth marketing SUMMIT](https://www.growthmarketingsummit.com) / Frankfurt am Main, DE
-
--   Sep 13 --  [Product at Heart](https://productatheart.com/conference) / Hamburg, DE
-
--   Oct 11 - [just product](https://www.product-masterclass.com/en/just-product-2023) / Munich, DE
+| Date    | Event                                      | Location         | Recordings |
+|---------|--------------------------------------------|------------------|
+| May 10, 2024  | [Product Led Summit](https://world.productledalliance.com/location/amsterdam/speakers) | Amsterdam, NL    |
+| May 15, 2024  | [La Product Conf](https://www.laproductconf.com/) | Paris, FR + Madrid, ES |
+| May 29, 2024  | [Dublin Tech Summit](https://dublintechsummit.tech/) | Dublin, IR       |
+| Jun 4, 2024   | [SaaStr Europa](https://www.saastreuropa2024.com/) | London, UK       |
+| Jun 13, 2024  | [ACE!](https://aceconf.com/) | Krakow, PL       |
+| Jun 17, 2024  | [Industry EUROPE](https://www.industryconference.com/europe) | Dublin, IR       |
+| Jun 19, 2024  | [growth marketing SUMMIT](https://www.growthmarketingsummit.com) | Frankfurt, DE |
+| Sep 13, 2024  | [Product at Heart](https://productatheart.com/conference) | Hamburg, DE      |
+| Oct 11, 2024  | [just product](https://www.product-masterclass.com/en/just-product-2023) | Munich, DE       |
 
 [>> subscribe to selected product events calendar](https://calendar.google.com/calendar/u/0?cid=ZWVhYTA5NjQ1NzQ1ZDI0Yjg0YjIxNGNmOTI0ZDMyNjNjM2MyNWI1MzY0MTYxZmU0MWU2ODkxNTE3YjJhNjRmYkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
 
-### 2025
-
--   ...
+```{=html}
+<button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Past events</button>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+```
+| Date    | Event                                      | Location         | Recordings |
+|---------|--------------------------------------------|------------------|
+| Apr 15, 2024  | [Web Summit](https://rio.websummit.com/) | Rio de Janeiro, BR |
+| Mar 20, 2024  | [UX Copenhagen](https://uxcopenhagen.com/) | Copenhagen, DK   |
+| Feb 20, 2024  | [ProductCon](https://productschool.com/productcon/london-2024) | London, UK + online |

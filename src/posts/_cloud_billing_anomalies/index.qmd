@@ -1,0 +1,10 @@
+---
+title: Cloud Billng Anomalies
+draft: true
+---
+
+https://colab.research.google.com/drive/1wL5Z_NF58qS5crGOdswRxNA92LM2qPYQ#scrollTo=nH2q3e2oXDjf
+
+https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetAnomalies.html
+
+https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/analyze-unexpected-charges

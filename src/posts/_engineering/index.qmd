@@ -1,5 +1,6 @@
 ---
 title: Engineering
+draft: true
 ---
 
 Collection of best practices to follow in your coding hobby-projects
