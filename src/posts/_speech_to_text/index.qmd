@@ -1,0 +1,10 @@
+---
+draft: true
+---
+
+ffmpeg -i auditexpert.m4a -vn -acodec libopus -ab 96k -ac 1 -ar 48000 audio.ogg
+ffmpeg -i auditexpert.m4a -vn audio.flac
+
+https://console.cloud.google.com/speech/transcriptions/create?project=max-ostapenko
+https://cloud.google.com/speech-to-text/v2/docs/batch-recognize
+https://cloud.google.com/speech-to-text/v2/docs/reference/rest/v2/projects.locations.recognizers?hl=en#speakerdiarizationconfig

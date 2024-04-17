@@ -4,9 +4,12 @@ author: Max Ostapenko
 date: today
 categories:
     - test
+draft: true
 ---
 
 ## Intro
+
+https://blog.google/products/chrome/google-chrome-safe-browsing-real-time/
 
 https://developers.google.com/safe-browsing/v4
 

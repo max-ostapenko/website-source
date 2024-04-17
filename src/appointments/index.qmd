@@ -37,7 +37,7 @@ Cal("init", {
 
 Cal("inline", {
     elementOrSelector: "#my-cal-inline",
-    calLink: "max-ostapenko/60min",
+    calLink: "max-ostapenko/public",
     layout: "month_view"
 });
 
