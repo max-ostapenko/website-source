@@ -19,9 +19,6 @@ website:
   open-graph: true
   back-to-top-navigation: true
   page-navigation: true
-  google-analytics:
-    tracking-id: G-9B07JCCPN7
-    storage: none
 
   navbar:
     logo: static/images/logo.svg
