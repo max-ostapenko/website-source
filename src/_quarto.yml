@@ -97,3 +97,5 @@ format:
     fig-align: center
     mermaid:
           theme: neutral
+    include-in-header: static/html/gtm_code_head.html
+    include-before-body: static/html/gtm_code_body.html
