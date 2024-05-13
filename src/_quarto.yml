@@ -19,9 +19,6 @@ website:
   open-graph: true
   back-to-top-navigation: true
   page-navigation: true
-  google-analytics:
-    tracking-id: G-9B07JCCPN7
-    storage: none
 
   navbar:
     logo: static/images/logo.svg
@@ -97,3 +94,5 @@ format:
     fig-align: center
     mermaid:
           theme: neutral
+    include-in-header: static/html/gtm_code_head.html
+    include-before-body: static/html/gtm_code_body.html
