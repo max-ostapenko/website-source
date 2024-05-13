@@ -1,5 +1,5 @@
 ---
-title: Product management sources
+title: Selected knowledge sources
 ---
 
 ## read
@@ -17,13 +17,13 @@ and [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/
 
 ## listen
 
-- [Lex Fridman](https://lexfridman.com/podcast/)
-- [Lenny Rachitsky](https://www.lennyspodcast.com/)
 - [Matt Abrahams (Think Fast, Talk Smart)](https://www.gsb.stanford.edu/business-podcasts/think-fast-talk-smart-podcast)
-- [Melissa Perri (Product Thinking)](https://produxlabs.com/product-thinking)
-- [Talks at Google](https://www.youtube.com/TalksAtGoogle)
-- [The Product Experience](https://www.mindtheproduct.com/the-product-experience/)
+- [Lex Fridman](https://lexfridman.com/podcast/)
 - [Eric Seufert (MobileDevMemo)](https://mobiledevmemo.com/)
+- [Marketecture](https://www.marketecture.tv/pages/podcasts)
+- [Lenny Rachitsky](https://www.lennyspodcast.com/)
+- [Talks at Google](https://www.youtube.com/TalksAtGoogle)
+- [Melissa Perri (Product Thinking)](https://produxlabs.com/product-thinking)
 
 ## visit
 
