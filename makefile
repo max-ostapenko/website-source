@@ -22,7 +22,7 @@ publish:
 
 emulate:
 	make render
-	firebase emulators:start --project max-ostapenko
+	firebase emulators:start
 
 clean:
 	rm -rf _site/

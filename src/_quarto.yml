@@ -69,13 +69,12 @@ website:
     center: "© 2024 Max Ostapenko"
     right:
       - icon: rss
-        href: posts/index.xml
+        href: index.xml
 
 format:
   html:
     theme:
       light: flatly
-      dark: darkly
     toc: true
     toc-location: right
     link-external-icon: false

@@ -43,7 +43,7 @@ if __name__ == "__main__":
     feed_file = f"{RENDER_LOCATION}/{BLOG_PATH}/{FEED_FILE}"
     with open(feed_file, "r") as file:
         data = file.read()
-    with open(f"{RENDER_LOCATION}/blog.xml", "w") as file:
+    with open(f"{RENDER_LOCATION}/{FEED_FILE}", "w") as file:
         file.write(data)
     os.remove(feed_file)
     print("Feed file moved to root location.")
