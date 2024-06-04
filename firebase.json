@@ -13,8 +13,7 @@
       ],
       "redirects": [],
       "rewrites": [],
-      "headers": [],
-      "trailingSlash": false
+      "headers": []
     }
   ]
 }

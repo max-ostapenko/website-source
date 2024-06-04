@@ -51,7 +51,7 @@ To mount GCS, you can leverage various tools and libraries available, such as Cl
 
 There are multiple ways of doing this. Let's review some of the easiest ways to start.
 
-![Scheduled queries](images/scheduled_queries.png)
+![Scheduled queries](./images/scheduled_queries.png)
 
 To leverage the power of BigQuery, users can set up [regular queries](https://cloud.google.com/bigquery/docs/scheduling-queries) to extract data in the expected schema and export it to GCS. This process enables the transformation and preparation of data within BigQuery itself, ensuring the data exported to GA4 aligns with the desired format and structure.
 
@@ -72,7 +72,7 @@ We can use a generic template for the workflow itself and pass these from a Clou
 
 This way we can define a workflow only once and a trigger for each table export.
 
-![GCP Workflow](/images/gcp_workflow.png)
+![GCP Workflow](./images/gcp_workflow.png)
 
 #### Other data orchestration tools
 
