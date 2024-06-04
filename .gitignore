@@ -7,3 +7,4 @@ _site/
 /.quarto/
 .DS_Store
 src/.quarto
+firebase-debug.log

@@ -12,26 +12,6 @@
         "make render"
       ],
       "redirects": [
-        {
-          "source": "/project/",
-          "destination": "/",
-          "type": 301
-        },
-        {
-          "source": "/tag/programming/",
-          "destination": "/",
-          "type": 301
-        },
-        {
-          "source": "/index.xml",
-          "destination": "/",
-          "type": 301
-        },
-        {
-          "source": "/project/hands-on-best-practice/",
-          "destination": "/",
-          "type": 301
-        }
       ],
       "rewrites": [],
       "headers": [
