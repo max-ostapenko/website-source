@@ -15,7 +15,7 @@ def clean_sitemap_urls(xml_file):
         loc.text = (
             loc.text.rsplit("/index.html")[0]
             if loc.text.endswith("/index.html")
-            else loc.text.rsplit(".html")[0]
+            else loc.text
         )
 
     # Save the modified XML back to the file
