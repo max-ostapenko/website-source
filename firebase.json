@@ -1,66 +1,68 @@
 {
-  "hosting": {
-    "public": "_site",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "predeploy": [
-      "make render"
-    ],
-    "redirects": [
-      {
-        "source": "/project/",
-        "destination": "/",
-        "type": 301
-      },
-      {
-        "source": "/tag/programming/",
-        "destination": "/",
-        "type": 301
-      },
-      {
-        "source": "/index.xml",
-        "destination": "/",
-        "type": 301
-      },
-      {
-        "source": "/project/hands-on-best-practice/",
-        "destination": "/",
-        "type": 301
-      }
-    ],
-    "rewrites": [
-    ],
-    "headers": [
-      {
-        "source": "site_libs/**",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=2628000, must-revalidate"
-          }
-        ]
-      },
-      {
-        "source": "static/**",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=2628000, must-revalidate"
-          }
-        ]
-      },
-      {
-        "source": "**/*.@(jpg|png|svg)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=2628000, must-revalidate"
-          }
-        ]
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "site": "max-ostapenko",
+      "public": "_site",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "predeploy": [
+        "make render"
+      ],
+      "redirects": [
+        {
+          "source": "/project/",
+          "destination": "/",
+          "type": 301
+        },
+        {
+          "source": "/tag/programming/",
+          "destination": "/",
+          "type": 301
+        },
+        {
+          "source": "/index.xml",
+          "destination": "/",
+          "type": 301
+        },
+        {
+          "source": "/project/hands-on-best-practice/",
+          "destination": "/",
+          "type": 301
+        }
+      ],
+      "rewrites": [],
+      "headers": [
+        {
+          "source": "site_libs/**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=2628000, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "static/**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=2628000, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|png|svg)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=2628000, must-revalidate"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

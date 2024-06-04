@@ -11,17 +11,19 @@ Website built using [Quarto publishing system](https://quarto.org/).
     python3 -m pip install nbformat, PyYAML
     ```
 
-2. Clone this repository
-3. Navigate to the repository and restore development environment
+2. Navigate to the repository and restore development environment
 
-    ```python
-    python3 -m venv .env
-    source .venv/bin/activate
-    python3 -m pip install -r requirements.txt
+    ```sh
+    python3 -m venv .venv && source .venv/bin/activate
+    pip install -r requirements.txt
     ```
 
-4. Run `quarto preview` to start a local server
-5. Edit the content in the `src` folder and see the changes live in the browser
+3. Edit the content in the `src` folder and see the changes live in the browser
+4. To start a local Quarto server:
+
+    ```sh
+    cd src && quarto preview
+    ```
 
 ## Hosting options
 
@@ -34,6 +36,7 @@ Website built using [Quarto publishing system](https://quarto.org/).
     ```sh
     curl -sL https://firebase.tools | bash
     firebase login
+    firebase use --add max-ostapenko
     ```
 
 2. Emulate locally
@@ -42,26 +45,22 @@ Website built using [Quarto publishing system](https://quarto.org/).
     firebase emulators:start
     ```
 
-3. Deploy the staging site
+3. Deploy to the staging channel (used on PR checks)
 
     ```sh
     firebase hosting:channel:deploy staging
     ```
 
-    on PR [.github/workflows/firebase-hosting-pr-preview.yml](.github/workflows/firebase-hosting-pr-preview.yml)
-
-4. Deploy the production site
-
-    ```sh
-    firebase deploy --only hosting
-    ```
-
-    on merge [.github/workflows/firebase-hosting-merge-live.yml](.github/workflows/firebase-hosting-merge-live.yml)
-
-5. Clone from the staging channel
+4. Release from the staging channel
 
     ```sh
     firebase hosting:clone max-ostapenko:staging max-ostapenko:live
+    ```
+
+5. Or release directly (used on PR merge)
+
+    ```sh
+    firebase deploy --only hosting
     ```
 
 ### Alternative hostings

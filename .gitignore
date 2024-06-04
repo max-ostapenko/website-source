@@ -6,4 +6,4 @@ _site/
 .firebaserc
 /.quarto/
 .DS_Store
-src/.gitignore
+src/.quarto
