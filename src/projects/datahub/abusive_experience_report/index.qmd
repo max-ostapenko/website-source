@@ -8,7 +8,15 @@ other-links:
 
 ## Overview
 
-The Abusive Experience Report dataset provides valuable insights into the status of websites reviewed for abusive ads. Each entry in the dataset includes essential information such as the name of the reviewed site, its Abusive Experience Report status, enforcement status, and whether it's currently under review. Additionally, the dataset records timestamps for the last status change and enforcement actions, facilitating temporal analysis of site behavior. Stakeholders can delve deeper into the details of reported issues and take necessary actions to ensure a safer online browsing experience. This dataset serves as a crucial resource for understanding and addressing abusive ad practices, contributing to a cleaner and more trustworthy web environment.
+The Abusive Experience Report dataset offers key insights into websites reviewed for abusive ads. It includes:
+
+- Site Name: Name of the reviewed site
+- Abusive Experience Status: Current status of abusive ad reports
+- Enforcement Status: Compliance enforcement status
+- Under Review: Indicates if the site is currently under review
+- Timestamps: Last status change and enforcement action dates
+
+This dataset helps address abusive ad practices, ensuring a safer and more trustworthy online experience. It's an essential tool for enhancing web safety and user trust.
 
 Available at:
 
@@ -16,6 +24,10 @@ Available at:
 - Public Dataset at [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/exchanges/projects/390347019852/locations/us/dataExchanges/data_hub_186a1c3eafa/listings)
 
 Provider: [Google](https://support.google.com/webtools/topic/7538671)
+
+## Preview
+
+<iframe width="100%" height="300" src="https://lookerstudio.google.com/embed/reporting/a80ac879-8931-42be-861f-76882c0d22fc/"></iframe>
 
 ## Schema
 
@@ -27,7 +39,3 @@ Provider: [Google](https://support.google.com/webtools/topic/7538671)
 | underReview       | Indicates whether the site is currently under review.                                 |
 | enforcementTime   | The time at which enforcement against the site began or will begin.                   |
 | filterStatus      | The site's [enforcement status](https://support.google.com/webtools/answer/7538608).  |
-
-## Preview
-
-<iframe width="100%" height="300" src="https://lookerstudio.google.com/embed/reporting/a80ac879-8931-42be-861f-76882c0d22fc/"></iframe>
