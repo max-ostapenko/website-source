@@ -72,7 +72,7 @@ We can use a generic template for the workflow itself and pass these from a Clou
 
 This way we can define a workflow only once and a trigger for each table export.
 
-![GCP Workflow](images/gcp_workflow.png)
+![GCP Workflow](/images/gcp_workflow.png)
 
 #### Other data orchestration tools
 
