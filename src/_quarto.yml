@@ -35,11 +35,14 @@ website:
       - text: LinkedIn profile
         icon: linkedin
         href: https://www.linkedin.com/in/max-ostapenko/
+        target: _blank
       - text: GitHub account
         icon: github
         href: https://github.com/max-ostapenko
+        target: _blank
       - text: Twitter account
         icon: twitter
+        target: _blank
         href: https://twitter.com/themax_o/
       - text: Appointments calendar
         icon: calendar-week
@@ -66,13 +69,12 @@ website:
     center: "© 2024 Max Ostapenko"
     right:
       - icon: rss
-        href: posts/index.xml
+        href: index.xml
 
 format:
   html:
     theme:
       light: flatly
-      dark: darkly
     toc: true
     toc-location: right
     link-external-icon: false

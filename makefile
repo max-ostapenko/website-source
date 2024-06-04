@@ -14,7 +14,7 @@ env:
 render:
 	make clean
 	. $(VENV_NAME)/bin/activate && quarto render src/
-	. $(VENV_NAME)/bin/activate && python3 scripts/sitemap.py _site/sitemap.xml
+	. $(VENV_NAME)/bin/activate && python3 scripts/postprocess.py
 
 publish:
 	make clean
@@ -22,7 +22,7 @@ publish:
 
 emulate:
 	make render
-	firebase emulators:start --project max-ostapenko
+	firebase emulators:start
 
 clean:
 	rm -rf _site/

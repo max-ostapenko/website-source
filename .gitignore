@@ -6,4 +6,5 @@ _site/
 .firebaserc
 /.quarto/
 .DS_Store
-src/.gitignore
+src/.quarto
+firebase-debug.log

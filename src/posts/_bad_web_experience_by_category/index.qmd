@@ -1,0 +1,38 @@
+
+
+
+WITH adexp AS (
+  SELECT
+    reviewedSite as adexp
+  FROM `max-ostapenko.adexperiencereport.violatingSites`
+  -- WHERE mobileSummary.filterStatus = 'ON'
+), abusexp AS (
+  SELECT
+    reviewedSite AS abusive
+  FROM `max-ostapenko.abusiveexperiencereport.violatingSites`
+  -- WHERE filterStatus = 'ON'
+), pages AS (
+  SELECT
+    NET.HOST(root_page) as page,
+    rank
+  FROM
+    `httparchive.all.pages`
+  WHERE
+    date = "2024-04-01"
+    --AND client = 'mobile'
+    AND is_root_page = TRUE
+    AND rank <= 10000
+)
+
+SELECT
+  *
+FROM
+  pages
+FULL OUTER JOIN adexp
+ON adexp.adexp = pages.page
+FULL OUTER JOIN abusexp
+ON abusexp.abusive = pages.page
+WHERE
+  abusexp.abusive IS NOT NULL AND pages.page IS NOT NULL
+  OR adexp.adexp IS NOT NULL AND pages.page IS NOT NULL
+ORDER BY rank ASC
