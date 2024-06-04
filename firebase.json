@@ -11,38 +11,9 @@
       "predeploy": [
         "make render"
       ],
-      "redirects": [
-      ],
+      "redirects": [],
       "rewrites": [],
-      "headers": [
-        {
-          "source": "site_libs/**",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "public, max-age=2628000, must-revalidate"
-            }
-          ]
-        },
-        {
-          "source": "static/**",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "public, max-age=2628000, must-revalidate"
-            }
-          ]
-        },
-        {
-          "source": "**/*.@(jpg|png|svg)",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "public, max-age=2628000, must-revalidate"
-            }
-          ]
-        }
-      ],
+      "headers": [],
       "trailingSlash": false
     }
   ]
