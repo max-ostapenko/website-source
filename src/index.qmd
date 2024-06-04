@@ -3,13 +3,6 @@ title: "Welcome"
 repo-actions: false
 image: static/images/profile.jpg
 
-listing:
-    contents: posts
-    sort: "date desc"
-    type: default
-    categories: true
-    feed:
-        type: partial
 ---
 
 Welcome!
