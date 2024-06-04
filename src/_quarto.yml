@@ -27,23 +27,26 @@ website:
         href: /
       - sidebar:learning
       - text: blog
-        href: posts/
+        href: posts
       - sidebar:projects
       - text: about
-        href: about/
+        href: about
     tools:
       - text: LinkedIn profile
         icon: linkedin
         href: https://www.linkedin.com/in/max-ostapenko/
+        target: _blank
       - text: GitHub account
         icon: github
         href: https://github.com/max-ostapenko
+        target: _blank
       - text: Twitter account
         icon: twitter
+        target: _blank
         href: https://twitter.com/themax_o/
       - text: Appointments calendar
         icon: calendar-week
-        href: appointments/
+        href: appointments
 
   sidebar:
     - id: learning
