@@ -1,9 +1,9 @@
 ---
 title: Safe query costs with BigQuery
 date: "6/20/2024"
-image: ./images/query_quotas.png
 categories:
     - google bigquery
+description: Processing data in BigQuery offers immense power and scalability, but it can also lead to unexpected costs if not managed properly.
 ---
 
 Processing data in BigQuery offers immense power and scalability, but it can also lead to unexpected costs if not managed properly.
@@ -39,7 +39,7 @@ Or open [Cloud Shell terminal](https://shell.cloud.google.com/?hl=en_US&fromclou
 gcloud alpha services quota update --consumer=projects/PROJECT_ID --service=bigquery.googleapis.com --metric=bigquery.googleapis.com/quota/query/usage --unit=1/d/{project}/{user} --value=1048576
 ```
 
-![BigQuery API / Quotas](./images/query_quotas.png){fig-align="center" width=70%}
+![BigQuery API / Quotas](./images/query_quotas.png){fig-align="center" width=70% .preview-image}
 
 ### 2. Set Up Budget Alerts
 Stay aware of your spending trends and get notified before costs spiral out of control.
