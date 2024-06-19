@@ -16,6 +16,7 @@ website:
   favicon: static/images/logo.svg
   twitter-card:
     creator: "@themax_o"
+    card-style: summary
   open-graph: true
   back-to-top-navigation: true
   page-navigation: true

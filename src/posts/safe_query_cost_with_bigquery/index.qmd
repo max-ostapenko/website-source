@@ -1,6 +1,7 @@
 ---
 title: Safe query costs with BigQuery
 date: "6/20/2024"
+image: ./images/query_quotas.png
 categories:
     - google bigquery
 ---
