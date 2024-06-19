@@ -1,55 +1,71 @@
 ---
 title: Safe query costs with BigQuery
-date: "6/5/2024"
+date: "6/20/2024"
 categories:
     - google bigquery
 ---
 
-Processing data in BigQuery offers immense power and scalability, but it can also lead to unexpected costs if not managed properly. Here's a recent cautionary tale to illustrate the point:
+Processing data in BigQuery offers immense power and scalability, but it can also lead to unexpected costs if not managed properly.
+This [recent story from the HTTP Archive community](https://discuss.httparchive.org/t/warning-14-000-bigquery-charge-in-2-hours/2715) and other cost issues are often shared publicly prove that *Attention* signs don't work.
 
-## A Costly Mistake
+## A Costly Human Error
 
-One user shared their experience on a forum where a single query resulted in a $14,000 charge within two hours. The user had extensive experience but still fell victim to a costly mistake. This underscores the importance of implementing cost safety measures regardless of experience level.
+Over the years, I've observed numerous instances where a single or looped queries result in abysmal charges of $1,000 or even $10,000+. A champion I've seen had a $163K increment to their bill. This isn't just a problem for BigQuery data analysts; engineers working with datasets can also face significant financial consequences due to code bugs. Extensive experience alone doesn't seem to protect from making a costly mistake.
+
+I've also had unpleasant tasks leading investigation and implementing safety measures after substantial cost spikes. Despite being aware of storage and SQL optimizations, human error is inevitable.
+
+This highlights the necessity of implementing cost safety measures regardless of experience level. Over the years, I've seen a few simple preventive steps save us from subsequent billing issues. Implementing these steps in advance can protect you from unexpected costs.
 
 ## Steps to Ensure Cost Safety in BigQuery
 
-### 1. Adjust Query Usage Quotas
-To prevent excessive usage, adjust query usage quota values at the project or user level. This limits the amount of data a single query can process.
+### 1. Set Query Usage Quotas
+Prevent excessive query usage by limiting the amount of data that can be processed in a day. Whenever a subsequent query exceeds the quota, it will fail. You can adjust query usage quota values at the project or user level.
+
+You've probably seen the Maximum bytes billed parameter in query settings and wondered how *the project default* can be set - currently, only through these API quotas.
+
+![Query Settings / Maximum Bytes Billed](./images/query_settings.png){fig-align="center" width=50%}
 
 **Step-by-Step Guide**
 
-1. In the Google Cloud Console go to ["IAM & Admin" > "Quotas" > "BigQuery API"](https://console.cloud.google.com/apis/api/bigquery.googleapis.com/quotas?pageState=(%22allQuotasTable%22:(%22f%22:%22%255B%257B_22k_22_3A_22Name_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22Query%2520usage_5C_22_22_2C_22i_22_3A_22displayName_22%257D%255D%22))).
+1. In the Google Cloud Console go to [API & Services > BigQuery API > Quotas & System Limits](https://console.cloud.google.com/apis/api/bigquery.googleapis.com/quotas?pageState=(%22allQuotasTable%22:(%22f%22:%22%255B%257B_22k_22_3A_22Name_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22query_5C_22_22_2C_22i_22_3A_22displayName_22%257D%255D%22))).
 2. Select the quota you want to adjust.
 3. Click "Edit Quotas" and enter your desired values.
 4. Submit your changes.
-5. Get back to exploring tables with terabytes of data with peace of mind.
+5. Return to exploring petabytes of data with peace of mind.
 
-Or run a terminal command:
+Or open [Cloud Shell terminal](https://shell.cloud.google.com/?hl=en_US&fromcloudshell=true&show=terminal) and run a command to bring your quota down to 1TB per user per day:
 ```sh
-gcloud alpha services quotas update --service=bigquery.googleapis.com --metric=query_usage --limit=100TB --projects=my-project
+gcloud alpha services quota update --consumer=projects/PROJECT_ID --service=bigquery.googleapis.com --metric=bigquery.googleapis.com/quota/query/usage --unit=1/d/{project}/{user} --value=1048576
 ```
 
+![BigQuery API / Quotas](./images/query_quotas.png){fig-align="center" width=70%}
+
 ### 2. Set Up Budget Alerts
-Setting up budget alerts helps you monitor spending and get notified before costs spiral out of control.
+Stay aware of your spending trends and get notified before costs spiral out of control.
 
 **Step-by-Step Guide**
 
-1. In the Google Cloud Console go to "Billing" > "Budgets & alerts.".
-2. Click "Create Budget."
-3. Enter a name and set your budget amount.
-4. Configure email alerts for when your spend reaches 50%, 90%, and 100% of the budget.
-5. Save your budget.
+1. In the Google Cloud Console go to [Billing](https://console.cloud.google.com/billing) and select your billing account
+2. Go to Budgets & Alerts and click "Create Budget."
+3. [Configure](https://cloud.google.com/billing/docs/how-to/budgets#create-budget) and save your budget.
 
-Or run a terminal command:
+Or open [Cloud Shell terminal](https://shell.cloud.google.com/?hl=en_US&fromcloudshell=true&show=terminal) and run a command to create a default budget for BigQuery:
 ```sh
-gcloud alpha billing budgets create --billing-account=my-billing-account --display-name="My Budget" --amount=1000 --thresholds=50,90,100
+gcloud config set project PROJECT_ID
+gcloud billing budgets create --billing-account=BILLING_ACCOUNT --display-name="BigQuery Budget" --filter-services=services/24E6-581D-38E5 --last-period-amount --threshold-rule=percent=0.5,basis=forecasted-spend --threshold-rule=percent=0.9,basis=forecasted-spend --threshold-rule=percent=1,basis=forecasted-spend
 ```
 
-## Real-Life Examples
-1. Startups and Small Businesses: A small tech startup used these measures to avoid unexpected costs during data processing spikes. By setting a quota, they ensured that no single query could bankrupt their budget.
-2. Large Enterprises: A large enterprise implemented budget alerts to monitor departmental spending, which helped them stay within their allocated budgets and avoid internal financial conflicts.
+## Don't wait till it's your time to worry about a *big bill*
 
-## Key Takeaway
+For small businesses these measures can help avoid unexpected costs during data processing spikes. By setting a quota, you ensure that no single query or user can bankrupt your budget.
+
+Large enterprises can manage and monitor querying quotas and budgets at the department level. Monitoring spending helps them stay within allocated budgets and avoid financial investigations.
+
+## Wrapping up
 Experience alone doesn't safeguard against human error. Implementing usage quotas and budget alerts in BigQuery is essential to prevent costly mistakes. These steps provide a safety net, ensuring that both small and large-scale operations can manage their data processing costs effectively.
 
-By following these guided steps and using the provided CLI commands, you can safeguard your BigQuery projects from unexpected expenses and maintain control over your data processing costs.
+By following these steps, you can avoid the need to seek Google's forgiveness for an unexpected bill and maintain strict control over your data processing costs.
+
+---
+
+UPD: A related Google Cloud Blog [post by Sonakshi Pandey](https://cloud.google.com/blog/topics/developers-practitioners/controlling-your-bigquery-costs).
