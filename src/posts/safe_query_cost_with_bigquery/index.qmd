@@ -65,7 +65,3 @@ Large enterprises can manage and monitor querying quotas and budgets at the depa
 Experience alone doesn't safeguard against human error. Implementing usage quotas and budget alerts in BigQuery is essential to prevent costly mistakes. These steps provide a safety net, ensuring that both small and large-scale operations can manage their data processing costs effectively.
 
 By following these steps, you can avoid the need to seek Google's forgiveness for an unexpected bill and maintain strict control over your data processing costs.
-
----
-
-UPD: A related Google Cloud Blog [post by Sonakshi Pandey](https://cloud.google.com/blog/topics/developers-practitioners/controlling-your-bigquery-costs).
