@@ -15,16 +15,12 @@ Over the years, I've observed numerous instances where a single or looped querie
 
 I've also had unpleasant tasks leading investigation and implementing safety measures after substantial cost spikes. Despite being aware of storage and SQL optimizations, human error is inevitable.
 
-This highlights the necessity of implementing cost safety measures regardless of experience level. Over the years, I've seen a few simple preventive steps save us from subsequent billing issues. Implementing these steps in advance can protect you from unexpected costs.
+This highlights the necessity of implementing cost safety measures regardless of experience level. Over the years, I've seen these few simple preventive steps save us from subsequent billing issues. Implementing these steps in advance can protect you from unexpected costs. And it's the only reliable way no matter what client and account are used to access BigQuery.
 
 ## Steps to Ensure Cost Safety in BigQuery
 
 ### 1. Set Query Usage Quotas
 Prevent excessive query usage by limiting the amount of data that can be processed in a day. Whenever a subsequent query exceeds the quota, it will fail. You can adjust query usage quota values at the project or user level.
-
-You've probably seen the Maximum bytes billed parameter in query settings and wondered how *the project default* can be set - currently, only through these API quotas.
-
-![Query Settings / Maximum Bytes Billed](./images/query_settings.png){fig-align="center" width=50%}
 
 **Step-by-Step Guide**
 
@@ -40,6 +36,8 @@ gcloud alpha services quota update --consumer=projects/PROJECT_ID --service=bigq
 ```
 
 ![BigQuery API / Quotas](./images/query_quotas.png){fig-align="center" width=70% .preview-image}
+
+By the way, you've probably seen the Maximum bytes billed parameter in query settings and wondered how *the project default* can be set - currently, only indirectly using these API quotas.
 
 ### 2. Set Up Budget Alerts
 Stay aware of your spending trends and get notified before costs spiral out of control.
@@ -58,11 +56,10 @@ gcloud billing budgets create --billing-account=BILLING_ACCOUNT --display-name="
 
 ## Don't wait till it's your time to worry about a *big bill*
 
+No amount of experience safeguards against human error. Implementing usage quotas and budget alerts in BigQuery is essential to prevent costly mistakes. These steps provide a safety net, ensuring that both small and large-scale operations can manage their data processing costs effectively.
+
 For small businesses these measures can help avoid unexpected costs during data processing spikes. By setting a quota, you ensure that no single query or user can bankrupt your budget.
 
 Large enterprises can manage and monitor querying quotas and budgets at the department level. Monitoring spending helps them stay within allocated budgets and avoid financial investigations.
-
-## Wrapping up
-Experience alone doesn't safeguard against human error. Implementing usage quotas and budget alerts in BigQuery is essential to prevent costly mistakes. These steps provide a safety net, ensuring that both small and large-scale operations can manage their data processing costs effectively.
 
 By following these steps, you can avoid the need to seek Google's forgiveness for an unexpected bill and maintain strict control over your data processing costs.
