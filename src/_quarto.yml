@@ -16,6 +16,7 @@ website:
   favicon: static/images/logo.svg
   twitter-card:
     creator: "@themax_o"
+    card-style: summary
   open-graph: true
   back-to-top-navigation: true
   page-navigation: true
@@ -57,7 +58,7 @@ website:
       contents:
         - auto: projects/**
         - text: ---
-        - section: External
+        - section: HTTP Archive
           contents:
             - text: Web Almanac - Privacy
               href: https://almanac.httparchive.org/en/2022/privacy
