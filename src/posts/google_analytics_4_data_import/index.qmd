@@ -7,7 +7,6 @@ code-links:
   - text: Open in Colab
     icon: google
     href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/google_analytics_4_data_import/notebook.ipynb
-description: Google Analytics has long been a trusted tool. But with a release of Google Analytics 4 (GA4) users face multiple challenges configuring and maintaining their operational insights available.
 ---
 
 ## Intro

@@ -3,19 +3,20 @@ title: Safe query costs with BigQuery
 date: "6/20/2024"
 categories:
     - google bigquery
-description: Processing data in BigQuery offers immense power and scalability, but it can also lead to unexpected costs if not managed properly.
 ---
 
 Processing data in BigQuery offers immense power and scalability, but it can also lead to unexpected costs if not managed properly.
-This [recent story from the HTTP Archive community](https://discuss.httparchive.org/t/warning-14-000-bigquery-charge-in-2-hours/2715) and other cost issues are often shared publicly prove that *Attention* signs don't work.
+This [recent story from the HTTP Archive community](https://discuss.httparchive.org/t/warning-14-000-bigquery-charge-in-2-hours/2715) and other cost issues are often shared publicly prove that raising awareness is not enough.
+
+![Big query protection in action](./images/big_query.png){fig-align="center" width=70% .preview-image}
 
 ## A Costly Human Error
 
-Over the years, I've observed numerous instances where a single or looped queries result in abysmal charges of $1,000 or even $10,000+. A champion I've seen had a $163K increment to their bill. This isn't just a problem for BigQuery data analysts; engineers working with datasets can also face significant financial consequences due to code bugs. Extensive experience alone doesn't seem to protect from making a costly mistake.
+Over the years, I've observed numerous instances where a single or looped queries result in abysmal charges of $1,000 or even $10,000+. In one extreme case, I witnessed a bill increase by $163K due to a single costly error. This isn't just a problem for BigQuery data analysts; engineers working with datasets can also face significant financial consequences due to code bugs. Extensive experience alone doesn't seem to protect from making a costly mistake.
 
 I've also had unpleasant tasks leading investigation and implementing safety measures after substantial cost spikes. Despite being aware of storage and SQL optimizations, human error is inevitable.
 
-This highlights the necessity of implementing cost safety measures regardless of experience level. Over the years, I've seen these few simple preventive steps save us from subsequent billing issues. Implementing these steps in advance can protect you from unexpected costs. And it's the only reliable way no matter what client and account are used to access BigQuery.
+This highlights the necessity of implementing cost safety measures regardless of experience level. Over the years, I've seen these few simple preventive steps save us from subsequent billing issues. Implementing these steps in advance can protect you from unexpected costs. And it's the only reliable way regardless of what interfaces are used to access BigQuery.
 
 ## Steps to Ensure Cost Safety in BigQuery
 
@@ -24,35 +25,54 @@ Prevent excessive query usage by limiting the amount of data that can be process
 
 **Step-by-Step Guide**
 
+::: {.panel-tabset}
+
+## Console
+
 1. In the Google Cloud Console go to [API & Services > BigQuery API > Quotas & System Limits](https://console.cloud.google.com/apis/api/bigquery.googleapis.com/quotas?pageState=(%22allQuotasTable%22:(%22f%22:%22%255B%257B_22k_22_3A_22Name_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22query_5C_22_22_2C_22i_22_3A_22displayName_22%257D%255D%22))).
 2. Select the quota you want to adjust.
 3. Click "Edit Quotas" and enter your desired values.
 4. Submit your changes.
 5. Return to exploring petabytes of data with peace of mind.
 
-Or open [Cloud Shell terminal](https://shell.cloud.google.com/?hl=en_US&fromcloudshell=true&show=terminal) and run a command to bring your quota down to 1TB per user per day:
+## gcloud
+
+Bring your quota down to 1TB per user per day:
+
 ```sh
 gcloud alpha services quota update --consumer=projects/PROJECT_ID --service=bigquery.googleapis.com --metric=bigquery.googleapis.com/quota/query/usage --unit=1/d/{project}/{user} --value=1048576
 ```
+:::
 
-![BigQuery API / Quotas](./images/query_quotas.png){fig-align="center" width=70% .preview-image}
+![BigQuery API / Quotas](./images/query_quotas.png){fig-align="center" width=70%}
 
-By the way, you've probably seen the Maximum bytes billed parameter in query settings and wondered how *the project default* can be set - currently, only indirectly using these API quotas.
+What if you're past 1Tb quota? Check your usage statistics in [Log Analytics](https://console.cloud.google.com/logs/analytics;queriedResources=%7B%22resources%22:%5B%22projects%2Fmax-ostapenko%2Flocations%2Fglobal%2Fbuckets%2F_Default%2Fviews%2F_AllLogs%22%5D%7D;queryHandle=%7B%22gkc%22:%7B%22nativeJobId%22:%22CggT2Fw70vkGzBIgam9iX3JMZUd5N21IRDR0YjB0cnRQNU9vTEZYOHllUWEaAlVT%22,%22viewResourceNames%22:%5B%22projects%2Fmax-ostapenko%2Flocations%2Fglobal%2Fbuckets%2F_Default%2Fviews%2F_AllLogs%22%5D,%22queryType%22:%22LOGS_ANALYTICS_QUERY_TYPE_SOURCE%22%7D,%22query%22:%22SELECT%5Cn%20%20TIMESTAMP_TRUNC%2528timestamp,%20DAY%2529%20AS%20date,%5Cn%20%20JSON_VALUE%2528proto_payload.audit_log.service_data.jobInsertRequest.resource.jobName.projectId,%20'$'%2529%20AS%20project_id,%5Cn%20%20proto_payload.audit_log.authentication_info.principal_email%20AS%20principal_email,%5Cn%20%20CAST%2528JSON_VALUE%2528proto_payload.audit_log.service_data.jobInsertResponse.resource.jobStatistics.totalBilledBytes,%20'$'%2529%20AS%20INT64%2529%2FPOWER%25281024,3%2529%20AS%20analytics_usage_gbytes,%5CnFROM%5Cn%20%20%60max-ostapenko.global._Default._AllLogs%60%5CnWHERE%5Cn%20%20resource.type%3D%5C%22bigquery_resource%5C%22%5Cn%20%20AND%20CAST%2528JSON_VALUE%2528proto_payload.audit_log.service_data.jobInsertResponse.resource.jobStatistics.totalBilledBytes,%20'$'%2529%20AS%20INT64%2529%20%3E%200%5Cn%20%20AND%20JSON_VALUE%2528proto_payload.audit_log.service_data.jobInsertResponse.resource.jobConfiguration.dryRun,%20'$'%2529%20IS%20NULL%5CnORDER%20BY%20date,%20project_id,%20principal_email%22%7D;upperTab=query;lowerTab=query_results;vizLayoutType=BOTH;duration=P14D?organizationId=339828740863&project=max-ostapenko&chartConfig=%7B%22xyChart%22:%7B%22constantLines%22:%5B%5D,%22dataSets%22:%5B%7B%22breakdowns%22:%5B%7B%22aggregationFunction%22:%7B%22type%22:%22count%22%7D,%22column%22:%22principal_email%22,%22limit%22:5,%22sortOrder%22:%22SORT_ORDER_DESCENDING%22%7D%5D,%22dimensions%22:%5B%7B%22column%22:%22date%22,%22columnType%22:%22TIMESTAMP%22,%22sortColumn%22:%22date%22,%22sortOrder%22:%22SORT_ORDER_ASCENDING%22,%22timeBinSize%22:%2286400s%22%7D%5D,%22measures%22:%5B%7B%22aggregationFunction%22:%7B%22type%22:%22sum%22%7D,%22column%22:%22analytics_usage_gbytes%22%7D%5D,%22opsAnalyticsQuery%22:%7B%22queryHandle%22:%22CggT2Fw70vkGzBIgam9iX3JMZUd5N21IRDR0YjB0cnRQNU9vTEZYOHllUWEaAlVT%22,%22sql%22:%22SELECT%5Cn%20%20TIMESTAMP_TRUNC(timestamp,%20DAY)%20AS%20date,%5Cn%20%20JSON_VALUE(proto_payload.audit_log.service_data.jobInsertRequest.resource.jobName.projectId,%20%27$%27)%20AS%20project_id,%5Cn%20%20proto_payload.audit_log.authentication_info.principal_email%20AS%20principal_email,%5Cn%20%20CAST(JSON_VALUE(proto_payload.audit_log.service_data.jobInsertResponse.resource.jobStatistics.totalBilledBytes,%20%27$%27)%20AS%20INT64)%2FPOWER(1024,3)%20AS%20analytics_usage_gbytes,%5CnFROM%5Cn%20%20%60max-ostapenko.global._Default._AllLogs%60%5CnWHERE%5Cn%20%20resource.type%3D%5C%22bigquery_resource%5C%22%5Cn%20%20AND%20CAST(JSON_VALUE(proto_payload.audit_log.service_data.jobInsertResponse.resource.jobStatistics.totalBilledBytes,%20%27$%27)%20AS%20INT64)%20%3E%200%5Cn%20%20AND%20JSON_VALUE(proto_payload.audit_log.service_data.jobInsertResponse.resource.jobConfiguration.dryRun,%20%27$%27)%20IS%20NULL%5CnORDER%20BY%20date,%20project_id,%20principal_email%22%7D,%22plotType%22:%22STACKED_BAR%22,%22targetAxis%22:%22Y1%22%7D%5D,%22options%22:%7B%22mode%22:%22COLOR%22%7D,%22y1Axis%22:%7B%22label%22:%22%22,%22scale%22:%22LINEAR%22%7D%7D%7D).
+
+![Log Analytics / BigQuery Analytics Usage](./images/usage_log_chart.png){fig-align="center" width=70%}
+
+
+::: {.callout-tip}
+When you configure the **Maximum bytes billed** parameter in the query settings of the BigQuery Console UI, it mentions a project default setting. However, there is no direct way to set a per-query limit at the project level. The closest alternative is to use API daily quotas to control the maximum bytes billed.
+:::
 
 ### 2. Set Up Budget Alerts
-Stay aware of your spending trends and get notified before costs spiral out of control.
+Stay aware of your spending trends and get notified before costs spiral out of control. Even though you now have a cap on your daily spend, you may expect that you average daily spend is much lower than that throughout the month.
 
 **Step-by-Step Guide**
 
+::: {.panel-tabset}
+## Console
 1. In the Google Cloud Console go to [Billing](https://console.cloud.google.com/billing) and select your billing account
 2. Go to Budgets & Alerts and click "Create Budget."
 3. [Configure](https://cloud.google.com/billing/docs/how-to/budgets#create-budget) and save your budget.
 
-Or open [Cloud Shell terminal](https://shell.cloud.google.com/?hl=en_US&fromcloudshell=true&show=terminal) and run a command to create a default budget for BigQuery:
+## gcloud
+
 ```sh
 gcloud config set project PROJECT_ID
 gcloud billing budgets create --billing-account=BILLING_ACCOUNT --display-name="BigQuery Budget" --filter-services=services/24E6-581D-38E5 --last-period-amount --threshold-rule=percent=0.5,basis=forecasted-spend --threshold-rule=percent=0.9,basis=forecasted-spend --threshold-rule=percent=1,basis=forecasted-spend
 ```
+:::
 
 ## Don't wait till it's your time to worry about a *big bill*
 
