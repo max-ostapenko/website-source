@@ -4,7 +4,6 @@ date: "2/8/2024"
 categories:
     - BigQuery
     - ML
-draft: true
 code-links:
   - text: Open in Colab
     icon: google
@@ -13,4 +12,4 @@ code-links:
 
 ## Intro
 
-{{< embed ./notebook.ipynb#test echo=true >}}
+{{< embed ./notebook.ipynb echo=true >}}
