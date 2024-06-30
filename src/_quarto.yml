@@ -9,7 +9,7 @@ project:
     port: 4200
 
 website:
-  title: max ostapenko
+  title: Max Ostapenko
   description: Data Product Management | Max Ostapenko
   site-url: https://maxostapenko.com/
   image: static/images/profile.jpg
