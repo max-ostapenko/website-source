@@ -2,8 +2,8 @@
 title: Google BigQuery Vector Search
 date: "2/8/2024"
 categories:
-    - BigQuery
-    - ML
+    - google bigquery
+    - machine learning
 code-links:
   - text: Open in Colab
     icon: google
