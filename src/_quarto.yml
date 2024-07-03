@@ -20,6 +20,7 @@ website:
   open-graph: true
   back-to-top-navigation: true
   page-navigation: true
+  bread-crumbs: false
 
   navbar:
     logo: static/images/logo.svg
