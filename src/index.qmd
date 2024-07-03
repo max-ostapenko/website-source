@@ -1,18 +1,15 @@
 ---
 title: "Welcome"
-repo-actions: false
-image: static/images/profile.jpg
-
 ---
 
 Welcome!
 
 I'm Max, and this is where I share my insights and experiences.
 
-Here, you'll find content focused on:
+Here, you'll find my content focused on:
 
-- Product Management
-- Marketing and Advertising
-- Engineering, Analysis, and Privacy
+- product management
+- marketing and advertising
+- engineering, analytics and privacy
 
-Explore my ideas and connect with me through my social profiles. Enjoy!
+Explore and connect with me through the social profiles. Enjoy!

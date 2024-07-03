@@ -29,15 +29,11 @@ and [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/
 
 | Date | Event | Location | Recordings |
 |---------|--------------------------------------------|------------------|
-| May 15, 2024 | [La Product Conf](https://www.laproductconf.com/) | Paris, FR + Madrid, ES |
-| May 29, 2024 | [Dublin Tech Summit](https://dublintechsummit.tech/) | Dublin, IR |
-| Jun 4, 2024 | [SaaStr Europa](https://www.saastreuropa2024.com/) | London, UK |
-| Jun 13, 2024 | [ACE!](https://aceconf.com/) | Krakow, PL |
-| Jun 17, 2024 | [Industry EUROPE](https://www.industryconference.com/europe) | Dublin, IR |
-| Jun 19, 2024 | [growth marketing SUMMIT](https://www.growthmarketingsummit.com) | Frankfurt, DE |
 | Aug 30, 2024 | [ProductCamp Berlin](https://www.productcampberlin.org/) | Berlin, DE |
 | Sep 13, 2024 | [Product at Heart](https://productatheart.com/conference) | Hamburg, DE |
+| Sep 21, 2024 | [Measurecamp Berln](https://berlin.measurecamp.org/) | Berln, DE |
 | Oct 11, 2024 | [just product](https://www.product-masterclass.com/en/just-product-2023) | Munich, DE |
+| Jan, 2025 | [Superweek](https://superweek.hu/) | Hungary |
 
 ```{=html}
 <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Past events</button>
@@ -46,6 +42,12 @@ and [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/
 ```
 | Date | Event | Location | Recordings |
 |---------|--------------------------------------------|------------------|
+| Jun 19, 2024 | [growth marketing SUMMIT](https://www.growthmarketingsummit.com) | Frankfurt, DE |
+| Jun 17, 2024 | [Industry EUROPE](https://www.industryconference.com/europe) | Dublin, IR |
+| Jun 13, 2024 | [ACE!](https://aceconf.com/) | Krakow, PL |
+| Jun 4, 2024 | [SaaStr Europa](https://www.saastreuropa2024.com/) | London, UK |
+| May 29, 2024 | [Dublin Tech Summit](https://dublintechsummit.tech/) | Dublin, IR |
+| May 15, 2024 | [La Product Conf](https://www.laproductconf.com/) | Paris, FR + Madrid, ES |
 | May 10, 2024 | [Product Led Summit](https://world.productledalliance.com/location/amsterdam/speakers) | Amsterdam, NL |
 | Apr 15, 2024 | [Web Summit](https://rio.websummit.com/) | Rio de Janeiro, BR |
 | Mar 20, 2024 | [UX Copenhagen](https://uxcopenhagen.com/) | Copenhagen, DK |

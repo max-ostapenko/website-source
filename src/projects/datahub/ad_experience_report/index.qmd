@@ -1,5 +1,6 @@
 ---
 title: Ad Experience Report
+description: The Ad Experience Report dataset offers crucial insights into the ad quality of various websites.
 other-links:
     - text: Open in BigQuery
       icon: google

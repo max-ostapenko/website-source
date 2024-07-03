@@ -9,10 +9,10 @@ project:
     port: 4200
 
 website:
-  title: Max Ostapenko
+  title: max ostapenko
   description: Data Product Management | Max Ostapenko
   site-url: https://maxostapenko.com/
-  image: static/images/profile.jpg
+  image: https://maxostapenko.com/static/images/profile.jpg
   favicon: static/images/logo.svg
   twitter-card:
     creator: "@themax_o"
@@ -20,18 +20,20 @@ website:
   open-graph: true
   back-to-top-navigation: true
   page-navigation: true
+  bread-crumbs: false
 
   navbar:
     logo: static/images/logo.svg
+    logo-alt: Logo
+    background: "#174EA6"
     left:
-      - text: home
-        href: /
       - sidebar:learning
       - text: blog
         href: posts/
       - sidebar:projects
       - text: about
         href: about/
+
     tools:
       - text: LinkedIn profile
         icon: linkedin
@@ -66,36 +68,39 @@ website:
 
   page-footer:
     left: |
-      Built with [Quarto](https://quarto.org).
+      Built with [Quarto](https://quarto.org)
     center: "© 2024 Max Ostapenko"
     right:
-      - icon: rss
+      - text: RSS
+        icon: rss
         href: index.xml
 
 format:
   html:
-    theme:
-      light: flatly
+    page-layout: full
     toc: true
     toc-location: right
     link-external-icon: false
     link-external-newwindow: true
+
+    fig-align: center
     fig-cap-location: margin
+
+    code-fold: true
+    code-summary: "Show code"
     code-tools:
       source: false
       toggle: true
     code-line-numbers: false
-    code-link: true
-    highlight-style: github
     code-overflow: wrap
-    page-layout: full
+    highlight-style: github
+    mermaid:
+      theme: neutral
+    notebook-links: false
+
     lightbox: true
     smooth-scroll: true
-    notebook-links: false
-    code-fold: true
-    code-summary: "Show code"
-    fig-align: center
-    mermaid:
-          theme: neutral
+    image-lazy-loading: true
+
     include-in-header: static/html/gtm_code_head.html
     include-before-body: static/html/gtm_code_body.html
