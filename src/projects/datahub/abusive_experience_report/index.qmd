@@ -1,5 +1,6 @@
 ---
 title: Abusive Experience Report
+description: The Abusive Experience Report dataset offers key insights into websites reviewed for abusive ads.
 other-links:
     - text: Open in BigQuery
       icon: google

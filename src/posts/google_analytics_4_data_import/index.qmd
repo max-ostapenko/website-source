@@ -1,6 +1,7 @@
 ---
 title: Google Analytics 4 Data Import
-date: "6/5/2023"
+description: Easy to configure Google Analytics pipeline using SFTP
+date: 2023-06-05
 categories:
     - google analytics
 code-links:

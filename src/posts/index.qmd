@@ -10,7 +10,6 @@ listing:
   filter-ui: false
   feed:
     type: partial
-page-layout: full
 ---
 
 ::: {#posts}

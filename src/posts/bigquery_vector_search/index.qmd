@@ -1,6 +1,7 @@
 ---
 title: Google BigQuery Vector Search
-date: "2/8/2024"
+description: Exploring native Vector Search capabilities of Google BigQuery
+date: 2024-02-08
 categories:
     - google bigquery
     - machine learning

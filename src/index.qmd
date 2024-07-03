@@ -1,6 +1,5 @@
 ---
 title: "Welcome"
-image: static/images/profile.jpg
 ---
 
 Welcome!

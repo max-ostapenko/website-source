@@ -44,7 +44,7 @@ Cal("inline", {
 Cal("ui", {
     "styles": {
         "branding": {
-            "brandColor": "#000000"
+            "brandColor": "#174EA6"
         }
     },
     "hideEventTypeDetails": false,
