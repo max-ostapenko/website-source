@@ -13,7 +13,7 @@ website:
   description: Data Product Management | Max Ostapenko
   site-url: https://maxostapenko.com/
   image: https://maxostapenko.com/static/images/profile.jpg
-  favicon: https://maxostapenko.com/static/images/logo.svg
+  favicon: static/images/logo.svg
   twitter-card:
     creator: "@themax_o"
     card-style: summary
