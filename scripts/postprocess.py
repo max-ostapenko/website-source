@@ -23,7 +23,7 @@ def clean_sitemap_urls(xml_file):
     # Iterate over <loc> elements and clean the URLs
     for loc in root.xpath("//ns:loc", namespaces=ns):
         loc.text = (
-            loc.text.rsplit("/index.html")[0]
+            loc.text.rsplit("index.html")[0]
             if loc.text.endswith("/index.html")
             else loc.text
         )
