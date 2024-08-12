@@ -103,15 +103,10 @@ This is where we will look into how to implement these steps using Python code a
 
 So let's list the steps end-to-end:
 
-1. Create SFTP server with public static address
-2. Create and mount Cloud Storage bucket on SFTP server
-3. Configure regular pipeline for exporting BigQuery data to the bucket
-4. Create a Data Source in [GA4 Admin Panel](https://analytics.google.com/analytics/web/#/admin/data-import/)
-5. Upload GA4 public key to SFTP server
+1. Run [the notebook](https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/google_analytics_4_data_import/notebook.ipynb) to get you Cloud Setup ready (SFTP server, Cloud Storage bucket, data export pipeline)
+2. Create a Data Source in [GA4 Admin Panel](https://analytics.google.com/analytics/web/#/admin/data-import/)
 
-All the steps that can be automated are also available as part of [`ga4-data-import` Python package](https://pypi.org/project/ga4-data-import/).
-
-Let's go through each of these.
+I automated most of the steps using [`ga4-data-import` Python package](https://pypi.org/project/ga4-data-import/) Python library. Let's go through each step in more detail.
 
 ### 1. SFTP server
 
@@ -174,7 +169,7 @@ All the public key are stored as part of the VM instance metadata. So we can upd
 
 ### Cost
 
-Monthly expected cost of self-deployed solution can be verified in [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator/#id=3460b16c-bf8e-4fc5-b5e4-707ef9dcb34f). It is still under USD 10 for US region or EUR 10 for EU.
+Monthly expected cost of self-deployed solution can be verified in [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator/#id=3460b16c-bf8e-4fc5-b5e4-707ef9dcb34f). It is still under USD 10.
 
 Each additional property with 4 data sources, 10MB daily imports each increases it on ~20 cents.
 
