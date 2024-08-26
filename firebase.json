@@ -11,7 +11,13 @@
       "predeploy": [
         "make render"
       ],
-      "redirects": [],
+      "redirects": [
+        {
+          "source": "/blog.html",
+          "destination": "/posts/",
+          "type": 301
+        }
+      ],
       "rewrites": [],
       "headers": []
     }

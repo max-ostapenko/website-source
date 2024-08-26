@@ -9,4 +9,5 @@ draft: true
 
 ## Intro
 
-https://graphviz.gitlab.io/_pages/Gallery/directed/kennedyanc.gv.txt
+https://graphviz.gitlab.io/Gallery/directed/kennedyanc.html
+https://observablehq.com/@nitaku/tangled-tree-visualization-ii#intro
