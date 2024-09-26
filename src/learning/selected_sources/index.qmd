@@ -4,25 +4,25 @@ title: Selected knowledge sources
 
 ## read
 
-- [Marty Cagan (SVPG)](https://www.svpg.com/articles/)
-- [Benedict Evans](https://www.ben-evans.com/benedictevans/)
-- [Martin Fowler](https://martinfowler.com/)
-- [Paul Graham](http://www.paulgraham.com/articles.html)
-- [John Cutler](https://cutlefish.substack.com/)
-- [Elena Verna](https://elenaverna.substack.com/)
-- [Teresa Torres](https://www.producttalk.org/blog/)
+- [Marty Cagan (SVPG)](https://www.svpg.com/articles/) - Practical advice on building successful tech products and teams.
+- [Benedict Evans](https://www.ben-evans.com/benedictevans/) - Trends and insights on tech, media, and mobile industries.
+- [Martin Fowler](https://martinfowler.com/) - Deep dives into software architecture and agile practices.
+- [Paul Graham](http://www.paulgraham.com/articles.html) - Essays on startups, technology, and entrepreneurship.
+- [John Cutler](https://cutlefish.substack.com/) - Product management insights focused on systems thinking and collaboration.
+- [Elena Verna](https://elenaverna.substack.com/) - Growth strategy and product-led growth for tech companies.
+- [Teresa Torres](https://www.producttalk.org/blog/) - Continuous discovery habits and product decision-making best practices.
 
 and [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/70245794?return_url=%2Fmax_ostapenko)
 
 ## listen
 
-- [Matt Abrahams (Think Fast, Talk Smart)](https://www.gsb.stanford.edu/business-podcasts/think-fast-talk-smart-podcast)
-- [Lex Fridman](https://lexfridman.com/podcast/)
-- [Eric Seufert (MobileDevMemo)](https://mobiledevmemo.com/)
-- [Marketecture](https://www.marketecture.tv/pages/podcasts)
-- [Lenny Rachitsky](https://www.lennyspodcast.com/)
-- [Talks at Google](https://www.youtube.com/TalksAtGoogle)
-- [Melissa Perri (Product Thinking)](https://produxlabs.com/product-thinking)
+- [Matt Abrahams (Think Fast, Talk Smart)](https://www.gsb.stanford.edu/business-podcasts/think-fast-talk-smart-podcast) - Insights on effective communication strategies from experts.
+- [Lex Fridman](https://lexfridman.com/podcast/) - Deep conversations with scientists, thinkers, and creators.
+- [Eric Seufert (MobileDevMemo)](https://mobiledevmemo.com/) - In-depth analysis of mobile app growth and monetization.
+- [Marketecture](https://www.marketecture.tv/pages/podcasts) - Expert interviews on adtech, martech, and digital strategy.
+- [Lenny Rachitsky](https://www.lennyspodcast.com/) - Tips on scaling products and building teams from top operators.
+- [Talks at Google](https://www.youtube.com/TalksAtGoogle) - Thought-provoking talks from innovators and leaders across industries.
+- [Melissa Perri (Product Thinking)](https://produxlabs.com/product-thinking) - A dive into product management, strategy, and leadership.
 
 ## visit
 
