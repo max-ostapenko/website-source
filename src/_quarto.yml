@@ -75,6 +75,8 @@ website:
         icon: rss
         href: index.xml
 
+  draft-mode: gone
+
 format:
   html:
     page-layout: full

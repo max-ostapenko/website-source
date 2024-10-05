@@ -1,0 +1,29 @@
+---
+title: "European Telco Identity"
+date: 2024-09-25
+code-links:
+  - text: Open in Colab
+    icon: google
+    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/european_telco_identity/notebook.ipynb
+draft: true
+---
+
+## History
+
+https://edri.org/our-work/trustpid-baking-ad-tracking-into-the-internet-infrastructure/
+
+
+## Supported by EU Comission
+
+https://competition-cases.ec.europa.eu/cases/M.10815
+
+## New Telco-powered Identity Service
+
+https://utiq.com/
+
+
+## User journey
+
+## Insights
+
+{{< embed ./notebook.ipynb echo=true >}}
