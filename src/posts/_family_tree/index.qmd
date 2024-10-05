@@ -1,0 +1,13 @@
+---
+title: Family Tree
+author: Max Ostapenko
+date: today
+categories:
+    - visualisation
+draft: true
+---
+
+## Intro
+
+https://graphviz.gitlab.io/Gallery/directed/kennedyanc.html
+https://observablehq.com/@nitaku/tangled-tree-visualization-ii#intro
