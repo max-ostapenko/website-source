@@ -1,0 +1,76 @@
+---
+title: The Great Domain Exodus
+description: Analyzing the Ripple Effects of Google Domains' Acquisition by Squarespace
+date: 2024-10-02
+categories:
+    - Google Bigquery
+    - HTTP Archive
+code-links:
+  - text: Open in Colab
+    icon: google
+    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/domain_exodus_review/notebook.ipynb
+
+---
+
+## Introduction
+
+Google Domains, a popular choice for domain registration since its launch in 2014, experienced a significant shift in 2023. While initial speculation in January 2023 pointed towards deprecation, Google ultimately announced on June 15, 2023, that it was selling the service to Squarespace. This announcement still prompted a wave of activity as domain owners reevaluated their options, potentially choosing to migrate away from Squarespace’s ecosystem.
+
+This article analyzes the impact of Google Domains’ acquisition by examining the subsequent migration patterns of affected domains. We leverage HTTP Archive data, using DNS records as a proxy for registrar information, to understand these shifts in the market. Our research seeks to identify which registrars gained market share following the announcement, determine whether domain owners made swift decisions or migrated in multiple steps, and ultimately, assess how this event reshaped the domain registration landscape.
+
+## Methodology
+Our analysis is based on HTTP Archive datasets collected at three strategic points in time:
+
+- T1: June 1, 2023 (immediately before the acquisition announcement). This dataset serves as our baseline, capturing the state of the domain registration market prior to the Squarespace announcement.
+- T2: December 1, 2023 (six months after the announcement). This dataset captures the initial wave of migrations, reflecting the early responses of domain owners.
+- T3: September 1, 2024 (near the present time, allowing for migrations to largely stabilize). This dataset represents the more settled state of the market after the bulk of migrations were completed.
+
+Because HTTP Archive doesn’t directly provide registrar information, we’ll utilize SOA records as a proxy. Every DNS zone (or "domain" in casual conversation) must have a Start of Authority ([SOA](https://en.wikipedia.org/wiki/SOA_record)) record. It's fundamental to how DNS works.
+
+We will extract zone administrator email using SOA record information from the HTTP Archive datasets for all captured domains at each time point. While not a perfect measure, SOA records generally indicate the DNS provider, which is often the same as or closely affiliated with the domain registrar. Many domain owners opt for dedicated DNS services like Cloudflare, AWS Route 53, Google DNS, Azure DNS, etc. These services offer most standards features for free and also have additional benefits like increased performance, improved security, and advanced DNS management features. Using these services requires changing the NS records at your registrar to point to the provider's name servers.
+
+We will then identify the cohort of domains using Google's DNS at T1 (e.g.,
+cloud-dns-hostmaster.google.com). This cohort will be the primary focus of our analysis.
+
+For each domain in the Google Domains cohort, we will track its NS records at T2 and T3. This will enable us to infer migration paths by observing changes in NS records, categorizing them as follows:
+
+No migration (remained with Squarespace): The domain continued to use Google Domains’ name servers (which likely transitioned to Squarespace’s infrastructure).
+
+- Direct migration: The domain’s NS records changed from Google Domains to a new provider at T2 and remained with that provider at T3.
+- Indirect migration: The domain’s NS records changed from Google Domains to one provider at T2 and then switched to a different provider by T3.
+
+We will then analyze the prevalence of NS records associated with different providers at T1, T2, and T3, interpreting these shifts as proxies for registrar market share changes. We’ll pay close attention to the shifts related to the Google Domains migration, comparing overall market changes with changes specifically within the migrating Google Domains cohort. It’s important to acknowledge that using NS records as a proxy introduces a potential source of error, as some users may change DNS providers without changing registrars.
+
+## Analysis
+
+HTTP Archive stores DNS records in [`_origin_dns`](https://har.fyi/reference/blobs/har/#_origin_dns) metric. NS is a single category of these.
+
+Let's check domains that are related to Google DNS name servers in June 2023:
+
+
+Comparing the changes between the initial state of domains and the snapshot form December 2023 we can see a trend of domain registrar changes:
+
+
+{{< embed ./notebook.ipynb#jun2023_top_dns_query echo=true >}}
+
+{{< embed ./notebook.ipynb#jun2023_top_dns_chart >}}
+
+
+{{< embed ./notebook.ipynb#dec2023_google_dns_diff_query echo=true >}}
+
+{{< embed ./notebook.ipynb#dec2023_google_dns_diff_chart >}}
+
+
+{{< embed ./notebook.ipynb#dec2023_all_dns_diff_query echo=true >}}
+
+{{< embed ./notebook.ipynb#dec2023_all_dns_diff_chart >}}
+
+
+{{< embed ./notebook.ipynb#sep2024_google_dns_diff_query echo=true >}}
+
+{{< embed ./notebook.ipynb#sep2024_google_dns_diff_chart >}}
+
+
+Sources:
+
+1. https://domainnamestat.com/statistics/registrars-breakdown-report/2023
