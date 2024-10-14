@@ -1,0 +1,42 @@
+---
+title: "Rise of Google's AdTech"
+format: html
+draft: true
+
+---
+
+## Development Timeline
+
+https://www.ppchero.com/a-history-of-google-adwords-and-google-ads-revolutionizing-digital-advertising-marketing-since-2000/
+https://www.silverbackstrategies.com/blog/google-ads-history-how-automation-changed-digital/
+https://www.usvgoogleads.com/
+
+```{mermaid}
+%%{init: { 'logLevel': 'debug', 'theme': 'base' } }%%
+timeline
+    title Google AdTech Milestones
+
+    %% Define the decades first
+
+    section Going CPC
+    2000 : Google AdWords Launch
+    2003 : Acquires Applied Semantics (AdSense foundation)
+    2006 : Acquires dMarc Broadcasting (radio advertising tech)
+    2007 : Acquires DoubleClick for $3.1B
+    2008 : Acquires AdScape Media (in-game advertising)
+    2009 : Acquires Teracent (dynamic display ad tech)
+
+    section Programmatic field
+    2010 : Launches Google Ad Exchange (AdX)
+         : Acquires Invite Media (demand-side platform)
+    2011 : Acquires AdMeld for $400M
+    2014 : Acquires Adometry (attribution modeling)
+         : Acquires Spider.io (anti-fraud technology)
+    2015 : Launches Customer Match
+    2018 : Rebrands AdWords and DoubleClick into Google Ads and Google Marketing Platform
+    2019 : Acquires Fitbit (expanding data reach)
+
+    section Privacy era
+    2020 : Begins phasing out third-party cookies
+    2023 : Ads Privacy Sandbox enters testing phase
+```

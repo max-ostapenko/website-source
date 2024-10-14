@@ -1,7 +1,7 @@
 # Define variables
 VENV_NAME := .venv
 PYTHON := python3
-REQUIREMENTS := requirements-dev.txt
+REQUIREMENTS := requirements.txt
 
 # Create virtual environment and install dependencies
 env:
@@ -16,7 +16,7 @@ render:
 
 preview:
 	make render
-	cd src/ && quarto preview
+	. $(VENV_NAME)/bin/activate && cd src/ && quarto preview
 
 emulate:
 	make render
