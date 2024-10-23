@@ -1,6 +1,5 @@
 ---
 title: Cloud Billng Anomalies
-draft: true
 ---
 
 https://colab.research.google.com/drive/1wL5Z_NF58qS5crGOdswRxNA92LM2qPYQ#scrollTo=nH2q3e2oXDjf

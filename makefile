@@ -16,7 +16,7 @@ render:
 
 preview:
 	make render
-	cd src/ && quarto preview
+	quarto preview src/
 
 emulate:
 	make render

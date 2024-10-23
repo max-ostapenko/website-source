@@ -1,0 +1,12 @@
+---
+title: "Tech radar"
+format:
+    html:
+        include-before-body:
+            - text: |
+                <iframe src="radar.html" style="width: 100%; height: 77.5vh;">
+resources:
+    - "images/**"
+    - "*.{js,css,json}"
+---
+

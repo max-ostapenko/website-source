@@ -28,7 +28,6 @@ and [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/
 
 | Date | Event | Location | Recordings |
 |---------|--------------------------------------------|------------------|
-| Oct 11, 2024 | [just product](https://www.product-masterclass.com/en/just-product-2023) | Munich, DE |
 | Jan 27, 2025 | [Superweek](https://superweek.hu/) | Hungary |
 
 ```{=html}
@@ -38,6 +37,7 @@ and [follow me on goodreads.com](https://www.goodreads.com/friend/add_as_friend/
 ```
 | Date | Event | Location | Recordings |
 |---------|--------------------------------------------|------------------|
+| Oct 11, 2024 | [just product](https://www.product-masterclass.com/en/just-product-2023) | Munich, DE |
 | Sep 21, 2024 | [Measurecamp Berln](https://berlin.measurecamp.org/) | Berln, DE |
 | Sep 13, 2024 | [Product at Heart](https://productatheart.com/conference) | Hamburg, DE |
 | Aug 30, 2024 | [ProductCamp Berlin](https://www.productcampberlin.org/) | Berlin, DE |

@@ -1,5 +1,5 @@
 ---
-draft: true
+
 ---
 
 ffmpeg -i auditexpert.m4a -vn -acodec libopus -ab 96k -ac 1 -ar 48000 audio.ogg
