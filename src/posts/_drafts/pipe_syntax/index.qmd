@@ -1,0 +1,48 @@
+---
+
+---
+
+```sql
+SELECT
+  date,
+  client,
+  page,
+  feature.feature,
+  feature.type,
+  feature.id,
+  rank
+FROM (
+  SELECT
+    date,
+    client,
+    page,
+    payload,
+    rank,
+    feature
+  FROM `httparchive.all.pages`,
+    UNNEST(features) AS feature
+  WHERE
+    date = '2024-07-01' AND
+    is_root_page = TRUE
+    AND rank <= 1000
+)
+```
+
+
+
+
+```
+FROM `httparchive.all.pages`
+|> WHERE date = '2024-07-01' AND
+  is_root_page = TRUE AND
+  rank <= 1000
+|> JOIN UNNEST(features) AS feature
+|> SELECT
+  date,
+  client,
+  page,
+  feature.feature,
+  feature.type,
+  feature.id,
+  rank
+```

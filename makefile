@@ -16,7 +16,7 @@ render:
 
 preview:
 	make render
-	. $(VENV_NAME)/bin/activate && cd src/ && quarto preview
+	quarto preview src/
 
 emulate:
 	make render
