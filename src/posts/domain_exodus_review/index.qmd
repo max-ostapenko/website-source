@@ -12,6 +12,8 @@ code-links:
 
 ---
 
+TODO: https://docs.google.com/spreadsheets/d/1c5BFKXbPJKuHyaQW3fqBljC4NmC3EaLUd5tzkDLvgTU/edit
+
 ## Introduction
 
 Google Domains, a popular choice for domain registration since its launch in 2014, experienced a significant shift in 2023. While initial speculation in January 2023 pointed towards deprecation, Google ultimately announced on June 15, 2023, that it was selling the service to Squarespace. This announcement still prompted a wave of activity as domain owners reevaluated their options, potentially choosing to migrate away from Squarespace’s ecosystem.
