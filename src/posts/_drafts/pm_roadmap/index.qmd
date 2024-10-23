@@ -1,9 +1,7 @@
 ---
 title: Product Management roadmap
-date: today
 categories:
-    - product managers
-draft: true
+    - product management
 ---
 
 https://roadmap.sh/r?id=655b710b68ca60261356f27b

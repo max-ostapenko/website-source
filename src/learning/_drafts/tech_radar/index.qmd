@@ -8,6 +8,5 @@ format:
 resources:
     - "images/**"
     - "*.{js,css,json}"
-draft: true
 ---
 

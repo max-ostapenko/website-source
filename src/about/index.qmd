@@ -14,11 +14,11 @@ about:
           href: https://github.com/max-ostapenko
           icon: github
         - text: Twitter
-          href: https://twitter.com/themax_o/
+          href: https://x.com/themax_o/
           icon: twitter
 ---
 
-I'm a Ukrainian 🇺🇦, currently live and work in Berlin 🇩🇪.
+I'm a Ukrainian 🇺🇦 living in Berlin 🇩🇪.
 
 With Math & Economics background I went into product management in 2012.
 

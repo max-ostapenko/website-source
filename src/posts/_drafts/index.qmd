@@ -4,7 +4,6 @@ author: Max Ostapenko
 date: today
 categories:
     - test
-draft: true
 ---
 
 ## Ads.txt

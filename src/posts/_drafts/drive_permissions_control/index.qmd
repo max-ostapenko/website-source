@@ -1,6 +1,5 @@
 ---
 title: Google Drive permissions control
-draft: true
 ---
 
 Take over control of your Google Drive permissions
