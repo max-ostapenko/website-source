@@ -1,9 +1,5 @@
 ---
-title: Template
-author: Max Ostapenko
-date: today
-categories:
-    - test
+title: Drafts
 ---
 
 ## Ads.txt
