@@ -24,6 +24,8 @@ https://utiq.com/
 https://utiq.com/utiq-reaches-next-milestone-for-growth-with-inclusion-of-home-internet-connections-within-its-authentic-consent-service-2/
 
 
+CNAME as `utiq-aws.net`
+
 ## User journey
 
 ## Insights
