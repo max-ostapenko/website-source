@@ -119,8 +119,3 @@ https://www.tapad.com/solutions/switchboard
 3. check data volumes and consistency (anomalies)
 4. run queries
 5. build charts
-
-## Google Fonts analytics
-
-https://docs.google.com/document/d/1hrPWqBHMVlGmbAc8t4xQyvr4vC9WqCLtM1-DH6vEP7k/edit
-https://developers.google.com/fonts/faq
