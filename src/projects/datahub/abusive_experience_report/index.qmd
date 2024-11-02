@@ -21,8 +21,8 @@ This dataset helps address abusive ad practices, ensuring a safer and more trust
 
 Available at:
 
-- JSON at [Google API](https://developers.google.com/abusive-experience-report/)
-- Public Dataset at [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/exchanges/projects/390347019852/locations/us/dataExchanges/data_hub_186a1c3eafa/listings)
+[//]: <> (- JSON at [Google API](https://developers.google.com/abusive-experience-report/))
+- Public Dataset at [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/data_exchange_192ea316ab1/listings/abusive_experience_report_192ea4ad395)
 
 Provider: [Google](https://support.google.com/webtools/topic/7538671)
 
