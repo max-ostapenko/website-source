@@ -1,0 +1,87 @@
+---
+title: Data quality framework
+draft: true
+---
+
+Data plays an indispensable role in today's AI age. As companies increasingly rely on data sources and insights to make critical business decisions, the quality and operational management of data have become paramount. This article explores a comprehensive framework for enhancing your business data operations, detailing the transformative journey from reactive, obscure data practices to mature, quantitatively managed, transparent data product decisions.
+
+## From Obscurity to Clarity: The Need for a New Approach
+In the early stages of data management, many organizations find themselves in a reactive stance, dealing with data quality issues as they emerge without a proactive or systematic approach. This reactive methodology often leads to broken, wasteful and increasingly risky data operations, where the significance, accuracy, and relevance of data are not fully understood. The lack of clarity not only hampers decision-making processes but also stifles the organization's ability to leverage data as a strategic asset.
+
+
+
+## Mapping the Journey to Quantitative Management
+To transcend these challenges, organizations must embark on a transformative journey towards a more quantitative, structured approach to data management. The initial phase of this journey involves the identification and measurement of key data operation metrics, such as Data Timeliness, ROS Accuracy, Data Integration Latency, and Data Governance Compliance. These metrics serve as the foundation for understanding the current state of data operations and quality within the organization.
+
+As organizations progress, it becomes essential to adopt a holistic perspective on data operations and quality. This broader view encompasses organizational capabilities and processes that directly impact data management. Key indicators of this holistic approach include Data Governance Maturity, Data Dictionary Completeness, Data Accessibility and Availability, and Data Quality Awareness and Training. By monitoring these indicators, organizations gain insights into the overall health of their data operations and quality, identifying areas for improvement.
+
+```{mermaid}
+---
+title: Data-driven business operations
+---
+graph LR;
+    collection["Data Collection"] --> analysis["Data Analysis"];
+    analysis --> decision["Decision Making"];
+    decision --> action["Action Implementation"];
+    action --> review["Performance Review"];
+    review -. Feedback Loop .-> collection;
+```
+
+## Leveraging Google Cloud for Enhanced Data Management
+For organizations entrenched in the Google Cloud ecosystem, the journey towards a quantitatively managed data framework is facilitated by leveraging Google Cloud services such as BigQuery, Data Studio, and Looker. However, the absence of a mature data platform can pose challenges in measuring and improving data quality and governance.
+
+To navigate these challenges, it is critical to outline specific metrics, dimensions, and measurement sources for each component of the data operations and quality framework. For instance:
+
+- Data Governance Maturity can be assessed through self-assessment surveys and interviews, providing a qualitative measure of the organization's data governance practices.
+- Data Dictionary Completeness can be quantified by reviewing the organization's metadata repositories and data catalog tools, aiming for a high percentage of documented data elements.
+- Data Accessibility and Availability can be evaluated by monitoring data access logs and provisioning processes, with time metrics serving as the primary dimension.
+
+```{mermaid}
+---
+title: ROAS analysis process
+---
+graph TD;
+    roas_data["ROAS Data Collection"] --> quality_assessment["Quality Assessment"];
+    quality_assessment --> issues_identification["Issues Identification"];
+    issues_identification --> action_plan["Action Plan Development"];
+    action_plan --> implementation["Implementation"];
+    implementation --> review["Review & Optimization"];
+
+    review -. Continuous Improvement .-> roas_data;
+```
+
+```{mermaid}
+---
+title: Data Operations Metrics
+---
+graph TD;
+    subgraph metrics ["Data Operations"]
+        Data_Timeliness["Data Timeliness"];
+        ROS_Accuracy["ROS Accuracy"];
+        Data_Governance_Compliance["Data Governance Compliance"];
+        Data_Dictionary_Completeness["Data Dictionary Completeness"];
+        Data_Accessibility_and_Availability["Data Accessibility & Availability"];
+    end
+
+    subgraph cluster_quality ["Quality Metrics for Evaluation"]
+        Data_Timeliness1;
+        ROS_Accuracy1;
+        Data_Governance_Compliance1;
+        Data_Dictionary_Completeness1;
+        Data_Accessibility_and_Availability1;
+    end
+
+    metrics --> Data_Timeliness1;
+    metrics --> ROS_Accuracy1;
+    metrics --> Data_Governance_Compliance1;
+    metrics --> Data_Dictionary_Completeness1;
+    metrics --> Data_Accessibility_and_Availability1;
+```
+
+These examples illustrate the practical steps organizations can take to measure and improve their data operations and quality within the Google Cloud environment. By establishing clear metrics and utilizing the appropriate measurement tools, organizations can systematically enhance their data management practices.
+
+## Conclusion
+The journey from reactive, obscure data management to quantitatively managed, transparent data product decisions is both challenging and rewarding. By adopting a comprehensive framework that encompasses both individual metrics and a holistic view of organizational capabilities, companies can significantly improve their data quality and operational efficiency. Leveraging Google Cloud services and establishing clear metrics for measurement are pivotal steps in this transformative journey. As organizations progress, they unlock the full potential of their data, turning it into a strategic asset that drives informed decision-making and fosters innovation.
+
+
+

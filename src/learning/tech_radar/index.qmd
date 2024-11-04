@@ -10,3 +10,11 @@ resources:
     - "*.{js,css,json}"
 ---
 
+Drafts:
+
+- Data Vault 2.0: https://datavaultalliance.com/news/dv/understanding-data-vault-2-0/
+- SLI and SLO
+- Continuous Deployment
+- Domain storytelling, Domain-driven design
+- Fine-tuning embedding models
+- identity federation
