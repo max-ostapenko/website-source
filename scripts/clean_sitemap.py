@@ -17,7 +17,7 @@ Attributes:
 import os
 import xml.etree.ElementTree as ET
 
-RENDER_LOCATION = "_site"
+RENDER_LOCATION = "../_site"
 BLOG_PATH = "posts"
 SITEMAP_FILE = "sitemap.xml"
 FEED_FILE = "index.xml"
