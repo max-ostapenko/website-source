@@ -12,7 +12,6 @@ env:
 render:
 	make clean
 	quarto render src/
-	. $(VENV_NAME)/bin/activate && python3 scripts/postprocess.py
 
 preview:
 	make render
