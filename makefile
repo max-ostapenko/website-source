@@ -12,7 +12,7 @@ env:
 render:
 	make clean
 	quarto render src/
-	. $(VENV_NAME)/bin/activate && python3 scripts/postprocess.py
+	. $(VENV_NAME)/bin/activate && python3 scripts/clean_sitemap.py
 
 preview:
 	make render

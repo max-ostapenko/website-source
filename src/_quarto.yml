@@ -80,6 +80,7 @@ format:
   html:
     page-layout: full
     toc: true
+    canonical-url: true
     toc-location: right
     link-external-icon: false
     link-external-newwindow: true
