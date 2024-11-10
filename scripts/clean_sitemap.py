@@ -17,7 +17,7 @@ Attributes:
 import os
 import xml.etree.ElementTree as ET
 
-RENDER_LOCATION = "_site"
+RENDER_LOCATION = "../_site"
 BLOG_PATH = "posts"
 SITEMAP_FILE = "sitemap.xml"
 FEED_FILE = "index.xml"
@@ -33,8 +33,6 @@ def clean_sitemap_urls(xml_file):
     # Parse the XML file
     tree = ET.parse(xml_file)
     root = tree.getroot()
-
-    print(root.tag)
 
     ns = {"ns0": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
@@ -58,7 +56,6 @@ if __name__ == "__main__":
     feed_file = f"{RENDER_LOCATION}/{BLOG_PATH}/{FEED_FILE}"
     with open(feed_file, "r", encoding="utf-8") as file:
         data = file.read()
-    with open(f"{RENDER_LOCATION}/{FEED_FILE}", "w", encoding="utf-8") as file:
+    with open(f"{RENDER_LOCATION}/{BLOG_PATH}.xml", "w", encoding="utf-8") as file:
         file.write(data)
-    os.remove(feed_file)
-    print("Feed file moved to root location.")
+    print("Feed file copied to the website root location.")
