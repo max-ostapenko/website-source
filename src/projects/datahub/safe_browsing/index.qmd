@@ -1,0 +1,20 @@
+---
+title: Safe Browsing
+description: Protect the web users from unsafe resources.
+---
+
+## Overview
+
+Safe Browsing is a Google service that helps apps check URLs against updated lists of unsafe sites, like phishing or malware hosts. With Safe Browsing, you can:
+
+- Warn users about risky links
+- Check pages for threats by platform and type
+- Block users from sharing known harmful links
+
+Available at:
+
+- Public Dataset on [BigQuery Analytics Hub](#) - **Coming soon**
+
+Provider: [Google](https://safebrowsing.google.com/)
+
+Data is provided for non-commercial use only.

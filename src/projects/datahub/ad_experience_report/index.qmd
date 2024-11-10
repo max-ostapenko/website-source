@@ -4,7 +4,7 @@ description: The Ad Experience Report dataset offers crucial insights into the a
 other-links:
     - text: Open in BigQuery
       icon: google
-      href: https://console.cloud.google.com/bigquery/analytics-hub/exchanges/projects/390347019852/locations/us/dataExchanges/data_hub_186a1c3eafa/listings/ad_experience_report_186a1de7b19
+      href: https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/privacy_and_ads/listings/adexperiencereport
 ---
 
 ## Overview
@@ -21,8 +21,7 @@ This dataset is essential to improve user experience and adhere to ad standards,
 
 Available at:
 
-[//]: <> (- JSON at [Google API](https://developers.google.com/ad-experience-report))
-- Public Dataset at [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/privacy_and_ads/listings/adexperiencereport)
+- Public Dataset on [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/privacy_and_ads/listings/adexperiencereport)
 
 Provider: [Google](https://www.google.com/webmasters/tools/ad-experience-unverified)
 
