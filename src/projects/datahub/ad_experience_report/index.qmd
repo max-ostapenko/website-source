@@ -22,7 +22,7 @@ This dataset is essential to improve user experience and adhere to ad standards,
 Available at:
 
 [//]: <> (- JSON at [Google API](https://developers.google.com/ad-experience-report))
-- Public Dataset at [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/data_exchange_192ea316ab1/listings/ad_experience_report_192ea4a05c1)
+- Public Dataset at [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/privacy_and_ads/listings/adexperiencereport)
 
 Provider: [Google](https://www.google.com/webmasters/tools/ad-experience-unverified)
 
