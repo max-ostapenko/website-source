@@ -21,7 +21,6 @@ website:
     card-style: summary
   open-graph: true
   back-to-top-navigation: true
-  page-navigation: true
   bread-crumbs: false
 
   navbar:
