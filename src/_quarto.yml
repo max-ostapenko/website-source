@@ -5,8 +5,6 @@ project:
   output-dir: ../_site
   resources:
     - static/**
-  preview:
-    port: 4200
   post-render:
     - python3 ../scripts/clean_sitemap.py
 
@@ -74,13 +72,10 @@ website:
       - icon: rss
         href: posts.xml
 
-  draft-mode: gone
-
 format:
   html:
     page-layout: full
     toc: true
-    canonical-url: true
     toc-location: right
     link-external-icon: false
     link-external-newwindow: true

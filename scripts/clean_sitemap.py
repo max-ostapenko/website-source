@@ -14,7 +14,6 @@ Attributes:
     FEED_FILE (str): The name of the feed file.
 """
 
-import os
 import xml.etree.ElementTree as ET
 
 RENDER_LOCATION = "../_site"

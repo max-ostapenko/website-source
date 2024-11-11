@@ -14,7 +14,6 @@ render:
 	quarto render src/
 
 preview:
-	make render
 	quarto preview src/
 
 emulate:
