@@ -3,23 +3,9 @@
     {
       "site": "max-ostapenko",
       "public": "_site",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
       "predeploy": [
         "make render"
-      ],
-      "redirects": [
-        {
-          "source": "/blog.html",
-          "destination": "/posts/",
-          "type": 301
-        }
-      ],
-      "rewrites": [],
-      "headers": []
+      ]
     }
   ]
 }
