@@ -5,7 +5,9 @@
       "public": "_site",
       "predeploy": [
         "make render"
-      ]
+      ],
+      "cleanUrls": true,
+      "trailingSlash": true
     }
   ]
 }

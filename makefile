@@ -17,7 +17,6 @@ preview:
 	quarto preview src/
 
 emulate:
-	make render
 	firebase emulators:start
 
 clean:
