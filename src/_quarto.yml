@@ -79,6 +79,7 @@ format:
     toc-location: right
     link-external-icon: false
     link-external-newwindow: true
+    canonical-url: true
 
     fig-align: center
     fig-cap-location: margin
