@@ -2,7 +2,7 @@ ga4_data_import==0.1.66
 
 # Dev
 nbformat==5.10.4
-nbclient==0.10.0
+nbclient==0.10.2
 jupyter==1.1.1
 PyYAML==6.0.2
 lxml==5.3.0
