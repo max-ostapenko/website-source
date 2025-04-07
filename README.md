@@ -4,25 +4,23 @@
 
 Website built using [Quarto publishing system](https://quarto.org/).
 
-1. Install Quarto CLI
+1. Install Quarto CLI, Firebase CLI and install dependecies
 
     ```sh
-    brew install quarto
-    python3 -m pip install nbformat, PyYAML
+    make env
     ```
 
-2. Navigate to the repository and restore development environment
+2. Edit the content in the `src` folder and see the changes live in the browser
+3. To start a local Quarto server:
 
     ```sh
-    python3 -m venv .venv && source .venv/bin/activate
-    pip install -r requirements.txt
+    make preview
     ```
 
-3. Edit the content in the `src` folder and see the changes live in the browser
-4. To start a local Quarto server:
+4. Emulate Firebase locally
 
     ```sh
-    cd src && quarto preview
+    make emulate
     ```
 
 ## Hosting options
@@ -31,40 +29,27 @@ Website built using [Quarto publishing system](https://quarto.org/).
 
 [Firbase Hosting console](https://console.firebase.google.com/u/0/project/max-ostapenko/hosting/sites)
 
-1. Install the Firebase CLI and login
+1. Login with the Firebase CLI
 
     ```sh
-    curl -sL https://firebase.tools | bash
     firebase login
     firebase use --add max-ostapenko
     ```
 
-2. Emulate locally
-
-    ```sh
-    firebase emulators:start
-    ```
-
-3. Deploy to the staging channel (used on PR checks)
+2. Deploy to the staging channel (used on PR checks)
 
     ```sh
     firebase hosting:channel:deploy staging
     ```
 
-4. Release from the staging channel
+3. Release from the staging channel
 
     ```sh
     firebase hosting:clone max-ostapenko:staging max-ostapenko:live
     ```
 
-5. Or release directly (used on PR merge)
+4. Or release directly (used on PR merge)
 
     ```sh
     firebase deploy --only hosting
     ```
-
-### Alternative hostings
-
-- [Netlify](https://app.netlify.com/sites/max-ostapenko/)
-- [Vercel](https://vercel.com/max-ostapenko/website-source/)
-- [GitHub Pages](https://github.com/max-ostapenko/website-source/settings/pages)
