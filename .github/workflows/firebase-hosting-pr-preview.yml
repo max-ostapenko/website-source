@@ -17,7 +17,7 @@ jobs:
       - id: auth
         uses: 'google-github-actions/auth@v1'
         with:
-          workload_identity_provider: https://iam.googleapis.com/projects/390347019852/locations/global/workloadIdentityPools/test/providers/github-runner
+          workload_identity_provider: projects/390347019852/locations/global/workloadIdentityPools/test/providers/github-runner
           service_account: github-action-website-source@max-ostapenko.iam.gserviceaccount.com
           create_credentials_file: true
 
