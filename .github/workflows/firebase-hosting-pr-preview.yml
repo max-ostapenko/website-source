@@ -10,9 +10,19 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: make env
 
+      - id: auth
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: https://iam.googleapis.com/projects/390347019852/locations/global/workloadIdentityPools/test/providers/github-runner
+          service_account: github-action-website-source@max-ostapenko.iam.gserviceaccount.com
+          create_credentials_file: true
+
+      - name: Export Firebase credentials
+        run: echo "FIREBASE_SERVICE_ACCOUNT=$(cat "${{ steps.auth.outputs.credentials_file_path }}" | tr -d '\n')" >> $GITHUB_ENV
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.GCP_SA_KEY_GITHUB_ACTION_WEBSITE_SOURCE }}'
+          firebaseServiceAccount: '${{ env.FIREBASE_SERVICE_ACCOUNT }}'
           projectId: max-ostapenko
           expires: 7d
