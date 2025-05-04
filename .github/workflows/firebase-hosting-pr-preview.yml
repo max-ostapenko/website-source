@@ -7,6 +7,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      checks: write
 
     runs-on: ubuntu-latest
     steps:
@@ -15,7 +16,7 @@ jobs:
       - run: make env
 
       - id: auth
-        uses: 'google-github-actions/auth@v1'
+        uses: 'google-github-actions/auth@v2'
         with:
           workload_identity_provider: 'projects/390347019852/locations/global/workloadIdentityPools/test/providers/github-runner'
           service_account: 'github-action-website-source@max-ostapenko.iam.gserviceaccount.com'
@@ -26,7 +27,7 @@ jobs:
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ env.FIREBASE_SERVICE_ACCOUNT }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ env.FIREBASE_SERVICE_ACCOUNT }}"
           projectId: max-ostapenko
           expires: 7d
