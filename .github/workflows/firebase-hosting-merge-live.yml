@@ -13,10 +13,10 @@ jobs:
       - run: make env
 
       - id: auth
-        uses: 'google-github-actions/auth@v1'
+        uses: 'google-github-actions/auth@v2'
         with:
-          workload_identity_provider: https://iam.googleapis.com/projects/390347019852/locations/global/workloadIdentityPools/test/providers/github
-          service_account: github-action-website-source@max-ostapenko.iam.gserviceaccount.com
+          workload_identity_provider: 'projects/390347019852/locations/global/workloadIdentityPools/test/providers/github-runner'
+          service_account: 'github-action-website-source@max-ostapenko.iam.gserviceaccount.com'
           create_credentials_file: true
 
       - name: Export Firebase credentials
@@ -24,7 +24,7 @@ jobs:
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ env.FIREBASE_SERVICE_ACCOUNT }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ env.FIREBASE_SERVICE_ACCOUNT }}"
           projectId: max-ostapenko
           channelId: live
