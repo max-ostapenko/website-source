@@ -27,7 +27,7 @@ Provider: [Google](https://www.google.com/webmasters/tools/ad-experience-unveri
 
 ## Preview
 
-<iframe width="100%" height="500" src="https://lookerstudio.google.com/embed/reporting/6909fab3-b9d3-4f92-b355-b17ab4f07c3e/"></iframe>
+<iframe width="100%" height="300" src="https://lookerstudio.google.com/embed/reporting/74ccbe5d-fdde-4e58-b1c9-1013b0c07e4f/page/poDJF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
 
 ## Schema
 

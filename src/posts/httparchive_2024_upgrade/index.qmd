@@ -1,0 +1,10 @@
+---
+title: HTTP Archive data 2024 upgrade
+description: Upgrading the archives accumulated over the 14 years for the state of the art SQL analysis
+date: 2024-02-08
+categories:
+    - Google BigQuery
+    - machine learning
+
+---
+

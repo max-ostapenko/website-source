@@ -1,0 +1,27 @@
+---
+title: Website history data
+author: Max Ostapenko
+categories:
+    - HTTP Archive
+    - Google BigQuery
+    - analysis
+---
+
+```sql
+WITH hars AS (
+SELECT
+  REPLACE(FORMAT_DATE('%b_%e_%Y', date), ' ', '') AS date,
+  wptid,
+  page
+FROM crawl.pages
+WHERE date >= '2025-01-01' AND
+  is_root_page AND
+  client = 'mobile' AND
+  net.reg_domain(page) = 'google.com'
+)
+
+SELECT
+  CONCAT('https://storage.googleapis.com/httparchive/crawls/android-', date, '/', wptid, '.har.gz') AS url,
+  page
+FROM hars
+```
