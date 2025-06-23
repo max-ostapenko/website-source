@@ -4,63 +4,125 @@
     "ring": "Adopt",
     "quadrant": "Techniques",
     "isNew": "TRUE",
-    "description": "<p>Path-to-production mapping involves a cross-functional workshop that visually maps the software release process to identify delays, risks, and improvement areas, often using value-stream mapping.</p>"
+    "description": "<p>This is basically getting everyone in a room and drawing out how your code actually gets to production. It's eye-opening to see all the bottlenecks and 'wait, we do THAT?' moments that come up. Similar to value-stream mapping but focused on the software journey.</p>"
   },
   {
     "name": "Value-stream mapping",
     "ring": "Adopt",
     "quadrant": "Techniques",
     "isNew": "FALSE",
-    "description": "<p>Value-stream mapping is a lean-management method for analyzing the current state and designing a future state for the series of events that take a product or service from its beginning through to the customer. It helps identify waste and areas for improvement in the process.</p>"
+    "description": "<p>I love this technique - you literally draw out your entire process from start to finish and highlight all the waste. It's amazing how much unnecessary stuff you discover when you visualize it. Great for those 'why does this take so long?' conversations.</p>"
   },
   {
     "name": "Dataform",
-    "ring": "Assess",
+    "ring": "Adopt",
     "quadrant": "Languages & Frameworks",
-    "isNew": "TRUE",
-    "description": "<p><strong><a href=\"https://cloud.google.com/dataform\">Dataform</a></strong> is a data preparation product that enables building complex and scalable data models in Google BigQuery. Offers easy documenting, templating, testing and versioning. I love JS templates and functional modelling approach.</p>"
+    "isNew": "FALSE",
+    "description": "<p><strong><a href=\"https://cloud.google.com/dataform\">Dataform</a></strong> makes working with BigQuery so much nicer. I really appreciate how you can use JavaScript templates and build data models that actually make sense. The testing and versioning features save from so much headache.</p>"
   },
   {
     "name": "Team cognitive load",
     "ring": "Assess",
     "quadrant": "Techniques",
     "isNew": "TRUE",
-    "description": "<p>Team interactions play a crucial role in organizational agility and software design (see <a href=\"https://en.wikipedia.org/wiki/Conway%27s_law\">Conway's Law</a>), impacting how autonomously teams deliver customer value, so it's essential to intentionally design team structures, track team cognitive load, and measure how easily teams build, test, and maintain their services. It can be assessed using the ideas from >a href=\"https://teamtopologies.com/\">Team Topologies</a> book.</p>"
+    "description": "<p>Conway's Law is real - your team structure becomes your architecture whether you like it or not. I've been exploring how to measure if teams are overwhelmed or if they can actually focus on delivering value. The <a href=\"https://teamtopologies.com/\">Team Topologies</a> book has some great ideas on this.</p>"
   },
   {
     "name": "Google BigQuery",
     "ring": "Adopt",
     "quadrant": "Platforms",
     "isNew": "FALSE",
-    "description": "<p>BigQuery is a powerful, fully-managed data warehouse that enables super-fast SQL queries using the processing power of Google's infrastructure. It is particularly highly popular for ad and marketing products due to its ability to handle large datasets and provide real-time analytics.</p>"
+    "description": "<p>BigQuery is my go-to for anything data-related. It's stupidly fast and handles petabyte-scale datasets without breaking a sweat. Perfect for all the questions that come up constantly.</p>"
   },
   {
     "name": "Virtual Environments",
     "ring": "Adopt",
     "quadrant": "Techniques",
     "isNew": "FALSE",
-    "description": "<p>My everyday languages are Python and Node.js and managing multiple projects can be challenging, especially when they have varying requirements. Tools like <strong><a href=\"https://github.com/pyenv/pyenv\">PyENV</a></strong> and <strong><a href=\"https://github.com/nvm-sh/nvm\">NVM</a></strong> are essential for managing multiple versions of Python and Node.js, respectively. They allow you to switch between different versions easily, ensuring compatibility across projects.</p><p>For project-specific dependencies, Python's <strong><a href=\"https://docs.python.org/3/library/venv.html\">venv</a></strong> and Node.js's <strong><a href=\"https://docs.npmjs.com/cli/v7/configuring-npm/folders#node_modules\">node_modules</a></strong> are the go-to tools. Virtual environments (venv) create isolated environments for each Python project, allowing you to install dependencies without affecting other projects. Similarly, the node_modules directory in a Node.js project contains all the dependencies specific to that project.</p><p>When it comes to package management, Python's <strong><a href=\"https://pip.pypa.io/en/stable/\">pip</a></strong> and Node.js's <strong><a href=\"https://www.npmjs.com/\">npm</a></strong> are widely used. Pip is the package installer for Python, allowing you to install and manage Python packages. Npm (Node Package Manager) serves a similar purpose for Node.js, enabling you to install and manage packages for your Node.js projects.</p>"
+    "description": "<p>Working with Python and Node.js across multiple projects is still a nightmare - get comfortable with virtual environments. <strong><a href=\"https://github.com/pyenv/pyenv\">PyENV</a></strong> and <strong><a href=\"https://github.com/nvm-sh/nvm\">NVM</a></strong> are lifesavers for switching between versions.</p><p>I can't imagine working without Python's <strong><a href=\"https://docs.python.org/3/library/venv.html\">venv</a></strong> anymore - no more dependency conflicts between projects. Same goes for <strong><a href=\"https://docs.npmjs.com/cli/v7/configuring-npm/folders#node_modules\">node_modules</a></strong> keeping everything isolated.</p><p><strong><a href=\"https://pip.pypa.io/en/stable/\">pip</a></strong> and <strong><a href=\"https://www.npmjs.com/\">npm</a></strong> help to avoid frustration in package management.</p>"
   },
   {
     "name": "GitHub Workflows",
     "ring": "Adopt",
     "quadrant": "Platforms",
     "isNew": "FALSE",
-    "description": "<p>GitHub Workflows is a powerful tool for automating your software development workflows. It allows you to define the actions to automate using YAML files, which can be triggered by various events such as push, pull request, issue creation, etc. You can use GitHub Workflows to automate your project management, build, test, and deployment processes, ensuring that your code is always in a deployable state. GitHub Actions Marketplace gives a rich choice of solutions for development operations.</p>"
+    "description": "<p>GitHub Actions has changed how I think about automation. Writing YAML files to automate builds, tests, and deployments feels natural now. The marketplace has many ready solutions for almost everything, so you rarely have to build from scratch.</p>"
   },
-
   {
     "name": "git",
-    "ring": "Assess",
+    "ring": "Adopt",
     "quadrant": "Tools",
     "isNew": "FALSE",
-    "description": "<p>Git is a distributed version control system that is widely used in software development. It allows multiple developers to work on the same project simultaneously, tracking changes and merging them seamlessly. Git is essential for managing codebases, enabling collaboration, and ensuring that changes are tracked and easy to promote to production code or reverse. It is essential for software development.</p>"
+    "description": "<p>Git is just essential. Being able to experiment, roll back changes, and collaborate without stepping on each other's toes is fundamental to how we work. Doesn't matter if you are working solo or in a team, writing a code or a book. Git helps keep everything organized.</p>"
   },
   {
     "name": "Coding Copilot",
-    "ring": "Trial",
+    "ring": "Adopt",
     "quadrant": "Tools",
     "isNew": "FALSE",
-    "description": "<p>Coding copilot is a new category of development tools that use AI to assist developers in writing code. Tools like GitHub Copilot and Gemini Code Assist use machine learning models to predict code completions, suggest code snippets, and provide context-aware code suggestions. These tools can help developers write code faster, reduce errors, and improve productivity. Being a part of IDE offers benefits from the additional context of the codebase and the ability to learn from the developer's coding style.</p>"
+    "description": "<p>AI coding assistants like GitHub Copilot have become part of our daily workflow. They're great for boilerplate code and suggesting patterns you might not think of. The context awareness when integrated into your IDE and GitHub makes them genuinely helpful.</p>"
+  },
+  {
+    "name": "VS Code",
+    "ring": "Adopt",
+    "quadrant": "Tools",
+    "isNew": "FALSE",
+    "description": "<p>VS Code just works. It's fast, customizable, and has extensions for everything. I've tried other editors, but today it's just a default due to its simplicity and how well it integrates with my workflow.</p>"
+  },
+  {
+    "name": "GitHub",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "description": "<p>GitHub is where all our code lives. Pull requests, issues, project boards - it's become the hub for how I collaborate with others. The integration with Actions and other tools makes it a complete development platform.</p>"
+  },
+  {
+    "name": "Google Cloud Run",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "TRUE",
+    "description": "<p>Cloud Run is perfect when you just want to deploy something without thinking about servers. Container goes in, working app comes out, and it scales automatically. No infrastructure headaches.</p>"
+  },
+  {
+    "name": "Figma",
+    "ring": "Trial",
+    "quadrant": "Tools",
+    "isNew": "TRUE",
+    "description": "<p>I'm exploring Figma for design work and collaboration. The real-time collaboration is impressive, and it's nice having everything in the browser. Still learning how to create and beautiful mockups.</p>"
+  },
+  {
+    "name": "Terraform",
+    "ring": "Adopt",
+    "quadrant": "Tools",
+    "isNew": "FALSE",
+    "description": "<p>Terraform is my go-to for infrastructure as code. Writing declarative configurations to manage cloud resources is a game changer. It makes infrastructure predictable and repeatable.</p>"
+  },
+  {
+    "name": "Kubernetes",
+    "ring": "Trial",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "description": "<p>Kubernetes is powerful and I'm still learning a lot every day. The ability to orchestrate containers at scale is too good to ignore. Learning how to manage clusters effectively is key.</p>"
+  },
+  {
+    "name": "Docker",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "description": "<p>Docker has become essential for packaging applications. The ability to run the same container anywhere is a huge advantage. It simplifies dependencies and environment setup.</p>"
+  },
+  {
+    "name": "SLA",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "description": "<p>Service Level Agreements (SLAs) are crucial for defining expectations with stakeholders. They help clarify what 'good enough' means and set the right priorities for teams.</p>"
+  },
+  {
+    "name": "Azure Cloud",
+    "ring": "Hold",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "description": "<p>Azure has some great services, but I've always found it a bit clunky compared to other clouds. It has its place, but I see most of the work happening elsewhere in my domains. It's better to focus on the platforms that really fit our needs.</p>"
   }
 ]

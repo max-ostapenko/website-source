@@ -4,12 +4,12 @@ title: "Welcome"
 
 Welcome!
 
-I'm Max, and this is where I share my insights and experiences.
+I'm Max, and this is where I share my learnings and experiments.
 
 Here, you'll find my content focused on:
 
-- product management
-- marketing and advertising
-- engineering, analytics and privacy
+- product management,
+- marketing and monetization,
+- data and privacy.
 
 Explore and connect with me through the social profiles. Enjoy!
