@@ -8,3 +8,4 @@ _site/
 .DS_Store
 src/.quarto
 firebase-debug.log
+.vscode/settings.json

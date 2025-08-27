@@ -1,0 +1,540 @@
+---
+title: Google Cloud Regions Locator
+description: Interactive map showing Google Cloud data centers across the globe
+
+format:
+  dashboard:
+     theme: default
+     orientation: rows
+---
+
+::: {.callout-warning}
+## 🤝 Help Improve This Map
+
+Some locations marked with yellow markers have approximate coordinates where exact data center locations weren't available from official sources. Know the precise coordinates? [Contribute to GitHub](https://github.com/max-ostapenko/website-source/blob/main/src/static/data/gcp-regions.json){target="_blank"}
+:::
+
+# Sidebar {.sidebar width=20%}
+```{=html}
+<style>
+    /* Override dashboard default sidebar styling */
+    .quarto-dashboard .sidebar {
+        background-color: #ffffff !important;
+    }
+
+
+    /* Region item styling */
+    .region-item {
+        cursor: pointer;
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin-bottom: 4px;
+        transition: background-color 0.15s cubic-bezier(0.4, 0.0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+        border: none;
+        position: relative;
+    }
+
+    .region-item:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+        border-radius: 8px;
+    }
+
+    .region-item.active {
+        background-color: rgba(25, 118, 210, 0.12);
+        color: #1976d2;
+    }
+
+    .region-item.active .region-text-main,
+    .region-item.active .region-text-sub {
+        color: #1976d2;
+    }
+
+    .region-item.approximate {
+        opacity: 0.8;
+    }
+
+    /* Continent sections */
+    .continent-header {
+        margin-bottom: 8px;
+        margin-top: 24px;
+    }
+
+    .continent-header:first-child {
+        margin-top: 16px;
+    }
+
+    .continent-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.6);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 8px;
+        padding: 0 16px;
+    }
+
+    .region-text-main {
+        font-weight: 500;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.87);
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .region-text-sub {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.6);
+        margin: 2px 0 0 0;
+        line-height: 1.2;
+    }
+
+    .region-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        opacity: 0.7;
+        transition: opacity 0.15s ease;
+    }
+
+    .region-item:hover .region-actions,
+    .region-item.active .region-actions {
+        opacity: 1;
+    }
+
+    .region-marker {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    .region-marker.precise {
+        background-color: #34a853;
+    }
+
+    .region-marker.approximate {
+        background-color: #fbbc04;
+    }
+
+    .copy-link-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 4px;
+        border-radius: 4px;
+        transition: all 0.15s ease;
+        color: rgba(0, 0, 0, 0.54);
+        line-height: 1;
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    .region-item:hover .copy-link-btn,
+    .region-item.active .copy-link-btn {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .copy-link-btn:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+        color: rgba(0, 0, 0, 0.87);
+    }
+
+    .region-item.active .copy-link-btn {
+        color: #1976d2;
+    }
+
+    .region-item.active .copy-link-btn:hover {
+        background-color: rgba(25, 118, 210, 0.08);
+    }
+</style>
+<div id="region-list">
+    <!-- Region items will be loaded here by JavaScript -->
+</div>
+```
+
+# Map {.fill}
+```{=html}
+<!-- Leaflet CSS and JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+    /* Map styling */
+    /* NOTE: Outer dashboard page keeps id="map" (required by Quarto tab system). The actual Leaflet container uses id="leaflet-map" to avoid duplicate IDs. */
+    #leaflet-map {
+        height: 600px;
+        width: 100%;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+    }
+
+    .map-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        position: relative;
+    }
+
+    .map-container #leaflet-map {
+        flex: 1;
+        min-height: 600px;
+        position: relative;
+    }
+
+    /* Google Maps style floating controls */
+    .map-controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2000;
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        pointer-events: auto;
+    }
+
+    .map-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+        background: white;
+        color: #333;
+        border-right: 1px solid #e0e0e0;
+        min-width: 60px;
+    }
+
+    .map-btn:last-child {
+        border-right: none;
+    }
+
+    .map-btn.active {
+        background-color: #1976d2;
+        color: white;
+    }
+
+    .map-btn:hover {
+        background-color: #f5f5f5;
+    }
+
+    .map-btn.active:hover {
+        background-color: #1565c0;
+    }
+
+    .map-btn:hover {
+        opacity: 0.8;
+    }
+
+    /* Leaflet map styling */
+    .gcp-marker {
+        transition: all 0.2s ease;
+    }
+
+    .leaflet-popup-content-wrapper {
+        border-radius: 8px !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+        border: none !important;
+    }
+
+    .leaflet-popup-tip {
+        background: white !important;
+        border: none !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+    }
+
+    .leaflet-popup-content {
+        margin: 16px 20px 12px 16px !important;
+        font-family: 'Google Sans', 'Roboto', Arial, sans-serif !important;
+    }
+
+    .leaflet-control-zoom {
+        border: none !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+        border-radius: 2px !important;
+    }
+
+    .leaflet-control-zoom a {
+        background-color: #fff !important;
+        color: #666 !important;
+        border: none !important;
+        font-size: 18px !important;
+        line-height: 30px !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .leaflet-control-zoom a:hover {
+        background-color: #f5f5f5 !important;
+        color: #333 !important;
+    }
+
+    .leaflet-control-attribution {
+        background: rgba(255, 255, 255, 0.8) !important;
+        border-radius: 2px !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+        border: none !important;
+        font-size: 11px !important;
+    }
+</style>
+<div class="map-container">
+    <div style="position: relative;">
+        <div id="leaflet-map"></div>
+        <div class="map-controls">
+            <button id="satellite-btn" class="map-btn active">Satellite</button>
+            <button id="street-btn" class="map-btn">Street</button>
+        </div>
+    </div>
+</div>
+```
+
+
+```{=html}
+<script>
+    let gcpRegions = [];
+    let map;
+    let markers = {};
+    let activeRegionId = null;
+    let satelliteLabelsLayer, streetLayer;
+
+    // Ensure the map tab is shown when deep-linking directly to a region
+    function ensureMapTabActiveForRegionHash() {
+        if (!window.location.hash.startsWith('#region=')) return;
+        const pane = document.getElementById('map');
+        const navLink = document.getElementById('tab-map') || document.querySelector('a[href="#map"], a[data-bs-target="#map"]');
+        let activated = false;
+        if (navLink && window.bootstrap && window.bootstrap.Tab) {
+            try { new window.bootstrap.Tab(navLink).show(); activated = true; } catch(_) {}
+        }
+        if (!activated) {
+            if (pane) pane.classList.add('active','show');
+            if (navLink) navLink.classList.add('active');
+        }
+    }
+
+    function getRegionFromURL() {
+        return window.location.hash.startsWith('#region=') ? window.location.hash.substring(8) : null;
+    }
+
+    function updateURL(regionId) {
+        history.replaceState(null, null, regionId ? `#region=${regionId}` : window.location.pathname);
+    }
+
+    function copyRegionLink(regionId) {
+        const url = `${window.location.origin}${window.location.pathname}#region=${regionId}`;
+        navigator.clipboard.writeText(url).then(() => {
+            showNotification('Copied to clipboard');
+        });
+    }
+
+    function showNotification(message) {
+        // Remove any existing toast first
+        const existingToast = document.querySelector('.toast-notification');
+        if (existingToast) {
+            existingToast.remove();
+        }
+
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.textContent = message;
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: #323232;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        `;
+
+        document.body.appendChild(toast);
+        requestAnimationFrame(() => {
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+        });
+
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(10px)';
+            setTimeout(() => toast.remove(), 300);
+        }, 2000);
+    }
+
+    async function loadRegionsData() {
+        try {
+            const response = await fetch('/static/data/gcp-regions.json');
+            gcpRegions = await response.json();
+        } catch(e) { gcpRegions = []; }
+    }
+
+    async function initMap() {
+        await loadRegionsData();
+        const host = document.getElementById('leaflet-map');
+        if (!host) return;
+
+        // Wait just enough frames to ensure the tab layout is applied (esp. after forcing activation)
+        await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+
+        map = L.map(host.id, { zoomControl:true, attributionControl:true }).setView([0,0],2);
+
+        // Layers
+        satelliteLabelsLayer = L.layerGroup([
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: '© Esri', maxZoom: 18 }),
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', { attribution: '© CartoDB, © OpenStreetMap', maxZoom: 19, subdomains: 'abcd' })
+        ]).addTo(map);
+        streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors', maxZoom: 19 });
+
+        // Build markers
+        gcpRegions.forEach(region => {
+            const marker = L.circleMarker([region.lat, region.lng], {
+                radius:6,
+                fillColor: region.approximate ? '#fbbc04' : '#34a853',
+                color:'#ffffff', weight:2, fillOpacity: region.approximate ? 0.8 : 0.9,
+                className:'gcp-marker'
+            }).addTo(map);
+            const locationStatus = region.approximate ? '<br><span style="color:#fbbc04;font-size:12px;">⚠️ Approximate location - <a href="https://github.com/max-ostapenko/website-source/blob/main/src/static/data/gcp-regions.json" target="_blank" style="color:#1a73e8;">help improve</a></span>' : '';
+            marker.bindPopup(`
+                <div style="font-family:'Google Sans',Arial,sans-serif;font-size:14px;min-width:200px;">
+                    <strong style="color:#1a73e8;font-size:16px;">${region.id}</strong><br>
+                    <span style="color:#5f6368;">${region.locationName}</span>
+                    ${locationStatus}
+                </div>`);
+            marker.regionId = region.id;
+            markers[region.id] = marker;
+            marker.on('click', () => {
+                setActiveRegion(region.id);
+                map.setView([region.lat, region.lng], 15);
+            });
+        });
+
+        populateRegionList();
+        setupMapControls();
+        handleDeepLinking();
+        setTimeout(()=>map.invalidateSize(true),300);
+    }
+
+    function handleDeepLinking() {
+        const target = getRegionFromURL();
+        if (!target) return;
+        const region = gcpRegions.find(r=>r.id===target);
+        if (!region) return;
+        map.setView([region.lat, region.lng], 15);
+        setActiveRegion(region.id, false);
+    }
+
+    function setupMapControls() {
+        const satelliteBtn = document.getElementById('satellite-btn');
+        const streetBtn = document.getElementById('street-btn');
+        satelliteBtn.addEventListener('click', () => {
+            if (map.hasLayer(streetLayer)) map.removeLayer(streetLayer);
+            if (!map.hasLayer(satelliteLabelsLayer)) map.addLayer(satelliteLabelsLayer);
+            satelliteBtn.className='map-btn active'; streetBtn.className='map-btn';
+        });
+        streetBtn.addEventListener('click', () => {
+            if (map.hasLayer(satelliteLabelsLayer)) map.removeLayer(satelliteLabelsLayer);
+            if (!map.hasLayer(streetLayer)) map.addLayer(streetLayer);
+            streetBtn.className='map-btn active'; satelliteBtn.className='map-btn';
+        });
+    }
+
+    function populateRegionList() {
+        const container = document.getElementById('region-list');
+        container.innerHTML='';
+        function continent(regionId){
+            if (regionId.startsWith('asia-')) return 'Asia';
+            if (regionId.startsWith('europe-')) return 'Europe';
+            if (regionId.startsWith('us-') || regionId.startsWith('northamerica-')) return 'North America';
+            if (regionId.startsWith('southamerica-')) return 'South America';
+            if (regionId.startsWith('australia-')) return 'Australia & Oceania';
+            if (regionId.startsWith('me-')) return 'Middle East';
+            if (regionId.startsWith('africa-')) return 'Africa';
+            return 'Other';
+        }
+        const grouped={};
+        gcpRegions.forEach(r=>{ const c=continent(r.id); (grouped[c]=grouped[c]||[]).push(r); });
+        const order=['North America','South America','Europe','Asia','Middle East','Africa','Australia & Oceania','Other'];
+        order.filter(c=>grouped[c]).forEach(c=>{
+            const head=document.createElement('div'); head.className='continent-header'; head.innerHTML=`<h3 class="continent-title">${c}</h3>`; container.appendChild(head);
+            grouped[c].sort((a,b)=>a.id.localeCompare(b.id)).forEach(region=>{
+                const item=document.createElement('div');
+                item.className = `region-item${region.approximate ? ' approximate' : ''}`;
+                item.dataset.regionId=region.id;
+
+                const markerClass = region.approximate ? 'approximate' : 'precise';
+                const markerTooltip = region.approximate ?
+                    'Approximate location - exact coordinates needed' :
+                    'Precise location confirmed';
+
+                item.innerHTML=`
+                    <div style="flex:1;">
+                        <p class="region-text-main">${region.id}</p>
+                        <p class="region-text-sub">${region.locationName}</p>
+                    </div>
+                    <div class="region-actions">
+                        <button class="copy-link-btn" title="Copy direct link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                            </svg>
+                        </button>
+                        <div class="region-marker ${markerClass}" title="${markerTooltip}"></div>
+                    </div>
+                `;
+
+                // Add event listeners using modern approach
+                const copyBtn = item.querySelector('.copy-link-btn');
+                copyBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    copyRegionLink(region.id);
+                });
+
+                item.addEventListener('click', e=>{
+                    if(e.target.closest('.copy-link-btn')) return;
+                    setActiveRegion(region.id);
+                    // Simple instant view - no animation
+                    map.setView([region.lat, region.lng], 12);
+                });
+                container.appendChild(item);
+            });
+        });
+    }
+
+    function setActiveRegion(regionId, updateUrl=true) {
+        if (activeRegionId){ const prev=document.querySelector(`.region-item[data-region-id="${activeRegionId}"]`); prev?.classList.remove('active'); }
+        const current=document.querySelector(`.region-item[data-region-id="${regionId}"]`); current?.classList.add('active');
+        activeRegionId=regionId;
+        if (updateUrl) updateURL(regionId);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => { ensureMapTabActiveForRegionHash(); initMap(); });
+
+    window.addEventListener('hashchange', () => {
+        ensureMapTabActiveForRegionHash();
+        const target=getRegionFromURL();
+        if (!target){ if (activeRegionId){ const prev=document.querySelector(`.region-item[data-region-id="${activeRegionId}"]`); prev?.classList.remove('active'); activeRegionId=null; } map?.setView([0,0],2); return; }
+        const region=gcpRegions.find(r=>r.id===target); if (!region) return;
+        map.setView([region.lat, region.lng], 12);
+        setActiveRegion(region.id,false); });
+</script>
+```

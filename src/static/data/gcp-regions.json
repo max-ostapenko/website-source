@@ -1,0 +1,487 @@
+[
+  {
+    "id": "africa-south1",
+    "locationName": "Johannesburg, South Africa",
+    "lat": -26.2041,
+    "lng": 28.0473,
+    "approximate": true
+  },
+  {
+    "id": "asia-east1",
+    "locationName": "Changhua County, Taiwan",
+    "lat": 23.9654991,
+    "lng": 120.4720765,
+    "approximate": true
+  },
+  {
+    "id": "asia-east2",
+    "locationName": "Hong Kong, Hong Kong",
+    "lat": 22.3193,
+    "lng": 114.1694,
+    "approximate": true
+  },
+  {
+    "id": "asia-eastX-tainan-city",
+    "locationName": "Tainan City, Taiwan",
+    "lat": 22.9997,
+    "lng": 120.2270,
+    "approximate": true
+  },
+  {
+    "id": "asia-eastX-inzai",
+    "locationName": "Inzai, Japan",
+    "lat": 35.817778,
+    "lng": 140.1325
+  },
+  {
+    "id": "asia-eastX-yunlin-county",
+    "locationName": "Yunlin County, Taiwan",
+    "lat": 23.7081,
+    "lng": 120.5430,
+    "approximate": true
+  },
+  {
+    "id": "asia-northeast1",
+    "locationName": "Koto-Ku, Tokyo, Japan",
+    "lat": 35.6895,
+    "lng": 139.6917,
+    "approximate": true
+  },
+  {
+    "id": "asia-northeast2",
+    "locationName": "Osaka, Japan",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "approximate": true
+  },
+  {
+    "id": "asia-northeast3",
+    "locationName": "Seoul, South Korea",
+    "lat": 37.5665,
+    "lng": 126.9780,
+    "approximate": true
+  },
+  {
+    "id": "asia-south1",
+    "locationName": "Mumbai, India",
+    "lat": 19.0760,
+    "lng": 72.8777,
+    "approximate": true
+  },
+  {
+    "id": "asia-south2",
+    "locationName": "Delhi, India",
+    "lat": 28.7041,
+    "lng": 77.1025,
+    "approximate": true
+  },
+  {
+    "id": "asia-southX-visakhapatnam",
+    "locationName": "Visakhapatnam, Andhra Pradesh, India",
+    "lat": 17.6868,
+    "lng": 83.2185,
+    "approximate": true
+  },
+  {
+    "id": "asia-southeast1-1",
+    "locationName": "Lok Yang Way, Pioneer, Singapore",
+    "lat": 1.323889,
+    "lng": 103.693333
+  },
+  {
+    "id": "asia-southeast1-2",
+    "locationName": "Wenya, Jurong West, Singapore",
+    "lat": 1.351333,
+    "lng": 103.709778
+  },
+  {
+    "id": "asia-southeast2",
+    "locationName": "Jakarta, Indonesia",
+    "lat": -6.2088,
+    "lng": 106.8456,
+    "approximate": true
+  },
+  {
+    "id": "asia-southeastX-thailand",
+    "locationName": "Thailand",
+    "lat": 15.8700,
+    "lng": 100.9925,
+    "approximate": true
+  },
+  {
+    "id": "asia-southeastX-malaysia",
+    "locationName": "Malaysia",
+    "lat": 4.2105,
+    "lng": 101.9758,
+    "approximate": true
+  },
+  {
+    "id": "australia-southeast1",
+    "locationName": "Sydney, Australia",
+    "lat": -33.8688,
+    "lng": 151.2093,
+    "approximate": true
+  },
+  {
+    "id": "australia-southeast2",
+    "locationName": "Melbourne, Australia",
+    "lat": -37.8136,
+    "lng": 144.9631,
+    "approximate": true
+  },
+  {
+    "id": "australia-southeastX-auckland",
+    "locationName": "Auckland, New Zealand",
+    "lat": -36.8485,
+    "lng": 174.7633,
+    "approximate": true
+  },
+  {
+    "id": "europe-central2",
+    "locationName": "Warsaw, Poland",
+    "lat": 52.2297,
+    "lng": 21.0122,
+    "approximate": true
+  },
+  {
+    "id": "europe-north1",
+    "locationName": "Hamina, Finland",
+    "lat": 60.536578,
+    "lng": 27.117003
+  },
+  {
+    "id": "europe-north2",
+    "locationName": "Stockholm, Sweden",
+    "lat": 60.1282,
+    "lng": 18.6435,
+    "approximate": true
+  },
+  {
+    "id": "europe-northX-oslo",
+    "locationName": "Oslo, Norway",
+    "lat": 59.9139,
+    "lng": 10.7522,
+    "approximate": true
+  },
+  {
+    "id": "europe-northX-fredericia",
+    "locationName": "Fredericia, Denmark",
+    "lat": 55.558194,
+    "lng": 9.655778
+  },
+  {
+    "id": "europe-southX-athens",
+    "locationName": "Athens, Greece",
+    "lat": 37.9838,
+    "lng": 23.7275,
+    "approximate": true
+  },
+  {
+    "id": "europe-southwest1",
+    "locationName": "Madrid, Spain",
+    "lat": 40.519444,
+    "lng": -3.340833
+  },
+  {
+    "id": "europe-west1",
+    "locationName": "Ghlin, Hainaut, Belgium",
+    "lat": 50.469333,
+    "lng": 3.865472
+  },
+  {
+    "id": "europe-west2",
+    "locationName": "London, UK",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "approximate": true
+  },
+  {
+    "id": "europe-west3",
+    "locationName": "Frankfurt, Germany",
+    "lat": 50.1225,
+    "lng": 8.974167
+  },
+  {
+    "id": "europe-west4-1",
+    "locationName": "Eemshaven, Netherlands",
+    "lat": 53.425217,
+    "lng": 6.862257
+  },
+  {
+    "id": "europe-west4-2",
+    "locationName": "Middenmeer, Noord-Holland, The Netherlands",
+    "lat": 52.79,
+    "lng": 5.029167
+  },
+  {
+    "id": "europe-west6",
+    "locationName": "Zürich, Switzerland",
+    "lat": 47.445833,
+    "lng": 8.210833,
+    "approximate": true
+  },
+  {
+    "id": "europe-west8",
+    "locationName": "Milan, Italy",
+    "lat": 45.4642,
+    "lng": 9.1900,
+    "approximate": true
+  },
+  {
+    "id": "europe-west9",
+    "locationName": "Paris, France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "approximate": true
+  },
+  {
+    "id": "europe-west10",
+    "locationName": "Berlin, Germany",
+    "lat": 52.2733263,
+    "lng": 13.5905272
+  },
+  {
+    "id": "europe-west12",
+    "locationName": "Turin, Italy",
+    "lat": 45.146667,
+    "lng": 7.742222
+  },
+  {
+    "id": "europe-westX-dublin",
+    "locationName": "Dublin, Ireland",
+    "lat": 53.3141346,
+    "lng": -6.4494116
+  },
+  {
+    "id": "europe-westX-austria",
+    "locationName": "Austria",
+    "lat": 48.2082,
+    "lng": 16.3738,
+    "approximate": true
+  },
+  {
+    "id": "europe-westX-waltham-cross",
+    "locationName": "Waltham Cross, Hertfordshire, UK",
+    "lat": 51.695556,
+    "lng": -0.048611
+  },
+  {
+    "id": "me-central1",
+    "locationName": "Doha, Qatar",
+    "lat": 25.2854,
+    "lng": 51.5310,
+    "approximate": true
+  },
+  {
+    "id": "me-central2",
+    "locationName": "Dammam, Kingdom of Saudi Arabia",
+    "lat": 26.3927,
+    "lng": 50.1983,
+    "approximate": true
+  },
+  {
+    "id": "me-west1",
+    "locationName": "Tel Aviv, Israel",
+    "lat": 32.0853,
+    "lng": 34.7818,
+    "approximate": true
+  },
+  {
+    "id": "me-westX-kuwait",
+    "locationName": "Kuwait",
+    "lat": 29.3759,
+    "lng": 47.9774,
+    "approximate": true
+  },
+  {
+    "id": "northamerica-northeast1",
+    "locationName": "Montreal, Quebec, Canada",
+    "lat": 45.5019,
+    "lng": -73.5674,
+    "approximate": true
+  },
+  {
+    "id": "northamerica-northeast2",
+    "locationName": "Toronto, Canada",
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "approximate": true
+  },
+  {
+    "id": "northamerica-south1",
+    "locationName": "Querétaro, Mexico",
+    "lat": 20.5888,
+    "lng": -100.3899,
+    "approximate": true
+  },
+  {
+    "id": "southamerica-east1",
+    "locationName": "Osasco, São Paulo, Brazil",
+    "lat": -23.5505,
+    "lng": -46.6333,
+    "approximate": true
+  },
+  {
+    "id": "southamerica-eastX-vinhedo",
+    "locationName": "Vinhedo, São Paulo, Brazil",
+    "lat": -23.030000,
+    "lng": -46.975000,
+    "approximate": true
+  },
+  {
+    "id": "southamerica-west1",
+    "locationName": "Cerrillos, Santiago, Chile",
+    "lat": -33.520556,
+    "lng": -70.721667,
+    "approximate": true
+  },
+  {
+    "id": "southamerica-westX-quilicura",
+    "locationName": "Quilicura, Santiago, Chile",
+    "lat": -33.358472,
+    "lng": -70.697333
+  },
+  {
+    "id": "southamerica-westX-canelones",
+    "locationName": "Canelones, Uruguay",
+    "lat": -34.815556,
+    "lng": -55.995556
+  },
+  {
+    "id": "us-central1-1",
+    "locationName": "Council Bluffs, Iowa, USA",
+    "lat": 41.168333,
+    "lng": -95.796111
+  },
+  {
+    "id": "us-central1-2",
+    "locationName": "Council Bluffs, Iowa, USA",
+    "lat": 41.221583,
+    "lng": -95.863867
+  },
+  {
+    "id": "us-central1-3",
+    "locationName": "Papillion, Nebraska, USA",
+    "lat": 41.133333,
+    "lng": -96.144167
+  },
+  {
+    "id": "us-centralX-pryor-creek",
+    "locationName": "Pryor Creek, Oklahoma, USA",
+    "lat": 36.241139,
+    "lng": -95.330061
+  },
+  {
+    "id": "us-centralX-clarksville",
+    "locationName": "Clarksville, Tennessee, USA",
+    "lat": 36.621111,
+    "lng": -87.263056
+  },
+  {
+    "id": "us-centralX-kansas-city",
+    "locationName": "Kansas City, Missouri, USA",
+    "lat": 39.0997,
+    "lng": -94.5786,
+    "approximate": true
+  },
+  {
+    "id": "us-east1",
+    "locationName": "Moncks Corner, South Carolina, USA",
+    "lat": 33.064111,
+    "lng": -80.043361
+  },
+  {
+    "id": "us-east4-1",
+    "locationName": "Leesburg, Virginia, USA",
+    "lat": 39.051772,
+    "lng": -77.538994
+  },
+  {
+    "id": "us-east4-2",
+    "locationName": "Arcola, Virginia, USA",
+    "lat": 38.943331,
+    "lng": -77.524336
+  },
+  {
+    "id": "us-east5",
+    "locationName": "Columbus, Ohio, USA",
+    "lat": 39.9612,
+    "lng": -82.9988,
+    "approximate": true
+  },
+  {
+    "id": "us-eastX-new-albany",
+    "locationName": "New Albany, Oklahoma, USA",
+    "lat": 40.061389,
+    "lng": -82.758611
+  },
+  {
+    "id": "us-south1-1",
+    "locationName": "Midlothian, Texas, USA",
+    "lat": 32.443056,
+    "lng": -97.062222
+  },
+  {
+    "id": "us-south1-2",
+    "locationName": "Red Oak, Texas, USA",
+    "lat": 32.5375037,
+    "lng": -96.7972014
+  },
+  {
+    "id": "us-southeastX-atlanta",
+    "locationName": "Atlanta, Georgia, USA",
+    "lat": 33.749733,
+    "lng": -84.584814
+  },
+  {
+    "id": "us-southeastX-lenoir",
+    "locationName": "Lenoir, North Carolina, USA",
+    "lat": 35.89855,
+    "lng": -81.547383
+  },
+  {
+    "id": "us-southeastX-widows-creek",
+    "locationName": "Widows Creek (Bridgeport), Alabama, USA",
+    "lat": 34.913444,
+    "lng": -85.748083
+  },
+  {
+    "id": "us-west1",
+    "locationName": "The Dalles, Oregon, USA",
+    "lat": 45.632511,
+    "lng": -121.202267
+  },
+  {
+    "id": "us-west2",
+    "locationName": "Los Angeles, California, USA",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "approximate": true
+  },
+  {
+    "id": "us-west3",
+    "locationName": "Salt Lake City, Utah, USA",
+    "lat": 40.7608,
+    "lng": -111.8910,
+    "approximate": true
+  },
+  {
+    "id": "us-west4",
+    "locationName": "Henderson, Nevada, USA",
+    "lat": 36.055556,
+    "lng": -115.010278
+  },
+  {
+    "id": "us-westX-reno",
+    "locationName": "Reno, Nevada, USA",
+    "lat": 39.501111,
+    "lng": -119.429444
+  },
+  {
+    "id": "us-westX-mesa",
+    "locationName": "Mesa, Arizona, USA",
+    "lat": 33.4152,
+    "lng": -111.8315,
+    "approximate": true
+  }
+]
