@@ -1,6 +1,7 @@
 ---
 title: Google Cloud Regions Locator
 description: Interactive map showing Google Cloud data centers across the globe
+# source: https://datacenters.google/locations/
 
 format:
   dashboard:
@@ -61,6 +62,8 @@ Some locations marked with yellow markers have approximate coordinates where exa
     .continent-header {
         margin-bottom: 8px;
         margin-top: 24px;
+        cursor: pointer;
+        user-select: none;
     }
 
     .continent-header:first-child {
@@ -74,7 +77,37 @@ Some locations marked with yellow markers have approximate coordinates where exa
         text-transform: uppercase;
         letter-spacing: 0.1em;
         margin-bottom: 8px;
-        padding: 0 16px;
+        padding: 12px 16px 8px 16px;
+        border-radius: 4px;
+        transition: background-color 0.15s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .continent-title:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+
+    .continent-toggle {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.4);
+        transition: transform 0.2s ease;
+        line-height: 1;
+    }
+
+    .continent-toggle.expanded {
+        transform: rotate(90deg);
+    }
+
+    .continent-regions {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    .continent-regions.expanded {
+        max-height: 1000px;
     }
 
     .region-text-main {
@@ -474,9 +507,35 @@ Some locations marked with yellow markers have approximate coordinates where exa
         }
         const grouped={};
         gcpRegions.forEach(r=>{ const c=continent(r.id); (grouped[c]=grouped[c]||[]).push(r); });
-        const order=['North America','South America','Europe','Asia','Middle East','Africa','Australia & Oceania','Other'];
+        const order=['Africa','Asia','Australia & Oceania','Europe','Middle East','North America','South America','Other'];
         order.filter(c=>grouped[c]).forEach(c=>{
-            const head=document.createElement('div'); head.className='continent-header'; head.innerHTML=`<h3 class="continent-title">${c}</h3>`; container.appendChild(head);
+            const head=document.createElement('div');
+            head.className='continent-header';
+            head.innerHTML=`<h3 class="continent-title">
+                ${c}
+                <span class="continent-toggle">▶</span>
+            </h3>`;
+
+            const regionsContainer = document.createElement('div');
+            regionsContainer.className = 'continent-regions';
+
+            // Add click handler for expand/collapse
+            head.addEventListener('click', () => {
+                const toggle = head.querySelector('.continent-toggle');
+                const isExpanded = regionsContainer.classList.contains('expanded');
+
+                if (isExpanded) {
+                    regionsContainer.classList.remove('expanded');
+                    toggle.classList.remove('expanded');
+                } else {
+                    regionsContainer.classList.add('expanded');
+                    toggle.classList.add('expanded');
+                }
+            });
+
+            container.appendChild(head);
+            container.appendChild(regionsContainer);
+
             grouped[c].sort((a,b)=>a.id.localeCompare(b.id)).forEach(region=>{
                 const item=document.createElement('div');
                 item.className = `region-item${region.approximate ? ' approximate' : ''}`;
@@ -515,7 +574,7 @@ Some locations marked with yellow markers have approximate coordinates where exa
                     // Simple instant view - no animation
                     map.setView([region.lat, region.lng], 12);
                 });
-                container.appendChild(item);
+                regionsContainer.appendChild(item);
             });
         });
     }
@@ -523,6 +582,18 @@ Some locations marked with yellow markers have approximate coordinates where exa
     function setActiveRegion(regionId, updateUrl=true) {
         if (activeRegionId){ const prev=document.querySelector(`.region-item[data-region-id="${activeRegionId}"]`); prev?.classList.remove('active'); }
         const current=document.querySelector(`.region-item[data-region-id="${regionId}"]`); current?.classList.add('active');
+
+        // Expand the continent containing this region
+        if (current) {
+            const regionsContainer = current.closest('.continent-regions');
+            if (regionsContainer && !regionsContainer.classList.contains('expanded')) {
+                const header = regionsContainer.previousElementSibling;
+                const toggle = header.querySelector('.continent-toggle');
+                regionsContainer.classList.add('expanded');
+                toggle.classList.add('expanded');
+            }
+        }
+
         activeRegionId=regionId;
         if (updateUrl) updateURL(regionId);
     }

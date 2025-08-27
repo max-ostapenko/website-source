@@ -102,15 +102,15 @@
     "approximate": true
   },
   {
-    "id": "asia-southeastX-thailand",
-    "locationName": "Thailand",
-    "lat": 15.8700,
-    "lng": 100.9925,
+    "id": "asia-southeastX-chonburi",
+    "locationName": "Chonburi, Thailand",
+    "lat": 13.2016,
+    "lng": 101.2523,
     "approximate": true
   },
   {
     "id": "asia-southeastX-malaysia",
-    "locationName": "Malaysia",
+    "locationName": "Selangor, Malaysia",
     "lat": 4.2105,
     "lng": 101.9758,
     "approximate": true
@@ -157,11 +157,10 @@
     "approximate": true
   },
   {
-    "id": "europe-northX-oslo",
-    "locationName": "Oslo, Norway",
-    "lat": 59.9139,
-    "lng": 10.7522,
-    "approximate": true
+    "id": "europe-northX-skien",
+    "locationName": "Skien, Norway",
+    "lat": 59.2697,
+    "lng": 9.5199
   },
   {
     "id": "europe-northX-fredericia",
@@ -184,13 +183,20 @@
   },
   {
     "id": "europe-west1",
-    "locationName": "Ghlin, Hainaut, Belgium",
+    "locationName": "Saint-Ghislain, Belgium",
     "lat": 50.469333,
     "lng": 3.865472
   },
   {
+    "id": "europe-westX-farciennes",
+    "locationName": "Farciennes, Belgium",
+    "lat": 50.431226,
+    "lng": 4.547609,
+    "approximate": true
+  },
+  {
     "id": "europe-west2",
-    "locationName": "London, UK",
+    "locationName": "London, United Kingdom",
     "lat": 51.5074,
     "lng": -0.1278,
     "approximate": true
@@ -209,9 +215,21 @@
   },
   {
     "id": "europe-west4-2",
-    "locationName": "Middenmeer, Noord-Holland, The Netherlands",
+    "locationName": "Middenmeer, Netherlands",
     "lat": 52.79,
     "lng": 5.029167
+  },
+  {
+    "id": "europe-westX-groningen",
+    "locationName": "Groningen, Netherlands",
+    "lat": 53.2159,
+    "lng": 6.4747
+  },
+  {
+    "id": "europe-westX-winschoten",
+    "locationName": "Winschoten, Netherlands",
+    "lat": 53.1393,
+    "lng": 7.0608
   },
   {
     "id": "europe-west6",
@@ -238,7 +256,8 @@
     "id": "europe-west10",
     "locationName": "Berlin, Germany",
     "lat": 52.2733263,
-    "lng": 13.5905272
+    "lng": 13.5905272,
+    "approximate": true
   },
   {
     "id": "europe-west12",
@@ -261,7 +280,7 @@
   },
   {
     "id": "europe-westX-waltham-cross",
-    "locationName": "Waltham Cross, Hertfordshire, UK",
+    "locationName": "Waltham Cross, United Kingdom",
     "lat": 51.695556,
     "lng": -0.048611
   },
@@ -385,10 +404,34 @@
     "approximate": true
   },
   {
-    "id": "us-east1",
+    "id": "us-centralX-cedar-rapids",
+    "locationName": "Cedar Rapids, Iowa, USA",
+    "lat": 41.9161,
+    "lng": -91.7221
+  },
+    {
+    "id": "us-centralX-lincoln",
+    "locationName": "Lincoln, Nebraska, USA",
+    "lat": 40.9010,
+    "lng": -96.6485
+  },
+  {
+    "id": "us-east1-1",
     "locationName": "Moncks Corner, South Carolina, USA",
     "lat": 33.064111,
     "lng": -80.043361
+  },
+  {
+    "id": "us-eastX-ridgeville",
+    "locationName": "Ridgeville, South Carolina, USA",
+    "lat": 36.9620,
+    "lng": -80.3064
+  },
+  {
+    "id": "us-eastX-st-george",
+    "locationName": "St. George, South Carolina, USA",
+    "lat": 33.1777,
+    "lng": -80.5364
   },
   {
     "id": "us-east4-1",
@@ -413,6 +456,12 @@
     "locationName": "New Albany, Oklahoma, USA",
     "lat": 40.061389,
     "lng": -82.758611
+  },
+  {
+    "id": "us-eastX-fort-wayne",
+    "locationName": "Fort Wayne, Indiana, USA",
+    "lat": 41.0301,
+    "lng": -85.0422
   },
   {
     "id": "us-south1-1",
@@ -479,8 +528,8 @@
   {
     "id": "us-westX-mesa",
     "locationName": "Mesa, Arizona, USA",
-    "lat": 33.4152,
-    "lng": -111.8315,
+    "lat": 33.3431,
+    "lng": -111.6716,
     "approximate": true
   }
 ]
