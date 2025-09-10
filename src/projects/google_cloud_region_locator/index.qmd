@@ -10,7 +10,7 @@ format:
      orientation: rows
 ---
 
-::: {.callout-warning}
+::: {.callout-note}
 Locations marked with yellow markers have approximate coordinates. Know the precise coordinates - [contribute](https://github.com/max-ostapenko/website-source/issues/new){target="_blank"}.
 :::
 
