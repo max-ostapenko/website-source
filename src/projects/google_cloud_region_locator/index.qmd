@@ -11,9 +11,7 @@ format:
 ---
 
 ::: {.callout-warning}
-## 🤝 Help Improve This Map
-
-Some locations marked with yellow markers have approximate coordinates where exact data center locations weren't available from official sources. Know the precise coordinates? [Contribute to GitHub](https://github.com/max-ostapenko/website-source/blob/main/src/static/data/gcp-regions.json){target="_blank"}
+Locations marked with yellow markers have approximate coordinates. Know the precise coordinates - [contribute](https://github.com/max-ostapenko/website-source/issues/new){target="_blank"}.
 :::
 
 # Sidebar {.sidebar width=20%}
@@ -448,7 +446,7 @@ Some locations marked with yellow markers have approximate coordinates where exa
                 color:'#ffffff', weight:2, fillOpacity: region.approximate ? 0.8 : 0.9,
                 className:'gcp-marker'
             }).addTo(map);
-            const locationStatus = region.approximate ? '<br><span style="color:#fbbc04;font-size:12px;">⚠️ Approximate location - <a href="https://github.com/max-ostapenko/website-source/blob/main/src/static/data/gcp-regions.json" target="_blank" style="color:#1a73e8;">help improve</a></span>' : '';
+            const locationStatus = region.approximate ? '<br><span style="color:#fbbc04;font-size:12px;">⚠️ Approximate location - <a href="https://github.com/max-ostapenko/website-source/issues/new" target="_blank" style="color:#1a73e8;">contribute coordinates</a></span>' : '';
             marker.bindPopup(`
                 <div style="font-family:'Google Sans',Arial,sans-serif;font-size:14px;min-width:200px;">
                     <strong style="color:#1a73e8;font-size:16px;">${region.id}</strong><br>
