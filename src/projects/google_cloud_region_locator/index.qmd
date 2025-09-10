@@ -1,6 +1,7 @@
 ---
 title: Google Cloud Regions Locator
 description: Interactive map showing Google Cloud data centers across the globe
+image: "preview.png"
 # source: https://datacenters.google/locations/
 
 format:
