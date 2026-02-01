@@ -4,7 +4,7 @@
       "site": "max-ostapenko",
       "public": "_site",
       "predeploy": [
-        "make render"
+        "npm run render"
       ],
       "cleanUrls": true,
       "trailingSlash": true
