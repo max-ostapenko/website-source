@@ -1,6 +1,8 @@
 name: Deploy to Firebase Hosting on PR
 on:
-  pull_request
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build_and_preview:
@@ -23,12 +25,5 @@ jobs:
           service_account: 'github-action-website-source@max-ostapenko.iam.gserviceaccount.com'
           create_credentials_file: true
 
-      - name: Export Firebase credentials
-        run: echo "FIREBASE_SERVICE_ACCOUNT=$(cat "${{ steps.auth.outputs.credentials_file_path }}" | tr -d '\n')" >> $GITHUB_ENV
-
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.GCP_SA_KEY_GITHUB_ACTION_WEBSITE_SOURCE }}"
-          projectId: max-ostapenko
-          expires: 7d
+      - name: Deploy to Firebase Preview
+        run: npm run deploy-preview -- pr-${{ github.event.pull_request.number }}
