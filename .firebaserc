@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "max-ostapenko"
+  },
+  "targets": {
+    "max-ostapenko": {
+      "hosting": {
+        "max-ostapenko": [
+          "max-ostapenko"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

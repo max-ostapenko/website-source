@@ -3,9 +3,9 @@ public/
 _freeze/
 _site/
 .firebase/
-.firebaserc
 /.quarto/
 .DS_Store
 src/.quarto
 firebase-debug.log
 .vscode/settings.json
+node_modules/

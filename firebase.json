@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "site": "max-ostapenko",
+      "target": "max-ostapenko",
       "public": "_site",
       "predeploy": [
         "npm run render"

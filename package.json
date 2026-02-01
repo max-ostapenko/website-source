@@ -7,8 +7,8 @@
     "clean": "rm -rf _site",
     "render": "npm run clean && quarto render src/",
     "preview": "quarto preview src/",
-    "deploy": "firebase deploy --only hosting --project max-ostapenko",
-    "deploy-preview": "firebase hosting:channel:deploy --project max-ostapenko --expires 2d",
+    "deploy": "firebase deploy",
+    "deploy-preview": "firebase hosting:channel:deploy --expires 2d",
     "emulate": "firebase emulators:start"
   },
   "devDependencies": {
