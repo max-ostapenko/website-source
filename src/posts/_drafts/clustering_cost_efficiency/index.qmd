@@ -1,0 +1,17 @@
+---
+
+---
+
+```sql
+SELECT
+  page
+FROM `crawl.pages`
+WHERE
+  date = '2025-12-01'
+AND client='mobile'
+AND is_root_page=TRUE
+AND rank=1000
+AND page='https://www.google.com/'
+```
+
+https://docs.cloud.google.com/bigquery/docs/manage-clustered-tables#sql
