@@ -12,7 +12,7 @@
     "emulate": "firebase emulators:start"
   },
   "devDependencies": {
-    "firebase-tools": "15.6.0"
+    "firebase-tools": "15.7.0"
   },
   "engines": {
     "node": ">=24.0.0"
