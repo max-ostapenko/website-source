@@ -6,7 +6,7 @@ categories: ["BigQuery", "Data Engineering", "AdTech"]
 code-links:
   - text: Open in Colab
     icon: google
-    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/_drafts/ads_almanac/notebook.ipynb
+    href: https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/ads_almanac/notebook.ipynb
 ---
 
 ## Introduction

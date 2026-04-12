@@ -43,11 +43,8 @@
 CREATE OR REPLACE TABLE scratchspace.ads_txt_relationships AS
 WITH pages AS (
   SELECT
-    CASE page
-      WHEN 'https://www.chunkbase.com/' THEN 'cafemedia.com'
-      ELSE NET.REG_DOMAIN(page)
-    END AS page,
-    custom_metrics.other AS metrics
+    NET.REG_DOMAIN(page) AS page,
+    custom_metrics.other.ads AS metrics
   FROM `httparchive.crawl.pages`
   WHERE date = '2026-02-01'
     AND client = 'mobile'
@@ -59,8 +56,8 @@ SELECT
   page AS publisher_domain,
   'direct' AS relationship
 FROM pages,
-  UNNEST(JSON_VALUE_ARRAY(JSON_QUERY(metrics, '$.ads.ads.account_types'), '$.direct.domains')) AS domain
-WHERE CAST(JSON_VALUE(metrics, '$.ads.ads.account_count') AS INT64) > 0
+  UNNEST(JSON_VALUE_ARRAY(metrics.ads.account_types.direct.domains)) AS domain
+WHERE SAFE.INT64(metrics.ads.account_count) > 0
 
 UNION ALL
 
@@ -69,8 +66,8 @@ SELECT
   page AS publisher_domain,
   'reseller' AS relationship
 FROM pages,
-  UNNEST(JSON_VALUE_ARRAY(JSON_QUERY(metrics, '$.ads.ads.account_types'), '$.reseller.domains')) AS domain
-WHERE CAST(JSON_VALUE(metrics, '$.ads.ads.account_count') AS INT64) > 0;
+  UNNEST(JSON_VALUE_ARRAY(metrics.ads.account_types.reseller.domains)) AS domain
+WHERE SAFE.INT64(metrics.ads.account_count) > 0;
 
 
 -- 1b. sellers.json relationships
@@ -80,11 +77,8 @@ WHERE CAST(JSON_VALUE(metrics, '$.ads.ads.account_count') AS INT64) > 0;
 CREATE OR REPLACE TABLE scratchspace.sellers_json_relationships AS
 WITH pages AS (
   SELECT
-    CASE page
-      WHEN 'https://www.chunkbase.com/' THEN 'cafemedia.com'
-      ELSE NET.REG_DOMAIN(page)
-    END AS page,
-    custom_metrics.other AS metrics
+    NET.REG_DOMAIN(page) AS page,
+    custom_metrics.other.ads AS metrics
   FROM `httparchive.crawl.pages`
   WHERE date = '2026-02-01'
     AND client = 'mobile'
@@ -97,8 +91,8 @@ SELECT
   NET.REG_DOMAIN(REGEXP_EXTRACT(NORMALIZE_AND_CASEFOLD(domain), r'\b[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b')) AS target_domain,
   'represents_publisher' AS seller_type
 FROM pages,
-  UNNEST(JSON_VALUE_ARRAY(JSON_QUERY(metrics, '$.ads.sellers.seller_types'), '$.publisher.domains')) AS domain
-WHERE CAST(JSON_VALUE(metrics, '$.ads.sellers.seller_count') AS INT64) > 0
+  UNNEST(JSON_VALUE_ARRAY(metrics.ads.sellers.seller_types.publisher.domains)) AS domain
+WHERE SAFE.INT64(metrics.ads.sellers.seller_count) > 0
 
 UNION ALL
 
@@ -108,8 +102,8 @@ SELECT
   NET.REG_DOMAIN(REGEXP_EXTRACT(NORMALIZE_AND_CASEFOLD(domain), r'\b[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b')) AS target_domain,
   'represents_publisher' AS seller_type
 FROM pages,
-  UNNEST(JSON_VALUE_ARRAY(JSON_QUERY(metrics, '$.ads.sellers.seller_types'), '$.both.domains')) AS domain
-WHERE CAST(JSON_VALUE(metrics, '$.ads.sellers.seller_count') AS INT64) > 0
+  UNNEST(JSON_VALUE_ARRAY(metrics.ads.sellers.seller_types.both.domains)) AS domain
+WHERE SAFE.INT64(metrics.ads.sellers.seller_count) > 0
 
 UNION ALL
 
@@ -119,8 +113,8 @@ SELECT
   NET.REG_DOMAIN(REGEXP_EXTRACT(NORMALIZE_AND_CASEFOLD(domain), r'\b[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b')) AS target_domain,
   'intermediary' AS seller_type
 FROM pages,
-  UNNEST(JSON_VALUE_ARRAY(JSON_QUERY(metrics, '$.ads.sellers.seller_types'), '$.intermediary.domains')) AS domain
-WHERE CAST(JSON_VALUE(metrics, '$.ads.sellers.seller_count') AS INT64) > 0
+  UNNEST(JSON_VALUE_ARRAY(metrics.ads.sellers.seller_types.intermediary.domains)) AS domain
+WHERE SAFE.INT64(metrics.ads.sellers.seller_count) > 0
 
 UNION ALL
 
@@ -130,8 +124,8 @@ SELECT
   NET.REG_DOMAIN(REGEXP_EXTRACT(NORMALIZE_AND_CASEFOLD(domain), r'\b[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b')) AS target_domain,
   'intermediary' AS seller_type
 FROM pages,
-  UNNEST(JSON_VALUE_ARRAY(JSON_QUERY(metrics, '$.ads.sellers.seller_types'), '$.both.domains')) AS domain
-WHERE CAST(JSON_VALUE(metrics, '$.ads.sellers.seller_count') AS INT64) > 0;
+  UNNEST(JSON_VALUE_ARRAY(metrics.ads.sellers.seller_types.both.domains)) AS domain
+WHERE SAFE.INT64(metrics.ads.sellers.seller_count) > 0;
 
 
 -- ====================================================================
