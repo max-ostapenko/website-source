@@ -3,6 +3,7 @@ title: "Asking AI About the Web: HTTP Archive Tech Report via MCP"
 description: "How to query HTTP Archive data in plain English using the Tech Report MCP server with GitHub Copilot — no SQL required."
 date: "2026-04-13"
 categories: ["HTTP Archive", "AI", "MCP", "Data"]
+image: preview.png
 ---
 
 # Asking AI About the Web: HTTP Archive Tech Report via MCP
@@ -10,10 +11,6 @@ categories: ["HTTP Archive", "AI", "MCP", "Data"]
 The [HTTP Archive](https://httparchive.org/) has tracked the state of the web since 2010 — crawling millions of pages monthly and measuring adoption, performance, and page weight across millions of origins. The [Tech Report](https://httparchive.org/reports/techreport) already makes those insights available as an interactive web UI: pick any technology, explore Core Web Vitals, Lighthouse scores, trends over time, geo breakdowns.
 
 The [Model Context Protocol](https://modelcontextprotocol.io/) server brings that same dataset to AI agents. Instead of navigating the web UI, you describe what you want to compare and your agent fetches and reasons over the numbers directly. It's public, free, and requires no authentication — the same data, just a different interface.
-
-Here are a few things that came out of asking it questions.
-
----
 
 ## Setup
 
@@ -49,9 +46,13 @@ The data is already public at [httparchive.org/reports/techreport](https://httpa
 
 ## Examples
 
+Here are a few things that came out of asking it questions.
+
 :::{.callout-note}
 Prompts and responses below are lightly edited for clarity and formatting, but otherwise verbatim from Copilot.
 :::
+
+![HTTP Archive Tech Report MCP in action — asking GitHub Copilot about CMS performance](preview.png){.lightbox fig-alt="Screenshot of a GitHub Copilot chat session querying HTTP Archive Tech Report data via MCP" width="60%"}
 
 ### Scale vs. quality: the CMS paradox
 
@@ -78,13 +79,18 @@ The pattern holds for e-commerce too: Shopify leads Magento and WooCommerce on b
 
 Starting with the category gives a ranked list to orient from. Then asking for CWV across base libraries and their meta-framework counterparts in one pass surfaces a consistent pattern:
 
-| Framework | Overall CWV (mobile) | INP (mobile) |
-|---|---|---|
-| React | 46.0% | 72.3% |
-| Vue.js | 38.9% | 68.8% |
-| Next.js | 30.9% | 57.1% |
-| Nuxt.js | 28.1% | 63.4% |
-| Angular | 17.0% | 54.1% |
+
+```
+JavaScript frameworks: mobile CWV pass rate (Feb 2026)
+             0%                   50%
+          ├────────────────────┤
+React      ██████████████████░░  46.0%   base library
+Vue.js     ████████████████░░░░  38.9%   base library
+     ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+Next.js    ████████████░░░░░░░░  30.9%   ↑ builds on React  −15 pts
+Nuxt.js    ███████████░░░░░░░░░  28.1%   ↑ builds on Vue    −11 pts
+Angular    ███████░░░░░░░░░░░░░  17.0%   ◀ outlier
+```
 
 Next.js trails React by 15 points despite being built on it. Nuxt.js similarly lags Vue.js. The abstraction layer adds real overhead — or at least, common usage patterns in those meta-frameworks do. Angular is a notable outlier: only 17% of Angular sites pass mobile CWV overall.
 
@@ -96,20 +102,36 @@ Next.js trails React by 15 points despite being built on it. Nuxt.js similarly l
 
 Mixing a date range, a specific client, and a second metric in one prompt — the kind of combination that would require several separate views in the web UI.
 
-| Framework | Jan 2024 (desktop) | Feb 2026 (desktop) | Growth |
-|---|---|---|---|
-| Astro | 3,120 | 14,686 | **+371%** |
-| SvelteKit | 2,791 | 6,739 | +141% |
-| Next.js | 102,251 | 204,806 | +100% |
-| Nuxt.js | 44,858 | 64,416 | +44% |
+```
+Adoption growth Jan 2024 → Feb 2026
+          0%                             +400%
+          ├──────────────────────────────────┤
+Astro      ████████████████████████████████  +371%
+SvelteKit  ████████████░░░░░░░░░░░░░░░░░░░  +141%
+Next.js    █████████░░░░░░░░░░░░░░░░░░░░░░  +100%
+Nuxt.js    ████░░░░░░░░░░░░░░░░░░░░░░░░░░░   +44%
+```
 
 Astro grew 371% in 25 months. Next.js doubled in absolute numbers and still leads by adoption count (204K desktop origins). Adding page weight in the same query surfaces the trade-off: frameworks with the fastest growth ship very different amounts of JavaScript.
 
-| Framework | Median JS (mobile) | Median total (mobile) |
-|---|---|---|
-| SvelteKit | **476 KB** | 1.6 MB |
-| Astro | 565 KB | 1.5 MB |
-| Next.js | 890 KB | 2.2 MB |
-| Nuxt.js | 1,065 KB | 2.8 MB |
+```
+Median JS shipped, mobile
+          0 KB                           1,100 KB
+          ├──────────────────────────────────┤
+SvelteKit  ████████████████░░░░░░░░░░░░░░░    476 KB  ◀ least JS
+Astro      ███████████████████░░░░░░░░░░░░    565 KB
+Next.js    ██████████████████████████████░    890 KB
+Nuxt.js    ████████████████████████████████ 1,065 KB
+```
 
 SvelteKit ships the least JavaScript of the four — its compiler approach pays off on page weight. Astro is lighter overall despite more JS, likely because its islands architecture avoids loading unused components.
+
+---
+
+## Try it for your stack
+
+The examples above reflect the most popular questions we see people explore in UI — CMS quality gaps, framework overhead, growth trajectories. Your questions will be different.
+
+If you work with a specific platform, framework, or geography, the same tools apply. Ask about your own stack, your competitors, or the category you operate in. The data covers millions of origins across years of crawls.
+
+The MCP server is open source. If there's a dimension you want exposed that isn't there yet — a new metric, a filter, a different aggregation — the handler may be extended: [HTTPArchive/tech-report-apis](https://github.com/HTTPArchive/tech-report-apis/blob/main/src/mcpHandler.js).
