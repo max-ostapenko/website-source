@@ -17,7 +17,7 @@ Here are a few things that came out of asking it questions.
 
 ## Setup
 
-Point your AI tool at the public MCP endpoint — no API key or account needed. For VS Code, add this to `.vscode/mcp.json`:
+Point your AI tool at the public MCP endpoint — no API key or account needed. For Github Copilot in VS Code, add this to `.vscode/mcp.json`:
 
 ```json
 {
@@ -30,7 +30,7 @@ Point your AI tool at the public MCP endpoint — no API key or account needed. 
 }
 ```
 
-Then ask anything. The same data you'd explore at [httparchive.org/reports/techreport](https://httparchive.org/reports/techreport) is now available to your agent.
+Other MCP-compatible clients (Cursor, Claude Desktop, Windsurf) use similar configuration — check your client's MCP setup docs. Then ask anything. The same data you'd explore at [httparchive.org/reports/techreport](https://httparchive.org/reports/techreport) is now available to your agent.
 
 ---
 
@@ -59,7 +59,7 @@ Prompts and responses below are lightly edited for clarity and formatting, but o
 
 Starting at the category level surfaces the overall picture: CMS sites underperform the web average on mobile CWV. Drilling into individual platforms explains why — scale is unevenly distributed.
 
-WordPress runs on roughly 6× more origins than Shopify — but only half of those sites pass Core Web Vitals on mobile. Wix and Shopify, both fully-managed platforms with no plugin ecosystem to bloat, clear the bar at 79–87%.
+WordPress runs on roughly 7× more origins than Shopify — but only half of those sites pass Core Web Vitals on mobile. Wix and Shopify, both fully-managed platforms with no plugin ecosystem to bloat, both clear the ~79% mark.
 
 | Platform | Mobile origins | Mobile CWV (good) |
 |---|---|---|
@@ -78,7 +78,7 @@ The pattern holds for e-commerce too: Shopify leads Magento and WooCommerce on b
 
 Starting with the category gives a ranked list to orient from. Then asking for CWV across base libraries and their meta-framework counterparts in one pass surfaces a consistent pattern:
 
-| Framework | Overall CWV | INP |
+| Framework | Overall CWV (mobile) | INP (mobile) |
 |---|---|---|
 | React | 46.0% | 72.3% |
 | Vue.js | 38.9% | 68.8% |
@@ -96,7 +96,7 @@ Next.js trails React by 15 points despite being built on it. Nuxt.js similarly l
 
 Mixing a date range, a specific client, and a second metric in one prompt — the kind of combination that would require several separate views in the web UI.
 
-| Framework | Jan 2024 | Feb 2026 | Growth |
+| Framework | Jan 2024 (desktop) | Feb 2026 (desktop) | Growth |
 |---|---|---|---|
 | Astro | 3,120 | 14,686 | **+371%** |
 | SvelteKit | 2,791 | 6,739 | +141% |
