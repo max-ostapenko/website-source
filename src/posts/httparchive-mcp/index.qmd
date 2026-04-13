@@ -39,7 +39,7 @@ Then ask anything. The same data you'd explore at [httparchive.org/reports/techr
 
 The MCP exposes the same dimensions the web UI does — adoption, CWV distributions, Lighthouse scores, page weight, geographic breakdowns, version tracking — queryable by technology name, date range, client, and rank segment. The difference is composability: you can layer them in a single prompt and let the agent draw connections across metrics.
 
-The most useful pattern I found is asking about *competitors together*. The web UI shows one technology at a time; an agent can pull and compare several in one pass, surfacing trade-offs that aren't visible when you browse individually. Rank segments (`top 1000` vs `all`) are also easy to add — they reveal whether performance patterns hold across the full long tail or only at scale.
+The most useful pattern is ad-hoc combinations the web UI doesn't expose as a preset: mix any technologies you care about with any metrics, date ranges, geos, and rank segments in a single prompt. You can also move between levels — ask about a category (e.g. "JavaScript frameworks") to orient, then drill into individual technologies to compare. Rank segments (`top 1000` vs `all`) layered over a CWV trend, for example, reveal whether performance patterns hold across the full long tail or only at scale.
 
 The data is already public at [httparchive.org/reports/techreport](https://httparchive.org/reports/techreport). MCP is just another way in.
 
@@ -47,9 +47,17 @@ The data is already public at [httparchive.org/reports/techreport](https://httpa
 
 ---
 
-## Scale vs. quality: the CMS paradox
+## Examples
 
-> *"Compare Core Web Vitals and adoption for WordPress, Shopify, Wix, and Squarespace."*
+:::{.callout-note}
+Prompts and responses below are lightly edited for clarity and formatting, but otherwise verbatim from Copilot.
+:::
+
+### Scale vs. quality: the CMS paradox
+
+> *"Compare adoption and Core Web Vitals for the CMS category. Then break it down by the top platforms — WordPress, Shopify, Wix, Squarespace — on mobile."*
+
+Starting at the category level surfaces the overall picture: CMS sites underperform the web average on mobile CWV. Drilling into individual platforms explains why — scale is unevenly distributed.
 
 WordPress runs on roughly 6× more origins than Shopify — but only half of those sites pass Core Web Vitals on mobile. Wix and Shopify, both fully-managed platforms with no plugin ecosystem to bloat, clear the bar at 79–87%.
 
@@ -64,9 +72,11 @@ The pattern holds for e-commerce too: Shopify leads Magento and WooCommerce on b
 
 ---
 
-## Meta-frameworks underperform their base libraries
+### Meta-frameworks underperform their base libraries
 
-> *"For React, Vue.js, Next.js, and Nuxt.js, what share of mobile sites pass Core Web Vitals?"*
+> *"What are the most popular JavaScript frameworks? Now compare mobile CWV pass rates for React, Vue.js, Next.js, Nuxt.js, and Angular."*
+
+Starting with the category gives a ranked list to orient from. Then asking for CWV across base libraries and their meta-framework counterparts in one pass surfaces a consistent pattern:
 
 | Framework | Overall CWV | INP |
 |---|---|---|
@@ -80,9 +90,11 @@ Next.js trails React by 15 points despite being built on it. Nuxt.js similarly l
 
 ---
 
-## Astro is the fastest-growing framework by far
+### Astro is the fastest-growing framework by far
 
-> *"Show the adoption trend for Next.js, Astro, SvelteKit, and Nuxt.js from Jan 2024 to Feb 2026."*
+> *"Show the adoption trend for Next.js, Astro, SvelteKit, and Nuxt.js on desktop from Jan 2024 to Feb 2026. Also pull median page weight for each."*
+
+Mixing a date range, a specific client, and a second metric in one prompt — the kind of combination that would require several separate views in the web UI.
 
 | Framework | Jan 2024 | Feb 2026 | Growth |
 |---|---|---|---|
@@ -91,4 +103,13 @@ Next.js trails React by 15 points despite being built on it. Nuxt.js similarly l
 | Next.js | 102,251 | 204,806 | +100% |
 | Nuxt.js | 44,858 | 64,416 | +44% |
 
-Astro grew 371% in 25 months. Next.js doubled in absolute numbers and still leads by adoption count (204K desktop origins). SvelteKit also ships the least JavaScript of any tracked framework (488 KB median on mobile) — its compiler approach pays off on page weight.
+Astro grew 371% in 25 months. Next.js doubled in absolute numbers and still leads by adoption count (204K desktop origins). Adding page weight in the same query surfaces the trade-off: frameworks with the fastest growth ship very different amounts of JavaScript.
+
+| Framework | Median JS (mobile) | Median total (mobile) |
+|---|---|---|
+| SvelteKit | **476 KB** | 1.6 MB |
+| Astro | 565 KB | 1.5 MB |
+| Next.js | 890 KB | 2.2 MB |
+| Nuxt.js | 1,065 KB | 2.8 MB |
+
+SvelteKit ships the least JavaScript of the four — its compiler approach pays off on page weight. Astro is lighter overall despite more JS, likely because its islands architecture avoids loading unused components.
