@@ -1,0 +1,94 @@
+---
+title: "Asking AI About the Web: HTTP Archive Tech Report via MCP"
+description: "How to query HTTP Archive data in plain English using the Tech Report MCP server with GitHub Copilot — no SQL required."
+date: "2026-04-13"
+categories: ["HTTP Archive", "AI", "MCP", "Data"]
+---
+
+# Asking AI About the Web: HTTP Archive Tech Report via MCP
+
+The [HTTP Archive](https://httparchive.org/) has tracked the state of the web since 2010 — crawling millions of pages monthly and measuring adoption, performance, and page weight across millions of origins. The [Tech Report](https://httparchive.org/reports/techreport) already makes those insights available as an interactive web UI: pick any technology, explore Core Web Vitals, Lighthouse scores, trends over time, geo breakdowns.
+
+The [Model Context Protocol](https://modelcontextprotocol.io/) server brings that same dataset to AI agents. Instead of navigating the web UI, you describe what you want to compare and your agent fetches and reasons over the numbers directly. It's public, free, and requires no authentication — the same data, just a different interface.
+
+Here are a few things that came out of asking it questions.
+
+---
+
+## Setup
+
+Point your AI tool at the public MCP endpoint — no API key or account needed. For VS Code, add this to `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "tech-report": {
+      "type": "http",
+      "url": "https://cdn.httparchive.org/mcp"
+    }
+  }
+}
+```
+
+Then ask anything. The same data you'd explore at [httparchive.org/reports/techreport](https://httparchive.org/reports/techreport) is now available to your agent.
+
+---
+
+
+## Where this gets interesting for data people
+
+The MCP exposes the same dimensions the web UI does — adoption, CWV distributions, Lighthouse scores, page weight, geographic breakdowns, version tracking — queryable by technology name, date range, client, and rank segment. The difference is composability: you can layer them in a single prompt and let the agent draw connections across metrics.
+
+The most useful pattern I found is asking about *competitors together*. The web UI shows one technology at a time; an agent can pull and compare several in one pass, surfacing trade-offs that aren't visible when you browse individually. Rank segments (`top 1000` vs `all`) are also easy to add — they reveal whether performance patterns hold across the full long tail or only at scale.
+
+The data is already public at [httparchive.org/reports/techreport](https://httparchive.org/reports/techreport). MCP is just another way in.
+
+**Available tools:** `get_adoption_metrics`, `get_cwv_metrics`, `get_lighthouse_metrics`, `get_page_weight_metrics`, `get_cwv_distribution`, `get_geo_breakdown`, `get_audits_metrics`, `list_versions`, `search_technologies`, `list_categories`, `list_ranks`, `list_geos`
+
+---
+
+## Scale vs. quality: the CMS paradox
+
+> *"Compare Core Web Vitals and adoption for WordPress, Shopify, Wix, and Squarespace."*
+
+WordPress runs on roughly 6× more origins than Shopify — but only half of those sites pass Core Web Vitals on mobile. Wix and Shopify, both fully-managed platforms with no plugin ecosystem to bloat, clear the bar at 79–87%.
+
+| Platform | Mobile origins | Mobile CWV (good) |
+|---|---|---|
+| WordPress | 3,046,471 | 48.1% |
+| Shopify | 417,517 | 78.9% |
+| Wix | 199,249 | **79.7%** |
+| Squarespace | 101,708 | 70.8% |
+
+The pattern holds for e-commerce too: Shopify leads Magento and WooCommerce on both Lighthouse performance (0.47 vs 0.34) and accessibility (0.905 vs 0.80). Managed infrastructure has real, measurable advantages — the data makes that case plainly.
+
+---
+
+## Meta-frameworks underperform their base libraries
+
+> *"For React, Vue.js, Next.js, and Nuxt.js, what share of mobile sites pass Core Web Vitals?"*
+
+| Framework | Overall CWV | INP |
+|---|---|---|
+| React | 46.0% | 72.3% |
+| Vue.js | 38.9% | 68.8% |
+| Next.js | 30.9% | 57.1% |
+| Nuxt.js | 28.1% | 63.4% |
+| Angular | 17.0% | 54.1% |
+
+Next.js trails React by 15 points despite being built on it. Nuxt.js similarly lags Vue.js. The abstraction layer adds real overhead — or at least, common usage patterns in those meta-frameworks do. Angular is a notable outlier: only 17% of Angular sites pass mobile CWV overall.
+
+---
+
+## Astro is the fastest-growing framework by far
+
+> *"Show the adoption trend for Next.js, Astro, SvelteKit, and Nuxt.js from Jan 2024 to Feb 2026."*
+
+| Framework | Jan 2024 | Feb 2026 | Growth |
+|---|---|---|---|
+| Astro | 3,120 | 14,686 | **+371%** |
+| SvelteKit | 2,791 | 6,739 | +141% |
+| Next.js | 102,251 | 204,806 | +100% |
+| Nuxt.js | 44,858 | 64,416 | +44% |
+
+Astro grew 371% in 25 months. Next.js doubled in absolute numbers and still leads by adoption count (204K desktop origins). SvelteKit also ships the least JavaScript of any tracked framework (488 KB median on mobile) — its compiler approach pays off on page weight.
