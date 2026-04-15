@@ -5,8 +5,8 @@ WITH RECURSIVE pages AS (
       ELSE NET.REG_DOMAIN(page)
     END AS page,
     custom_metrics
-  FROM `httparchive.all.pages`
-  WHERE date = '2024-06-01' AND
+  FROM `httparchive.crawl.pages`
+  WHERE date = '2026-02-01' AND
     client = 'mobile' AND
     is_root_page = TRUE
 ), ads AS (
