@@ -7,7 +7,17 @@
         "npm run render"
       ],
       "cleanUrls": true,
-      "trailingSlash": true
+      "trailingSlash": true,
+      "headers": [
+        {
+          "source": "**/*.png",
+          "headers": [{ "key": "Content-Type", "value": "image/png" }]
+        },
+        {
+          "source": "**/*.svg",
+          "headers": [{ "key": "Content-Type", "value": "image/svg+xml" }]
+        }
+      ]
     }
   ]
 }
