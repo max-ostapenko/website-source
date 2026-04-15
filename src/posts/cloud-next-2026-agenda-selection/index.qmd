@@ -1,0 +1,69 @@
+---
+title: "Google Cloud Next 2026: The Agenda for Data Platform Professionals"
+description: "A curated guide to the best sessions at Google Cloud Next 2026 for data engineers, architects, and analysts focusing on BigQuery, Looker, and Agentic AI."
+date: "2026-04-15"
+categories: ["data-engineering", "bigquery", "looker", "ai", "google-cloud-next"]
+---
+
+With Google Cloud Next 2026 approaching, picking the right sessions can be overwhelming.
+
+No worries—I've curated the most impactful, still-available sessions focused on **BigQuery, Looker, and Agentic AI**.
+
+Whether you want to optimize FinOps, build lakehouses, or embed AI agents in BI tools, this shortlist will help you get the most out of the event.
+
+## Wednesday, April 22, 2026
+
+| Time | Title | Tags |
+|:---|:---|:---|
+| *9:00 AM* | [Opening keynote: The agentic cloud](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3922022&name=opening-keynote-the-agentic-cloud) | `AI/Agents` |
+| *11:00 AM* | [Zero to scale: Rapid development with Google Cloud & MCP Toolbox for database](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3908793&name=zero-to-scale-rapid-development-with-google-cloud-mcp-toolbox-for-database) | `Data Platform` |
+| *12:15 PM* | [What's new in BigQuery: The data platform for agentic AI](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912214&name=whats-new-in-bigquery-the-data-platform-for-agentic-ai) | `BigQuery`<br>`AI/Agents` |
+| *12:15 PM* | [Next-gen FinOps for the AI era](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912968&name=next-gen-finops-for-the-ai-era) | `AI/Agents`<br>`FinOps` |
+| *12:30 PM* | [Supercharging ELT on Google Cloud with Dataform, dbt, and Airflow](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3909337&name=supercharging-elt-on-google-cloud-with-dataform-dbt-and-airflow) | `Data Platform` |
+| *12:30 PM* | [The agentic revolution: Redefining the data science life cycle](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912210&name=the-agentic-revolution-redefining-the-data-science-life-cycle) | `AI/Agents` |
+| *1:30 PM* | [From vision to value: Powering the agentic enterprise, together](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3909211&name=from-vision-to-value-powering-the-agentic-enterprise-together) | `AI/Agents` |
+| *1:30 PM* | [BigQuery multimodal analytics with generative AI](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912329&name=bigquery-multimodal-analytics-with-generative-ai) | `BigQuery`<br>`AI/Agents` |
+| *1:30 PM* | [BigQuery Graph: Uncover complex, hidden relationships in your data](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912233&name=bigquery-graph-uncover-complex-hidden-relationships-in-your-data) | `BigQuery`<br>`Data Platform` |
+| *2:00 PM* | [Data Professionals Meetup](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3913489&name=data-professionals-meetup) | `Data Platform` |
+| *2:30 PM* | [Data Engineering Agent: Your partner for BigQuery and the open lakehouse](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912247&name=data-engineering-agent-your-partner-for-bigquery-and-the-open-lakehouse) | `BigQuery`<br>`AI/Agents` |
+| *3:45 PM* | [Data governance on autopilot: Secure and track your data for AI](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912292&name=data-governance-on-autopilot-secure-and-track-your-data-for-ai) | `AI/Agents`<br>`Data Platform` |
+| *4:00 PM* | [Real-time analytics and transactional lakehouses](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3932016&name=real-time-analytics-and-transactional-lakehouses) |  |
+| *4:00 PM* | [Agentic analytics for Looker developers](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3932031&name=agentic-analytics-for-looker-developers) | `Looker`<br>`AI/Agents` |
+| *5:00 PM* | [Beyond the warehouse: Architecting BigQuery for the future of analytics](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912291&name=beyond-the-warehouse-architecting-bigquery-for-the-future-of-analytics) | `BigQuery` |
+| *5:15 PM* | [What's new with data and AI governance: Building the catalog for AI](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912224&name=whats-new-with-data-and-ai-governance-building-the-catalog-for-ai) | `AI/Agents`<br>`Data Platform` |
+
+## Thursday, April 23, 2026
+
+| Time | Title | Tags |
+|:---|:---|:---|
+| *8:00 AM* | [Build transactional lakehouses with AlloyDB, Lakehouse, and BigQuery](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912275&name=build-transactional-lakehouses-with-alloydb-lakehouse-and-bigquery) | `BigQuery` |
+| *8:15 AM* | [Unlock data insights: Conversational Analytics agents, API, and MCP](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912276&name=unlock-data-insights-conversational-analytics-agents-api-and-mcp) | `AI/Agents` |
+| *9:00 AM* | [Data roles for the genAI era](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3932030&name=data-roles-for-the-genai-era) | `AI/Agents`<br>`Data Platform` |
+| *10:30 AM* | [The agentic era of data: Conversational BI agents in action](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912236&name=the-agentic-era-of-data-conversational-bi-agents-in-action) | `AI/Agents` |
+| *1:15 PM* | [What's new with data agents](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912265&name=whats-new-with-data-agents) | `AI/Agents` |
+| *1:30 PM* | [Data economy: Turn your data from a cost center into a revenue engine](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3899761&name=data-economy-turn-your-data-from-a-cost-center-into-a-revenue-engine) | `Data Platform`<br>`FinOps` |
+| *1:30 PM* | [Optimize BigQuery observability and FinOps for the agentic era](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912337&name=optimize-bigquery-observability-and-finops-for-the-agentic-era) | `BigQuery`<br>`AI/Agents`<br>`FinOps` |
+| *2:45 PM* | [Define once, trust everywhere: The semantic layer for governed AI](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912281&name=define-once-trust-everywhere-the-semantic-layer-for-governed-ai) | `AI/Agents` |
+| *3:00 PM* | [BigQuery and Looker Studio patterns](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3932054&name=bigquery-and-looker-studio-patterns) | `BigQuery`<br>`Looker` |
+| *4:30 PM* | [Building a high-margin data cloud practice in the agentic era](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3909196&name=building-a-high-margin-data-cloud-practice-in-the-agentic-era) | `AI/Agents` |
+| *5:00 PM* | [Bridging worlds: Bringing Google Cloud Platform's power to open source data lakes](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3908809&name=bridging-worlds-bringing-google-cloud-platforms-power-to-open-source-data-lakes) | `Data Platform` |
+| *5:15 PM* | [From chaos to trusted agents: Master the semantic standard with LookML](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912242&name=from-chaos-to-trusted-agents-master-the-semantic-standard-with-lookml) | `AI/Agents` |
+
+## Friday, April 24, 2026
+
+| Time | Title | Tags |
+|:---|:---|:---|
+| *8:30 AM* | [From data to dashboard: Empower BigQuery users with Looker Studio](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912315&name=from-data-to-dashboard-empower-bigquery-users-with-looker-studio) | `BigQuery`<br>`Looker`<br>`Data Platform` |
+| *8:45 AM* | [Data Validation at Scale: Architecting an AI-Native Validation Engine](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3908772&name=data-validation-at-scale-architecting-an-ai-native-validation-engine) | `Data Platform` |
+| *9:45 AM* | [Agent development and AgentOps with BigQuery, ADK, and MCP](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912318&name=agent-development-and-agentops-with-bigquery-adk-and-mcp) | `BigQuery`<br>`AI/Agents` |
+| *9:45 AM* | [Dashboard agents: Natural language self-service built into Looker](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912238&name=dashboard-agents-natural-language-self-service-built-into-looker) | `Looker`<br>`AI/Agents` |
+| *11:00 AM* | [From assets to action: Data products to power AI agents](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912323&name=from-assets-to-action-data-products-to-power-ai-agents) | `AI/Agents` |
+| *11:00 AM* | [Monetize the moment: AI-powered apps with Looker embedded](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912333&name=monetize-the-moment-ai-powered-apps-with-looker-embedded) | `Looker` |
+| *12:30 PM* | [Agent development and AgentOps with BigQuery, ADK, and MCP](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3912305&name=agent-development-and-agentops-with-bigquery-adk-and-mcp) | `BigQuery`<br>`AI/Agents` |
+| *12:30 PM* | [Enable autonomous data agents with BigQuery and Cloud Run](https://www.googlecloudevents.com/next-vegas/session-library?session_id=3911916&name=enable-autonomous-data-agents-with-bigquery-and-cloud-run) | `BigQuery`<br>`AI/Agents` |
+
+### See you in Vegas!
+
+Data platforms and AI agents are now inseparable — it's not just about data pipelines, but about building intelligent, cost-optimized, and conversational workflows.
+
+Book a seat for your picks in the **Agenda Builder**. See you in Vegas!

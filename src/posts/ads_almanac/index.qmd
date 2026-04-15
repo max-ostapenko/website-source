@@ -2,6 +2,7 @@
 title: "Mapping the AdTech Ecosystem with BigQuery Graphs"
 description: "Using BigQuery's native Graph Query Language (GQL) to analyze ads.txt and sellers.json relationships across the HTTP Archive web crawl."
 date: "2026-04-12"
+draft: true
 categories: ["BigQuery", "Data Engineering", "AdTech"]
 code-links:
   - text: Open in Colab
