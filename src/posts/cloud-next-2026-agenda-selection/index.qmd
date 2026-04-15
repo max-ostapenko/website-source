@@ -3,6 +3,7 @@ title: "Google Cloud Next 2026: The Agenda for Data Platform Professionals"
 description: "A curated guide to the best sessions at Google Cloud Next 2026 for data engineers, architects, and analysts focusing on BigQuery, Looker, and Agentic AI."
 date: "2026-04-15"
 categories: ["data-engineering", "bigquery", "looker", "ai", "google-cloud-next"]
+image: preview.png
 ---
 
 With Google Cloud Next 2026 approaching, picking the right sessions can be overwhelming.
