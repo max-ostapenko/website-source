@@ -3,7 +3,7 @@ title: Safe query costs with BigQuery
 description: Reliable protection from uncontrolled BigQuery costs
 date: 2024-06-20
 categories:
-    - google bigquery
+    - bigquery
 ---
 
 Processing data in BigQuery offers immense power and scalability, but it can also lead to unexpected costs if not managed properly.

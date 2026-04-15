@@ -2,7 +2,7 @@
 title: "Asking AI About the Web: HTTP Archive Tech Report via MCP"
 description: "How to query HTTP Archive data in plain English using the Tech Report MCP server with GitHub Copilot — no SQL required."
 date: "2026-04-13"
-categories: ["HTTP Archive", "AI", "MCP", "Data"]
+categories: ["HTTP Archive", "ai", "mcp"]
 image: preview.png
 ---
 

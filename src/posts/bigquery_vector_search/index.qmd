@@ -3,7 +3,7 @@ title: Google BigQuery Vector Search
 description: Exploring native Vector Search capabilities of Google BigQuery
 date: 2024-02-08
 categories:
-    - google bigquery
+    - bigquery
     - machine learning
 code-links:
   - text: Open in Colab
