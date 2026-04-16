@@ -6,8 +6,6 @@ categories: ["HTTP Archive", "ai", "mcp"]
 image: preview.png
 ---
 
-# Asking AI About the Web: HTTP Archive Tech Report via MCP
-
 The [HTTP Archive](https://httparchive.org/) has tracked the state of the web since 2010 — crawling millions of pages monthly and measuring adoption, performance, and page weight across millions of origins. The [Tech Report](https://httparchive.org/reports/techreport) already makes those insights available as an interactive web UI: pick any technology, explore Core Web Vitals, Lighthouse scores, trends over time, geo breakdowns.
 
 The [Model Context Protocol](https://modelcontextprotocol.io/) server brings that same dataset to AI agents. Instead of navigating the web UI, you describe what you want to compare and your agent fetches and reasons over the numbers directly. It's public, free, and requires no authentication — the same data, just a different interface.
