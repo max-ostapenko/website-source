@@ -5,5 +5,5 @@ nbformat==5.10.4
 nbclient==0.10.4
 jupyter==1.1.1
 PyYAML==6.0.3
-lxml==6.0.2
+lxml==6.1.0
 bigquery_magics==0.12.1
