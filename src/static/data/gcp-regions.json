@@ -279,6 +279,12 @@
     "approximate": true
   },
   {
+    "id": "europe-westX-kronstorf",
+    "locationName": "Kronstorf, Austria",
+    "lat": 48.119927,
+    "lng": 14.455625
+  },
+  {
     "id": "europe-westX-waltham-cross",
     "locationName": "Waltham Cross, United Kingdom",
     "lat": 51.695556,
