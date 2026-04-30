@@ -272,13 +272,6 @@
     "lng": -6.4494116
   },
   {
-    "id": "europe-westX-austria",
-    "locationName": "Austria",
-    "lat": 48.2082,
-    "lng": 16.3738,
-    "approximate": true
-  },
-  {
     "id": "europe-westX-kronstorf",
     "locationName": "Kronstorf, Austria",
     "lat": 48.119927,
