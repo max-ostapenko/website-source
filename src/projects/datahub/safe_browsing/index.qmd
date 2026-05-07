@@ -1,20 +1,59 @@
 ---
 title: Safe Browsing
-description: Protect the web users from unsafe resources.
+description: The Safe Browsing dataset provides hash-based threat intelligence from the Google Safe Browsing API, enabling URL safety checks directly in BigQuery.
+other-links:
+    - text: Open in BigQuery
+      icon: google
+      href: https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/privacy_and_ads/listings/safebrowsing
 ---
 
 ## Overview
 
-Safe Browsing is a Google service that helps apps check URLs against updated lists of unsafe sites, like phishing or malware hosts. With Safe Browsing, you can:
+The Safe Browsing dataset provides hash-based threat intelligence sourced from the [Google Safe Browsing API v5](https://developers.google.com/safe-browsing/v5). It enables analysts to check URLs against Google's global threat lists directly in BigQuery — no API key required.
 
-- Warn users about risky links
-- Check pages for threats by platform and type
-- Block users from sharing known harmful links
+The dataset is refreshed regularly and includes threat coverage for malware, phishing, unwanted software, and potentially harmful applications.
 
 Available at:
 
-- Public Dataset on [BigQuery Analytics Hub](#) - **Coming soon**
+- Public Dataset on [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/privacy_and_ads/listings/safebrowsing)
 
-Provider: [Google](https://safebrowsing.google.com/)
+Provider: [Google](https://safebrowsing.google.com/)
 
-Data is provided for non-commercial use only.
+## Usage
+
+After subscribing to the dataset, check URLs for threats using the bundled stored procedure:
+
+```sql
+CALL `safebrowsing.check_urls`([
+  'https://example.com',
+  'http://suspicious-site.example/'
+]);
+```
+
+Results include the matched URL, hash prefix, list name, threat types, and a description of the threat category.
+
+## Preview
+
+<iframe width="100%" height="300" src="https://datastudio.google.com/embed/reporting/843b06dd-0ead-4b6d-b7f0-a725d3e50d2f/page/xiPxF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+
+## Schema
+
+### hash_lists
+
+| Column | Description |
+|--------|-------------|
+| name | Threat list identifier, e.g. `mw-4b` |
+| metadata.threat_types | Array of threat type strings, e.g. `["MALWARE"]` |
+| metadata.description | Human-readable description of the threat list |
+| ingested_at | Timestamp of last ingestion |
+
+### hash_entries
+
+| Column | Description |
+|--------|-------------|
+| hash_prefix | 4-byte SHA256 prefix as hex string |
+| list_name | Threat list this entry belongs to |
+| hash_length_bytes | Length of the hash prefix (always 4 for this dataset) |
+| version | List version token |
+| partial_update | Whether this was a partial update |
+| ingested_at | Timestamp of last ingestion |
