@@ -132,4 +132,4 @@ The examples above reflect the most popular questions we see people explore in U
 
 If you work with a specific platform, framework, or geography, the same tools apply. Ask about your own stack, your competitors, or the category you operate in. The data covers millions of origins across years of crawls.
 
-The MCP server is open source. If there's a dimension you want exposed that isn't there yet — a new metric, a filter, a different aggregation — the handler may be extended: [HTTPArchive/tech-report-apis](https://github.com/HTTPArchive/tech-report-apis/blob/main/src/mcpHandler.js).
+The MCP server is open source. If there's a dimension you want exposed that isn't there yet — a new metric, a filter, a different aggregation — the handler may be extended: [HTTPArchive/tech-report-apis](https://github.com/HTTPArchive/tech-report-apis/blob/main/apps/report-api/mcpHandler.js).
