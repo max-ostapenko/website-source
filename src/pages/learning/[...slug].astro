@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+
+export async function getStaticPaths() {
+  const items = await getCollection('learning');
+  return items.map((item) => {
+    const cleanSlug = item.id.replace(/\/index$/, '');
+    return {
+      params: { slug: cleanSlug },
+      props: { item },
+    };
+  });
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+---
+
+<SidebarLayout
+  title={item.data.title}
+  description={item.data.description}
+  section="learning"
+>
+  <Content />
+</SidebarLayout>

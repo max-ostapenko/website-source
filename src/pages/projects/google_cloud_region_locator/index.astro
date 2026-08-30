@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import RegionLocator from '../../../components/RegionLocator/RegionLocator.astro';
+import Callout from '../../../components/Callout.astro';
+---
+
+<BaseLayout 
+  title="Google Cloud Regions Locator" 
+  description="Interactive map showing Google Cloud data centers across the globe"
+  image="/images/projects/google_cloud_region_locator/preview.png"
+>
+  <div class="container-wide">
+    <div class="locator-header">
+      <h1 class="page-title">Google Cloud Regions Locator</h1>
+      <p class="page-desc">Interactive map showing Google Cloud data centers across the globe.</p>
+
+      <Callout type="note">
+        Locations marked with yellow markers have approximate coordinates. Know the precise coordinates? <a href="https://github.com/max-ostapenko/website-source/issues/new" target="_blank" rel="noopener noreferrer">Contribute coordinates on GitHub</a>.
+      </Callout>
+    </div>
+
+    <RegionLocator />
+  </div>
+</BaseLayout>
+
+<style>
+  .locator-header {
+    padding: 2rem 0 0.5rem 0;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .page-desc {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+</style>

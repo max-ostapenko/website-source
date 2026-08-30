@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GoodreadsWidget from '../components/GoodreadsWidget.astro';
+
+const socialLinks = [
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/max-ostapenko/',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>`
+  },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/max-ostapenko',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>`
+  },
+  {
+    name: 'Twitter',
+    href: 'https://x.com/themax_o/',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`
+  }
+];
+---
+
+<BaseLayout title="Max Ostapenko" description="About Max Ostapenko | Data Product Management">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Left Profile Column (Trestles Style) -->
+      <aside class="about-card">
+        <img src="/static/images/profile.jpg" alt="Max Ostapenko" class="about-photo" />
+        <h1 class="about-name">Max Ostapenko</h1>
+        <p class="about-role">Data Product Management</p>
+
+        <div class="about-links">
+          {socialLinks.map((s) => (
+            <a href={s.href} target="_blank" rel="noopener noreferrer" class="social-button">
+              <span class="social-icon" set:html={s.icon} />
+              <span>{s.name}</span>
+            </a>
+          ))}
+        </div>
+      </aside>
+
+      <!-- Right Bio & Reading Column -->
+      <article class="about-body">
+        <div class="bio-section">
+          <p class="bio-lead">
+            I'm a Ukrainian 🇺🇦 living in Berlin 🇩🇪.
+          </p>
+          <p>
+            With Math & Economics background I went into product management in 2012.
+          </p>
+          <p>
+            I solve scalability and efficiency challenges of data, monetization and marketing teams.
+          </p>
+          <p>
+            I believe simplicity and structure are the foundation for great experiences.
+          </p>
+          <p>
+            We can <a href="/appointments/">chat</a> about data, privacy and advertising.
+          </p>
+        </div>
+
+        <hr class="about-divider" />
+
+        <section class="hobbies-section">
+          <h2>hobbies</h2>
+          <p>
+            Outside of professional interests I love dinghy ⛵ sailing, 🛶 kayaking, 🚴 cycling and 🏕️ trekking.
+          </p>
+        </section>
+
+        <hr class="about-divider" />
+
+        <section class="reading-section">
+          <h2>currently reading</h2>
+          <GoodreadsWidget />
+        </section>
+      </article>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    padding: 3.5rem 0 4rem 0;
+  }
+
+  .about-card {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--color-bg-subtle);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    height: fit-content;
+  }
+
+  .about-photo {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 0 auto 1.25rem auto;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .about-name {
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .about-role {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .social-button:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .social-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .about-body {
+    font-size: 1.1rem;
+    line-height: 1.65;
+  }
+
+  .bio-lead {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .about-divider {
+    border: 0;
+    border-top: 1px solid var(--color-border-light);
+    margin: 2.5rem 0;
+  }
+
+  .hobbies-section h2,
+  .reading-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .about-card {
+      max-width: 360px;
+      margin: 0 auto;
+    }
+  }
+</style>

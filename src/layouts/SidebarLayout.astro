@@ -1,0 +1,222 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import CodeLinks from '../components/CodeLinks.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  section: 'learning' | 'projects';
+  codeLinks?: { text: string; href: string; icon?: string }[];
+  otherLinks?: { text: string; href: string; icon?: string }[];
+}
+
+const {
+  title,
+  description,
+  section,
+  codeLinks = [],
+  otherLinks = []
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const sidebarMenus = {
+  learning: [
+    { title: 'Overview', href: '/learning/' },
+    { title: 'Selected Sources', href: '/learning/selected_sources/' },
+    { title: 'Tech Radar', href: '/learning/tech_radar/' },
+  ],
+  projects: [
+    { title: 'Overview', href: '/projects/' },
+    { title: 'GCP Region Locator', href: '/projects/google_cloud_region_locator/' },
+    { title: 'GA4 Data Import', href: '/projects/google_analytics_4_data_import/' },
+    {
+      group: 'Datahub',
+      items: [
+        { title: 'Safe Browsing', href: '/projects/datahub/safe_browsing/' },
+        { title: 'Abusive Experience Report', href: '/projects/datahub/abusive_experience_report/' },
+        { title: 'Ad Experience Report', href: '/projects/datahub/ad_experience_report/' },
+      ]
+    },
+    {
+      group: 'HTTP Archive',
+      items: [
+        { title: 'Web Almanac - Privacy ↗', href: 'https://almanac.httparchive.org/en/2024/privacy', external: true }
+      ]
+    }
+  ]
+};
+
+const menuItems = sidebarMenus[section] || [];
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container-wide">
+    <div class="sidebar-layout-grid">
+      <!-- Left Sidebar -->
+      <aside class="content-sidebar">
+        <nav class="sidebar-nav">
+          <h2 class="sidebar-heading">{section}</h2>
+          <ul class="sidebar-menu">
+            {menuItems.map((item: any) => (
+              item.group ? (
+                <li class="sidebar-group">
+                  <span class="group-title">{item.group}</span>
+                  <ul class="group-list">
+                    {item.items.map((sub: any) => (
+                      <li>
+                        <a 
+                          href={sub.href} 
+                          target={sub.external ? '_blank' : '_self'}
+                          rel={sub.external ? 'noopener noreferrer' : ''}
+                          class={`sidebar-link ${currentPath === sub.href ? 'active' : ''}`}
+                        >
+                          {sub.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li>
+                  <a 
+                    href={item.href} 
+                    class={`sidebar-link ${currentPath === item.href ? 'active' : ''}`}
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              )
+            ))}
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Page Content -->
+      <article class="sidebar-main-content">
+        <header class="content-header">
+          <h1 class="main-title">{title}</h1>
+          {description && <p class="main-description">{description}</p>}
+
+          {codeLinks && codeLinks.length > 0 && (
+            <CodeLinks title="Code Links" links={codeLinks} />
+          )}
+
+          {otherLinks && otherLinks.length > 0 && (
+            <CodeLinks title="Resource Links" links={otherLinks} />
+          )}
+        </header>
+
+        <div class="prose">
+          <slot />
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .sidebar-layout-grid {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 3.5rem;
+    padding: 2.5rem 0 4rem 0;
+  }
+
+  .content-sidebar {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+    border-right: 1px solid var(--color-border-light);
+    padding-right: 1.5rem;
+  }
+
+  .sidebar-heading {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem 0;
+    border: none;
+    padding: 0;
+  }
+
+  .sidebar-menu,
+  .group-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-group {
+    margin-top: 1rem;
+  }
+
+  .group-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .sidebar-link {
+    display: block;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+    margin-bottom: 2px;
+  }
+
+  .sidebar-link:hover {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .sidebar-link.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .sidebar-main-content {
+    min-width: 0;
+  }
+
+  .content-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 1.25rem;
+  }
+
+  .main-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .main-description {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+  }
+
+  @media (max-width: 860px) {
+    .sidebar-layout-grid {
+      grid-template-columns: 1fr;
+    }
+    .content-sidebar {
+      position: static;
+      border-right: none;
+      border-bottom: 1px solid var(--color-border);
+      padding-right: 0;
+      padding-bottom: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SearchModal from '../components/SearchModal.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title = 'max ostapenko',
+  description = 'Data Product Management | Max Ostapenko',
+  image = 'https://maxostapenko.com/static/images/profile.jpg',
+  canonicalUrl = Astro.url.href,
+  type = 'website'
+} = Astro.props;
+
+const siteTitle = title === 'max ostapenko' ? title : `${title} – max ostapenko`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{siteTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <link rel="icon" type="image/svg+xml" href="/static/images/logo.svg" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image.startsWith('http') ? image : new URL(image, Astro.site).href} />
+  <meta property="og:site_name" content="max ostapenko" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:creator" content="@themax_o" />
+  <meta name="twitter:title" content={siteTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image.startsWith('http') ? image : new URL(image, Astro.site).href} />
+
+  <!-- Google Tag Manager -->
+  <script is:inline>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KCK8L2');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCK8L2" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <Header />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+  <SearchModal />
+</body>
+</html>

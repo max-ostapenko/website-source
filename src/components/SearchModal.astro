@@ -1,0 +1,231 @@
+---
+---
+
+<div id="search-modal" class="search-modal-backdrop" aria-hidden="true">
+  <div class="search-dialog" role="dialog" aria-modal="true" aria-label="Site Search">
+    <div class="search-header">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Search articles, projects, and guides..." 
+          autocomplete="off"
+        />
+      </div>
+      <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+        <kbd>ESC</kbd>
+      </button>
+    </div>
+
+    <div id="search-results-container" class="search-results-container">
+      <div id="pagefind-results" class="search-results">
+        <p class="search-placeholder">Type to start searching...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .search-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 2000;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 10vh;
+  }
+
+  .search-modal-backdrop.open {
+    display: flex;
+  }
+
+  .search-dialog {
+    background: #ffffff;
+    width: 100%;
+    max-width: 640px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 75vh;
+  }
+
+  .search-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+    gap: 12px;
+  }
+
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .search-icon {
+    color: var(--color-text-muted);
+  }
+
+  .search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    background: transparent;
+  }
+
+  .search-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .search-results-container {
+    padding: 1rem 1.25rem;
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .search-placeholder {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  :global(.pagefind-result-item) {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  :global(.pagefind-result-title) {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+    display: block;
+    color: var(--color-accent);
+  }
+
+  :global(.pagefind-result-excerpt) {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  :global(.pagefind-result-excerpt mark) {
+    background-color: #fff3cd;
+    color: inherit;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  let pagefindInstance: any = null;
+
+  async function loadPagefind() {
+    if (pagefindInstance) return pagefindInstance;
+    try {
+      // Use dynamic import evaluator so Vite dev server does not attempt static module resolution
+      const dynamicImport = new Function('url', 'return import(url)');
+      const pf = await dynamicImport('/pagefind/pagefind.js');
+      if (pf && typeof pf.init === 'function') {
+        await pf.init();
+      }
+      pagefindInstance = pf;
+      return pf;
+    } catch (e) {
+      console.warn('Pagefind index not ready in dev server (runs during build).', e);
+      return null;
+    }
+  }
+
+  const modal = document.getElementById('search-modal');
+  const input = document.getElementById('search-input') as HTMLInputElement | null;
+  const resultsDiv = document.getElementById('pagefind-results');
+  const openBtn = document.getElementById('search-open-btn');
+  const closeBtn = document.getElementById('search-close-btn');
+
+  function openSearch() {
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    loadPagefind();
+    setTimeout(() => input?.focus(), 50);
+  }
+
+  function closeSearch() {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    if (input) input.value = '';
+    if (resultsDiv) resultsDiv.innerHTML = '<p class="search-placeholder">Type to start searching...</p>';
+  }
+
+  openBtn?.addEventListener('click', openSearch);
+  closeBtn?.addEventListener('click', closeSearch);
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeSearch();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' || e.key === 'f' || e.key === 'F') {
+      const activeTag = document.activeElement?.tagName.toLowerCase();
+      if (activeTag !== 'input' && activeTag !== 'textarea') {
+        e.preventDefault();
+        openSearch();
+      }
+    } else if (e.key === 'Escape') {
+      closeSearch();
+    }
+  });
+
+  input?.addEventListener('input', async (e) => {
+    const query = (e.target as HTMLInputElement).value.trim();
+    if (!resultsDiv) return;
+    if (!query) {
+      resultsDiv.innerHTML = '<p class="search-placeholder">Type to start searching...</p>';
+      return;
+    }
+
+    const pf = await loadPagefind();
+    if (!pf) {
+      resultsDiv.innerHTML = '<p class="search-placeholder">Search indexing will be active after static build.</p>';
+      return;
+    }
+
+    const search = await pf.search(query);
+    if (!search || search.results.length === 0) {
+      resultsDiv.innerHTML = '<p class="search-placeholder">No matching results found.</p>';
+      return;
+    }
+
+    resultsDiv.innerHTML = '';
+    const topResults = search.results.slice(0, 8);
+    for (const res of topResults) {
+      const data = await res.data();
+      const div = document.createElement('div');
+      div.className = 'pagefind-result-item';
+      div.innerHTML = `
+        <a href="${data.url}" class="pagefind-result-title">${data.meta.title || data.url}</a>
+        <p class="pagefind-result-excerpt">${data.excerpt}</p>
+      `;
+      resultsDiv.appendChild(div);
+    }
+  });
+</script>

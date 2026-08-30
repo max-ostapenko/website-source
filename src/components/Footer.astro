@@ -1,0 +1,61 @@
+---
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <span>Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a></span>
+    </div>
+    <div class="footer-right">
+      <a href="/posts.xml" class="rss-link" title="RSS Feed" aria-label="RSS Feed">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93v-2.83Z"/>
+        </svg>
+        <span>RSS</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-bg-subtle);
+    border-top: 1px solid var(--color-border);
+    padding: 1.5rem 0;
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .footer-container {
+    max-width: var(--max-width-wide);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left a {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+  }
+
+  .footer-left a:hover {
+    color: var(--color-primary);
+  }
+
+  .rss-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .rss-link:hover {
+    color: #f26522; /* RSS Orange */
+    text-decoration: none;
+  }
+</style>

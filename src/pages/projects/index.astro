@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = [
+  {
+    title: 'Google Cloud Regions Locator',
+    description: 'Interactive map and directory showing Google Cloud data centers across the globe with precise vs approximate coordinate verification.',
+    href: '/projects/google_cloud_region_locator/',
+    category: 'Interactive Map & Tool'
+  },
+  {
+    title: 'Google Analytics 4 Data Import',
+    description: 'Automated data pipeline connecting BigQuery to Google Analytics 4 via Cloud Storage and SFTP Gateway.',
+    href: '/projects/google_analytics_4_data_import/',
+    category: 'Data Engineering & Pipeline'
+  },
+  {
+    title: 'Datahub: Safe Browsing',
+    description: 'Hash-based threat intelligence dataset from Google Safe Browsing API v5 available directly in BigQuery.',
+    href: '/projects/datahub/safe_browsing/',
+    category: 'BigQuery Analytics Hub'
+  },
+  {
+    title: 'Datahub: Abusive Experience Report',
+    description: 'Dataset offering key compliance insights into websites reviewed for abusive advertising experiences.',
+    href: '/projects/datahub/abusive_experience_report/',
+    category: 'BigQuery Analytics Hub'
+  },
+  {
+    title: 'Datahub: Ad Experience Report',
+    description: 'Ad filtering compliance and Better Ads Standards status across desktop and mobile origins.',
+    href: '/projects/datahub/ad_experience_report/',
+    category: 'BigQuery Analytics Hub'
+  },
+  {
+    title: 'Web Almanac - Privacy',
+    description: 'HTTP Archive annual state of the web report chapter on user privacy, tracking prevention, and consent.',
+    href: 'https://almanac.httparchive.org/en/2024/privacy',
+    category: 'HTTP Archive Research',
+    external: true
+  }
+];
+---
+
+<BaseLayout title="Projects" description="Open source tools, data pipelines, and public BigQuery datasets by Max Ostapenko">
+  <div class="container">
+    <div class="projects-page-header">
+      <h1 class="page-title">Projects</h1>
+      <p class="page-lead">
+        Open source utilities, interactive visualizations, and BigQuery data integrations.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      {projects.map((proj) => (
+        <div class="project-card">
+          <a href={proj.href} target={proj.external ? '_blank' : '_self'} rel={proj.external ? 'noopener noreferrer' : ''} class="card-link">
+            <span class="project-category">{proj.category}</span>
+            <h2 class="card-title">
+              {proj.title}
+              {proj.external && <span class="external-arrow">↗</span>}
+            </h2>
+            <p class="card-desc">{proj.description}</p>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .projects-page-header {
+    padding: 3rem 0 2rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+    margin-bottom: 2.5rem;
+  }
+
+  .page-title {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.75rem;
+    padding-bottom: 4rem;
+  }
+
+  .project-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    overflow: hidden;
+  }
+
+  .project-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-link {
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  .project-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    line-height: 1.35;
+    margin: 0 0 0.5rem 0;
+    border: none;
+    padding: 0;
+    color: var(--color-text);
+  }
+
+  .project-card:hover .card-title {
+    color: var(--color-primary);
+  }
+
+  .external-arrow {
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+    margin-left: 4px;
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>

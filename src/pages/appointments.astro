@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CalEmbed from '../components/CalEmbed.astro';
+---
+
+<BaseLayout title="Appointments calendar" description="Schedule a meeting with Max Ostapenko">
+  <div class="container">
+    <div class="appointments-header">
+      <h1 class="page-title">Appointments calendar</h1>
+      <p class="page-lead">
+        Select a convenient time slot below for a chat about data platforms, privacy, or product management.
+      </p>
+    </div>
+
+    <CalEmbed calLink="max-ostapenko/public" brandColor="#174EA6" />
+  </div>
+</BaseLayout>
+
+<style>
+  .appointments-header {
+    padding: 2.5rem 0 1rem 0;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+  }
+</style>

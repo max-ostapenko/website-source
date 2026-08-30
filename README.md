@@ -1,48 +1,42 @@
 # personal website
 
+Personal website of Max Ostapenko, built with [Astro](https://astro.build/) and deployed to [Firebase Hosting](https://firebase.google.com/docs/hosting).
+
+## Features
+
+- **Blazing Fast**: Static generation with Astro v7 (`~1s` build time).
+- **Embedded Jupyter Notebooks**: Native TypeScript parser rendering Markdown, Python code blocks, stdout streams, HTML tables, and Base64 chart outputs at build-time with zero Python runtime dependency.
+- **Interactive Leaflet Map Island**: Google Cloud Regions locator with satellite/street layers, continent filters, coordinates precision verification, and hash-based deep linking (`#region=...`).
+- **Technology Radar**: Embedded Thoughtworks visualizer tracking tools and platforms.
+- **Search & SEO**: Client-side search powered by Pagefind (`/` or `f` shortcuts), OpenGraph, Twitter cards, XML sitemaps, RSS 2.0 (`/posts.xml`), and Google Tag Manager (`GTM-KCK8L2`).
+- **Modern Markdown**: GitHub-style Callouts (`note`, `tip`, `warning`, `caution`), interactive tabsets, Looker Studio embeds, and Cal.com appointment scheduling.
+
 ## Development
 
-Website built using [Quarto publishing system](https://quarto.org/).
+```sh
+# Install dependencies
+npm install
 
-1. Install Quarto CLI, Node.js and dependencies:
+# Start local dev server (hot reloading)
+npm run dev
 
-    ```sh
-    make env
-    ```
+# Build static bundle and generate search index
+npm run build
 
-2. Edit the content in the `src` folder and see the changes live in the browser.
-3. To start a local Quarto server:
+# Preview the built site locally
+npm run preview
+```
 
-    ```sh
-    npm run preview
-    ```
+## Hosting & Deployment
 
-4. Emulate Firebase locally:
+Deploys to Firebase project `max-ostapenko` with `cleanUrls: true` and `trailingSlash: true`.
 
-    ```sh
-    npm run emulate
-    ```
+```sh
+# Deploy to a temporary preview channel
+npm run deploy-preview -- my-feature-branch
 
-## Hosting options
+# Deploy to live channel
+npm run deploy
+```
 
-### Firebase
-
-[Firebase Hosting console](https://console.firebase.google.com/u/0/project/max-ostapenko/hosting/sites)
-
-1. Login with the Firebase CLI (managed via npm):
-
-    ```sh
-    npx firebase login
-    ```
-
-2. Deploy to a preview channel (expires in 2 days):
-
-    ```sh
-    npm run deploy-preview -- my-feature-branch
-    ```
-
-3. Deploy to the live channel:
-
-    ```sh
-    npm run deploy
-    ```
+CI/CD is automated via `.github/workflows/firebase-hosting.yml` on push to `main` using Node.js and Workload Identity Federation.

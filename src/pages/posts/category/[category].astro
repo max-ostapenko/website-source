@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts');
+  const publishedPosts = allPosts.filter((post) => !post.data.draft && post.data.date);
+
+  const categoriesMap = new Map<string, { name: string; posts: typeof allPosts }>();
+
+  publishedPosts.forEach((post) => {
+    if (post.data.categories) {
+      post.data.categories.forEach((cat) => {
+        const slug = cat.toLowerCase().replace(/\s+/g, '-');
+        if (!categoriesMap.has(slug)) {
+          categoriesMap.set(slug, { name: cat, posts: [] });
+        }
+        categoriesMap.get(slug)!.posts.push(post);
+      });
+    }
+  });
+
+  return Array.from(categoriesMap.entries()).map(([slug, data]) => ({
+    params: { category: slug },
+    props: { categoryName: data.name, posts: data.posts },
+  }));
+}
+
+const { categoryName, posts } = Astro.props;
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime()
+);
+---
+
+<BaseLayout title={`Category: ${categoryName}`} description={`Articles categorized under ${categoryName}`}>
+  <div class="container">
+    <div class="category-page-header">
+      <a href="/posts/" class="back-link">← All Articles</a>
+      <h1 class="category-title">Category: <span class="highlight">{categoryName}</span></h1>
+      <p class="category-count">{sortedPosts.length} article{sortedPosts.length === 1 ? '' : 's'}</p>
+    </div>
+
+    <div class="posts-list">
+      {sortedPosts.map((post) => {
+        const slug = post.id.replace(/\/index$/, '');
+        const formattedDate = new Date(post.data.date!).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          timeZone: 'UTC'
+        });
+
+        return (
+          <article class="post-list-item">
+            <div class="post-item-meta">
+              <time datetime={new Date(post.data.date!).toISOString()}>{formattedDate}</time>
+            </div>
+            <div class="post-item-content">
+              <h2 class="post-item-title">
+                <a href={`/posts/${slug}/`}>{post.data.title}</a>
+              </h2>
+              {post.data.description && (
+                <p class="post-item-desc">{post.data.description}</p>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .category-page-header {
+    padding: 3rem 0 2rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .category-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  .category-count {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .post-list-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .post-item-meta {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    padding-top: 0.2rem;
+  }
+
+  .post-item-title {
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+    border: none;
+    padding: 0;
+  }
+
+  .post-item-title a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .post-item-title a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .post-item-desc {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .post-list-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+  }
+</style>

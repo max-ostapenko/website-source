@@ -1,0 +1,185 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import CodeLinks from '../components/CodeLinks.astro';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  date?: Date | string;
+  categories?: string[];
+  image?: string;
+  headings?: Heading[];
+  codeLinks?: { text: string; href: string; icon?: string }[];
+  otherLinks?: { text: string; href: string; icon?: string }[];
+}
+
+const {
+  title,
+  description,
+  date,
+  categories = [],
+  image,
+  headings = [],
+  codeLinks = [],
+  otherLinks = []
+} = Astro.props;
+
+const formattedDate = date
+  ? new Date(date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC'
+    })
+  : null;
+---
+
+<BaseLayout title={title} description={description} image={image} type="article">
+  <div class="container-wide">
+    <div class="post-layout-grid">
+      <!-- Main Content Rail -->
+      <article class="post-article">
+        <header class="post-header">
+          <h1 class="post-title">{title}</h1>
+          {description && <p class="post-description">{description}</p>}
+
+          <div class="post-meta-row">
+            {formattedDate && (
+              <span class="post-date">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
+                </svg>
+                {formattedDate}
+              </span>
+            )}
+
+            {categories && categories.length > 0 && (
+              <div class="post-categories">
+                {categories.map((cat) => (
+                  <a href={`/posts/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`} class="category-pill">
+                    {cat}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {codeLinks && codeLinks.length > 0 && (
+            <CodeLinks title="Code Links" links={codeLinks} />
+          )}
+
+          {otherLinks && otherLinks.length > 0 && (
+            <CodeLinks title="Resource Links" links={otherLinks} />
+          )}
+        </header>
+
+        <div class="post-content prose">
+          <slot />
+        </div>
+      </article>
+
+      <!-- Right Table of Contents Rail -->
+      <aside class="post-toc-rail">
+        {headings && headings.length > 0 && (
+          <TableOfContents headings={headings} />
+        )}
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .post-layout-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 3.5rem;
+    padding: 2.5rem 0 4rem 0;
+  }
+
+  .post-article {
+    min-width: 0;
+  }
+
+  .post-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 1.5rem;
+  }
+
+  .post-title {
+    font-size: 2.4rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .post-description {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+
+  .post-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: 0.75rem;
+  }
+
+  .post-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .post-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .category-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .category-pill:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .post-toc-rail {
+    position: relative;
+  }
+
+  @media (max-width: 960px) {
+    .post-layout-grid {
+      grid-template-columns: 1fr;
+    }
+    .post-toc-rail {
+      display: none;
+    }
+    .post-title {
+      font-size: 1.9rem;
+    }
+  }
+</style>

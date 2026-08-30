@@ -1,0 +1,44 @@
+---
+interface Props {
+  userId?: string;
+}
+
+const { userId = '70245794' } = Astro.props;
+---
+
+<div class="goodreads-widget-container">
+  <div id="gr_custom_widget_1699272653"></div>
+  <script is:inline src="https://www.goodreads.com/review/custom_widget/70245794.My%20bookshelf?cover_position=left&cover_size=small&num_books=5&order=a&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=0&widget_id=1699272653&widget_text_color=000000&widget_title_size=small&widget_width=small" type="text/javascript" charset="utf-8"></script>
+</div>
+
+<style is:global>
+  .gr_custom_each_container_1699272653 {
+    width: 100%;
+    clear: both;
+    margin-bottom: 12px;
+    overflow: auto;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .gr_custom_book_container_1699272653 {
+    overflow: hidden;
+    height: 75px;
+    float: right;
+    margin-right: 4px;
+    width: 49px;
+  }
+
+  .gr_custom_author_1699272653 {
+    font-size: 13px;
+    color: var(--color-text-muted);
+  }
+
+  .gr_custom_header_1699272653 {
+    display: none;
+  }
+
+  .gr_custom_container_1699272653 center {
+    display: none;
+  }
+</style>

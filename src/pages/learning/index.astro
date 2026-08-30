@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const learningTopics = [
+  {
+    title: 'Selected Knowledge Sources',
+    description: 'Curated articles, newsletters, podcasts, books, and conference appearances in product management, data, and economics.',
+    href: '/learning/selected_sources/',
+    tag: 'Curated Resources'
+  },
+  {
+    title: 'Technology Radar',
+    description: 'Interactive radar tracking emerging technologies, platforms, tools, languages, and frameworks.',
+    href: '/learning/tech_radar/',
+    tag: 'Interactive Visualization'
+  }
+];
+---
+
+<BaseLayout title="Learning" description="Curated knowledge sources, reading lists, and technology radar by Max Ostapenko">
+  <div class="container">
+    <div class="learning-page-header">
+      <h1 class="page-title">Learning</h1>
+      <p class="page-lead">
+        Continuous learning resources, podcasts, books, and technology radar explorations.
+      </p>
+    </div>
+
+    <div class="learning-grid">
+      {learningTopics.map((topic) => (
+        <div class="learning-card">
+          <a href={topic.href} class="card-link">
+            <span class="topic-tag">{topic.tag}</span>
+            <h2 class="card-title">{topic.title}</h2>
+            <p class="card-desc">{topic.description}</p>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .learning-page-header {
+    padding: 3rem 0 2rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+    margin-bottom: 2.5rem;
+  }
+
+  .page-title {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+  }
+
+  .learning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.75rem;
+    padding-bottom: 4rem;
+  }
+
+  .learning-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    overflow: hidden;
+  }
+
+  .learning-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-link {
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  .topic-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    line-height: 1.35;
+    margin: 0 0 0.5rem 0;
+    border: none;
+    padding: 0;
+    color: var(--color-text);
+  }
+
+  .learning-card:hover .card-title {
+    color: var(--color-primary);
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>

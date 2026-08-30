@@ -1,0 +1,40 @@
+---
+interface Props {
+  src: string;
+  height?: string;
+  title?: string;
+}
+
+const { src, height = '360px', title = 'Looker Studio Report Preview' } = Astro.props;
+---
+
+<div class="looker-embed-container" style={`min-height: ${height};`}>
+  <iframe 
+    src={src} 
+    title={title}
+    width="100%" 
+    height={height} 
+    frameborder="0" 
+    style="border:0;" 
+    allowfullscreen 
+    loading="lazy"
+    sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+  />
+</div>
+
+<style>
+  .looker-embed-container {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    background-color: #fcfcfc;
+  }
+
+  .looker-embed-container iframe {
+    display: block;
+    width: 100%;
+  }
+</style>

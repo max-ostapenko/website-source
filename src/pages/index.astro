@@ -1,0 +1,297 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const recentPosts = allPosts
+  .filter((post) => !post.data.draft && post.data.date)
+  .sort((a, b) => new Date(b.data.date!).getTime() - new Date(a.data.date!).getTime())
+  .slice(0, 4);
+
+const featuredProjects = [
+  {
+    title: 'Google Cloud Regions Locator',
+    description: 'Interactive map and directory showing Google Cloud data centers across the globe.',
+    href: '/projects/google_cloud_region_locator/',
+    tag: 'Interactive Tool'
+  },
+  {
+    title: 'GA4 Data Import Pipeline',
+    description: 'Automated data import pipeline connecting BigQuery and Google Analytics 4 via SFTP.',
+    href: '/projects/google_analytics_4_data_import/',
+    tag: 'Data Engineering'
+  },
+  {
+    title: 'Datahub: Threat & Quality Reports',
+    description: 'Public BigQuery datasets for Safe Browsing, Abusive Experience, and Ad Experience.',
+    href: '/projects/datahub/safe_browsing/',
+    tag: 'Analytics Hub'
+  }
+];
+---
+
+<BaseLayout title="Welcome" description="Data Product Management | Max Ostapenko">
+  <div class="container">
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome!</h1>
+        <p class="hero-lead">
+          I'm Max, and this is where I share my learnings and experiments.
+        </p>
+        <p class="hero-text">
+          Here, you'll find my content focused on:
+        </p>
+        <ul class="focus-list">
+          <li><strong>Product management & strategy</strong></li>
+          <li><strong>Marketing, monetization & AdTech</strong></li>
+          <li><strong>Data platforms, BigQuery & privacy</strong></li>
+        </ul>
+        <p class="hero-connect">
+          Explore articles, discover tools, or <a href="/appointments/">let's chat</a>.
+        </p>
+        <p class="hero-connect">
+          Enjoy!
+        </p>
+      </div>
+      <div class="hero-profile">
+        <img src="/static/images/profile.jpg" alt="Max Ostapenko" class="profile-img" width="180" height="180" />
+      </div>
+    </div>
+
+    <!-- Recent Posts Section -->
+    <section class="home-section">
+      <div class="section-header">
+        <h2 class="section-title">Latest Articles</h2>
+        <a href="/posts/" class="section-all-link">View all articles →</a>
+      </div>
+      <div class="posts-grid">
+        {recentPosts.map((post) => (
+          <article class="post-card">
+            <a href={`/posts/${post.id.replace(/\/index$/, '')}/`} class="card-link">
+              <span class="card-date">
+                {new Date(post.data.date!).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}
+              </span>
+              <h3 class="card-title">{post.data.title}</h3>
+              {post.data.description && <p class="card-desc">{post.data.description}</p>}
+              {post.data.categories && post.data.categories.length > 0 && (
+                <div class="card-tags">
+                  {post.data.categories.slice(0, 3).map((cat) => (
+                    <span class="tag-badge">{cat}</span>
+                  ))}
+                </div>
+              )}
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="home-section">
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <a href="/projects/" class="section-all-link">View all projects →</a>
+      </div>
+      <div class="projects-grid">
+        {featuredProjects.map((proj) => (
+          <div class="project-card">
+            <a href={proj.href} class="card-link">
+              <span class="project-tag">{proj.tag}</span>
+              <h3 class="card-title">{proj.title}</h3>
+              <p class="card-desc">{proj.description}</p>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 3.5rem 0 2.5rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+  }
+
+  .hero-lead {
+    font-size: 1.3rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .hero-text {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .focus-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 1.5rem 0;
+  }
+
+  .focus-list li {
+    font-size: 1.05rem;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .focus-list li::before {
+    content: "•";
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .hero-connect {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+  }
+
+  .hero-profile {
+    flex-shrink: 0;
+  }
+
+  .profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-primary-light);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Section Styling */
+  .home-section {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin: 0;
+    border: none;
+    padding: 0;
+  }
+
+  .section-all-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .posts-grid,
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .post-card,
+  .project-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    overflow: hidden;
+  }
+
+  .post-card:hover,
+  .project-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-link {
+    display: block;
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  .card-date,
+  .project-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .project-tag {
+    color: var(--color-primary);
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-text);
+  }
+
+  .post-card:hover .card-title,
+  .project-card:hover .card-title {
+    color: var(--color-primary);
+  }
+
+  .card-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tag-badge {
+    font-size: 0.75rem;
+    background-color: var(--color-bg-subtle);
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+    .focus-list li {
+      justify-content: center;
+    }
+  }
+</style>

@@ -4,17 +4,29 @@
   "description": "Source code for maxostapenko.com",
   "private": true,
   "scripts": {
-    "clean": "rm -rf _site",
-    "render": "npm run clean && quarto render src/",
-    "preview": "quarto preview src/",
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site _site",
+    "preview": "astro preview",
     "deploy": "firebase deploy",
     "deploy-preview": "firebase hosting:channel:deploy --expires 2d",
     "emulate": "firebase emulators:start"
   },
   "devDependencies": {
-    "firebase-tools": "15.24.0"
+    "@types/node": "^26.4.0",
+    "firebase-tools": "15.24.0",
+    "typescript": "^7.0.2"
   },
   "engines": {
     "node": ">=24.0.0"
+  },
+  "dependencies": {
+    "@alexcarol/astro-llms-txt": "^0.1.1",
+    "@astrojs/mdx": "^7.0.8",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.9",
+    "cookie": "^2.0.1",
+    "marked": "^13.0.3",
+    "pagefind": "^1.5.2"
   }
 }

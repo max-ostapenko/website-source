@@ -1,0 +1,42 @@
+---
+title: Abusive Experience Report
+description: The Abusive Experience Report dataset offers key insights into websites reviewed for abusive ads.
+other-links:
+    - text: Open in BigQuery
+      icon: google
+      href: https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/privacy_and_ads/listings/abusiveexperiencereport
+---
+import LookerEmbed from '../../../../components/LookerEmbed.astro';
+
+## Overview
+
+The Abusive Experience Report dataset offers key insights into websites reviewed for abusive ads. It includes:
+
+- **Site Name**: Name of the reviewed site
+- **Abusive Experience Status**: Current status of abusive ad reports
+- **Enforcement Status**: Compliance enforcement status
+- **Under Review**: Indicates if the site is currently under review
+- **Timestamps**: Last status change and enforcement action dates
+
+This dataset helps address abusive ad practices, ensuring a safer and more trustworthy online experience. It's an essential tool for enhancing web safety and user trust.
+
+Available at:
+
+- Public Dataset on [BigQuery Analytics Hub](https://console.cloud.google.com/bigquery/analytics-hub/discovery/projects/350147566624/locations/us/dataExchanges/privacy_and_ads/listings/abusiveexperiencereport)
+
+Provider: [Google](https://support.google.com/webtools/topic/7538671)
+
+## Preview
+
+<LookerEmbed src="https://lookerstudio.google.com/embed/reporting/41527999-f73f-42e0-a744-e5b040e668c5/page/PnDJF" height="340px" title="Abusive Experience Report Preview" />
+
+## Schema
+
+| Column Name | Description |
+|---|---|
+| `reviewedSite` | The name of the reviewed site, e.g., google.com. |
+| `lastChangeTime` | The time at which the site's status last changed. |
+| `abusiveStatus` | The site's Abusive Experience Report status. |
+| `underReview` | Indicates whether the site is currently under review. |
+| `enforcementTime` | The time at which enforcement against the site began or will begin. |
+| `filterStatus` | The site's [enforcement status](https://support.google.com/webtools/answer/7538608). |

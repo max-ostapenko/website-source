@@ -1,0 +1,60 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+---
+
+<SidebarLayout
+  title="Technology Radar"
+  description="Personal technology radar tracking tools, platforms, and methodologies."
+  section="learning"
+>
+  <div class="radar-iframe-container">
+    <iframe
+      src="/tech-radar/radar.html"
+      title="Thoughtworks Technology Radar"
+      class="radar-iframe"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <div class="radar-drafts-section">
+    <h2>Radar Focus & Pipeline</h2>
+    <ul>
+      <li><a href="https://datavaultalliance.com/news/dv/understanding-data-vault-2-0/" target="_blank" rel="noopener noreferrer">Data Vault 2.0</a></li>
+      <li>SLI and SLO Engineering Practices</li>
+      <li>Continuous Deployment & Verification Pipelines</li>
+      <li>Domain Storytelling & Domain-Driven Design (DDD)</li>
+      <li>Fine-tuning Embedding Models for Vector Search</li>
+      <li>Identity Federation & Workload Identity</li>
+    </ul>
+  </div>
+</SidebarLayout>
+
+<style>
+  .radar-iframe-container {
+    width: 100%;
+    min-height: 700px;
+    height: 75vh;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin: 1.5rem 0 2.5rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .radar-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .radar-drafts-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .radar-drafts-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+</style>

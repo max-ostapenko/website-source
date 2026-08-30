@@ -1,11 +1,21 @@
-public/
-.venv/
-_freeze/
+# Build outputs
 _site/
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+.venv/
+
+# Firebase & IDE
 .firebase/
-/.quarto/
-.DS_Store
-src/.quarto
 firebase-debug.log
 .vscode/settings.json
-node_modules/
+
+# Quarto legacy
+_freeze/
+/.quarto/
+src/.quarto
+
+# OS files
+.DS_Store

@@ -1,0 +1,42 @@
+---
+title: Google Analytics 4 Data Import
+description: Google Analytics 4 Data Import pipeline using Google Cloud Platform.
+code-links:
+  - text: Python package
+    href: https://pypi.org/project/ga4-data-import/
+  - text: Package source
+    icon: github
+    href: https://github.com/max-ostapenko/ga4_data_import/
+---
+
+## Overview
+
+Google Analytics 4 Data Import pipeline using Google Cloud Platform.
+
+Supported sources:
+
+- BigQuery
+- Cloud Storage
+- SFTP
+
+<figure style="text-align: center; margin: 2rem 0;">
+  <img src="/images/projects/google_analytics_4_data_import/diagram_ga4_data_import.png" alt="Pipeline diagram" style="max-width: 85%; margin: 0 auto;" />
+</figure>
+
+## Get started
+
+Configure data imports from a notebook:
+
+<p style="margin: 1.5rem 0;">
+  <a href="https://colab.research.google.com/github/max-ostapenko/website-source/blob/main/src/posts/google_analytics_4_data_import/notebook.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+</p>
+
+It is an approachable interface with an easily configurable environment. Open it and follow the instructions to get a pipeline running within a minute.
+
+Read a detailed overview about the pipeline configuration in [a blog post](/posts/google_analytics_4_data_import/).
+
+It is possible to use dedicated Python package in another environment:
+
+```sh
+pip install ga4_data_import
+```
