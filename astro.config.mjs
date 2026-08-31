@@ -12,12 +12,22 @@ function sitemapAlias() {
     hooks: {
       'astro:build:done': async ({ dir }) => {
         const outDirPath = fileURLToPath(dir);
-        const src = path.join(outDirPath, 'sitemap-index.xml');
-        const dest = path.join(outDirPath, 'sitemap.xml');
-        if (fs.existsSync(src)) {
-          fs.copyFileSync(src, dest);
-          console.log('[sitemap-alias] Copied sitemap-index.xml to sitemap.xml');
+        const sitemap0 = path.join(outDirPath, 'sitemap-0.xml');
+        const sitemapIndex = path.join(outDirPath, 'sitemap-index.xml');
+        const sitemapDest = path.join(outDirPath, 'sitemap.xml');
+
+        if (fs.existsSync(sitemap0)) {
+          fs.copyFileSync(sitemap0, sitemapDest);
+          fs.unlinkSync(sitemap0);
+        } else if (fs.existsSync(sitemapIndex)) {
+          fs.copyFileSync(sitemapIndex, sitemapDest);
         }
+
+        if (fs.existsSync(sitemapIndex)) {
+          fs.unlinkSync(sitemapIndex);
+        }
+
+        console.log('[sitemap] Generated single standalone sitemap.xml');
       },
     },
   };
