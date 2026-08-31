@@ -17,7 +17,7 @@
     "typescript": "^7.0.2"
   },
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=22.0.0"
   },
   "dependencies": {
     "@alexcarol/astro-llms-txt": "^0.1.1",
