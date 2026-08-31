@@ -8,13 +8,6 @@
       ],
       "cleanUrls": true,
       "trailingSlash": true,
-      "redirects": [
-        {
-          "source": "/sitemap.xml",
-          "destination": "/sitemap-index.xml",
-          "type": 301
-        }
-      ],
       "headers": [
         {
           "source": "**/*.png",
