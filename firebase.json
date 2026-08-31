@@ -8,11 +8,14 @@
       ],
       "cleanUrls": true,
       "trailingSlash": true,
-      "headers": [
+      "redirects": [
         {
-          "source": "**/*.xml",
-          "headers": [{ "key": "Content-Type", "value": "application/xml; charset=utf-8" }]
-        },
+          "source": "/sitemap.xml",
+          "destination": "/sitemap-index.xml",
+          "type": 301
+        }
+      ],
+      "headers": [
         {
           "source": "**/*.png",
           "headers": [{ "key": "Content-Type", "value": "image/png" }]
