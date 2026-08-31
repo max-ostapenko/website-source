@@ -21,23 +21,23 @@
     "approximate": true
   },
   {
-    "id": "asia-eastX-tainan-city",
-    "locationName": "Tainan City, Taiwan",
-    "lat": 22.9997,
-    "lng": 120.2270,
-    "approximate": true
-  },
-  {
     "id": "asia-eastX-inzai",
     "locationName": "Inzai, Japan",
     "lat": 35.817778,
     "lng": 140.1325
   },
   {
+    "id": "asia-eastX-tainan-city",
+    "locationName": "Tainan City, Taiwan",
+    "lat": 22.9997,
+    "lng": 120.227,
+    "approximate": true
+  },
+  {
     "id": "asia-eastX-yunlin-county",
     "locationName": "Yunlin County, Taiwan",
     "lat": 23.7081,
-    "lng": 120.5430,
+    "lng": 120.543,
     "approximate": true
   },
   {
@@ -58,13 +58,13 @@
     "id": "asia-northeast3",
     "locationName": "Seoul, South Korea",
     "lat": 37.5665,
-    "lng": 126.9780,
+    "lng": 126.978,
     "approximate": true
   },
   {
     "id": "asia-south1",
     "locationName": "Mumbai, India",
-    "lat": 19.0760,
+    "lat": 19.076,
     "lng": 72.8777,
     "approximate": true
   },
@@ -73,13 +73,6 @@
     "locationName": "Delhi, India",
     "lat": 28.7041,
     "lng": 77.1025,
-    "approximate": true
-  },
-  {
-    "id": "asia-southX-visakhapatnam",
-    "locationName": "Visakhapatnam, Andhra Pradesh, India",
-    "lat": 17.6868,
-    "lng": 83.2185,
     "approximate": true
   },
   {
@@ -102,6 +95,13 @@
     "approximate": true
   },
   {
+    "id": "asia-southeast3",
+    "locationName": "Bangkok, Thailand",
+    "lat": 13.7563,
+    "lng": 100.5018,
+    "approximate": true
+  },
+  {
     "id": "asia-southeastX-chonburi",
     "locationName": "Chonburi, Thailand",
     "lat": 13.2016,
@@ -113,6 +113,13 @@
     "locationName": "Selangor, Malaysia",
     "lat": 4.2105,
     "lng": 101.9758,
+    "approximate": true
+  },
+  {
+    "id": "asia-southX-visakhapatnam",
+    "locationName": "Visakhapatnam, Andhra Pradesh, India",
+    "lat": 17.6868,
+    "lng": 83.2185,
     "approximate": true
   },
   {
@@ -157,16 +164,22 @@
     "approximate": true
   },
   {
+    "id": "europe-northX-fredericia",
+    "locationName": "Fredericia, Denmark",
+    "lat": 55.558194,
+    "lng": 9.655778
+  },
+  {
     "id": "europe-northX-skien",
     "locationName": "Skien, Norway",
     "lat": 59.2697,
     "lng": 9.5199
   },
   {
-    "id": "europe-northX-fredericia",
-    "locationName": "Fredericia, Denmark",
-    "lat": 55.558194,
-    "lng": 9.655778
+    "id": "europe-southwest1",
+    "locationName": "Madrid, Spain",
+    "lat": 40.519444,
+    "lng": -3.340833
   },
   {
     "id": "europe-southX-athens",
@@ -176,23 +189,23 @@
     "approximate": true
   },
   {
-    "id": "europe-southwest1",
-    "locationName": "Madrid, Spain",
-    "lat": 40.519444,
-    "lng": -3.340833
-  },
-  {
     "id": "europe-west1",
     "locationName": "Saint-Ghislain, Belgium",
     "lat": 50.469333,
     "lng": 3.865472
   },
   {
-    "id": "europe-westX-farciennes",
-    "locationName": "Farciennes, Belgium",
-    "lat": 50.431226,
-    "lng": 4.547609,
+    "id": "europe-west10",
+    "locationName": "Berlin, Germany",
+    "lat": 52.2733263,
+    "lng": 13.5905272,
     "approximate": true
+  },
+  {
+    "id": "europe-west12",
+    "locationName": "Turin, Italy",
+    "lat": 45.146667,
+    "lng": 7.742222
   },
   {
     "id": "europe-west2",
@@ -220,18 +233,6 @@
     "lng": 5.029167
   },
   {
-    "id": "europe-westX-groningen",
-    "locationName": "Groningen, Netherlands",
-    "lat": 53.2159,
-    "lng": 6.4747
-  },
-  {
-    "id": "europe-westX-winschoten",
-    "locationName": "Winschoten, Netherlands",
-    "lat": 53.1393,
-    "lng": 7.0608
-  },
-  {
     "id": "europe-west6",
     "locationName": "Zürich, Switzerland",
     "lat": 47.445833,
@@ -242,7 +243,7 @@
     "id": "europe-west8",
     "locationName": "Milan, Italy",
     "lat": 45.4642,
-    "lng": 9.1900,
+    "lng": 9.19,
     "approximate": true
   },
   {
@@ -253,23 +254,23 @@
     "approximate": true
   },
   {
-    "id": "europe-west10",
-    "locationName": "Berlin, Germany",
-    "lat": 52.2733263,
-    "lng": 13.5905272,
-    "approximate": true
-  },
-  {
-    "id": "europe-west12",
-    "locationName": "Turin, Italy",
-    "lat": 45.146667,
-    "lng": 7.742222
-  },
-  {
     "id": "europe-westX-dublin",
     "locationName": "Dublin, Ireland",
     "lat": 53.3141346,
     "lng": -6.4494116
+  },
+  {
+    "id": "europe-westX-farciennes",
+    "locationName": "Farciennes, Belgium",
+    "lat": 50.431226,
+    "lng": 4.547609,
+    "approximate": true
+  },
+  {
+    "id": "europe-westX-groningen",
+    "locationName": "Groningen, Netherlands",
+    "lat": 53.2159,
+    "lng": 6.4747
   },
   {
     "id": "europe-westX-kronstorf",
@@ -284,10 +285,16 @@
     "lng": -0.048611
   },
   {
+    "id": "europe-westX-winschoten",
+    "locationName": "Winschoten, Netherlands",
+    "lat": 53.1393,
+    "lng": 7.0608
+  },
+  {
     "id": "me-central1",
     "locationName": "Doha, Qatar",
     "lat": 25.2854,
-    "lng": 51.5310,
+    "lng": 51.531,
     "approximate": true
   },
   {
@@ -342,8 +349,8 @@
   {
     "id": "southamerica-eastX-vinhedo",
     "locationName": "Vinhedo, São Paulo, Brazil",
-    "lat": -23.030000,
-    "lng": -46.975000,
+    "lat": -23.03,
+    "lng": -46.975,
     "approximate": true
   },
   {
@@ -354,16 +361,16 @@
     "approximate": true
   },
   {
-    "id": "southamerica-westX-quilicura",
-    "locationName": "Quilicura, Santiago, Chile",
-    "lat": -33.358472,
-    "lng": -70.697333
-  },
-  {
     "id": "southamerica-westX-canelones",
     "locationName": "Canelones, Uruguay",
     "lat": -34.815556,
     "lng": -55.995556
+  },
+  {
+    "id": "southamerica-westX-quilicura",
+    "locationName": "Quilicura, Santiago, Chile",
+    "lat": -33.358472,
+    "lng": -70.697333
   },
   {
     "id": "us-central1-1",
@@ -384,10 +391,10 @@
     "lng": -96.144167
   },
   {
-    "id": "us-centralX-pryor-creek",
-    "locationName": "Pryor Creek, Oklahoma, USA",
-    "lat": 36.241139,
-    "lng": -95.330061
+    "id": "us-centralX-cedar-rapids",
+    "locationName": "Cedar Rapids, Iowa, USA",
+    "lat": 41.9161,
+    "lng": -91.7221
   },
   {
     "id": "us-centralX-clarksville",
@@ -403,34 +410,22 @@
     "approximate": true
   },
   {
-    "id": "us-centralX-cedar-rapids",
-    "locationName": "Cedar Rapids, Iowa, USA",
-    "lat": 41.9161,
-    "lng": -91.7221
-  },
-    {
     "id": "us-centralX-lincoln",
     "locationName": "Lincoln, Nebraska, USA",
-    "lat": 40.9010,
+    "lat": 40.901,
     "lng": -96.6485
+  },
+  {
+    "id": "us-centralX-pryor-creek",
+    "locationName": "Pryor Creek, Oklahoma, USA",
+    "lat": 36.241139,
+    "lng": -95.330061
   },
   {
     "id": "us-east1-1",
     "locationName": "Moncks Corner, South Carolina, USA",
     "lat": 33.064111,
     "lng": -80.043361
-  },
-  {
-    "id": "us-eastX-ridgeville",
-    "locationName": "Ridgeville, South Carolina, USA",
-    "lat": 36.9620,
-    "lng": -80.3064
-  },
-  {
-    "id": "us-eastX-st-george",
-    "locationName": "St. George, South Carolina, USA",
-    "lat": 33.1777,
-    "lng": -80.5364
   },
   {
     "id": "us-east4-1",
@@ -451,16 +446,46 @@
     "lng": -82.9966
   },
   {
-    "id": "us-eastX-new-albany",
-    "locationName": "New Albany, Oklahoma, USA",
-    "lat": 40.061389,
-    "lng": -82.758611
-  },
-  {
     "id": "us-eastX-fort-wayne",
     "locationName": "Fort Wayne, Indiana, USA",
     "lat": 41.0301,
     "lng": -85.0422
+  },
+  {
+    "id": "us-eastX-new-albany",
+    "locationName": "New Albany, Ohio, USA",
+    "lat": 40.061389,
+    "lng": -82.758611
+  },
+  {
+    "id": "us-eastX-project-loch",
+    "locationName": "Project Loch (750 Watkins Centre Parkway), Chesterfield County, Virginia, USA",
+    "lat": 37.499339,
+    "lng": -77.691473
+  },
+  {
+    "id": "us-eastX-project-peanut",
+    "locationName": "Project Peanut (Bermuda Hundred), Chesterfield County, Virginia, USA",
+    "lat": 37.346461,
+    "lng": -77.305963
+  },
+  {
+    "id": "us-eastX-project-skye",
+    "locationName": "Project Skye (4201 Moseley Road), Chesterfield County, Virginia, USA",
+    "lat": 37.447378,
+    "lng": -77.772233
+  },
+  {
+    "id": "us-eastX-ridgeville",
+    "locationName": "Ridgeville, South Carolina, USA",
+    "lat": 36.962,
+    "lng": -80.3064
+  },
+  {
+    "id": "us-eastX-st-george",
+    "locationName": "St. George, South Carolina, USA",
+    "lat": 33.1777,
+    "lng": -80.5364
   },
   {
     "id": "us-south1-1",
@@ -493,6 +518,41 @@
     "lng": -85.748083
   },
   {
+    "id": "us-southX-lueders",
+    "locationName": "Lueders Campus, Haskell County, Texas, USA",
+    "lat": 32.7951,
+    "lng": -99.6245,
+    "approximate": true
+  },
+  {
+    "id": "us-southX-meitner-energy-center",
+    "locationName": "Meitner Energy Center (Pampa), Gray County, Texas, USA",
+    "lat": 35.5362,
+    "lng": -100.9599,
+    "approximate": true
+  },
+  {
+    "id": "us-southX-project-goodnight",
+    "locationName": "Project Goodnight (Claude), Armstrong County, Texas, USA",
+    "lat": 35.1095,
+    "lng": -101.3638,
+    "approximate": true
+  },
+  {
+    "id": "us-southX-project-rise",
+    "locationName": "Project Rise (Vernon), Wilbarger County, Texas, USA",
+    "lat": 34.1545,
+    "lng": -99.289,
+    "approximate": true
+  },
+  {
+    "id": "us-southX-project-thelma",
+    "locationName": "Project Thelma (Haskell), Haskell County, Texas, USA",
+    "lat": 33.1584,
+    "lng": -99.7331,
+    "approximate": true
+  },
+  {
     "id": "us-west1",
     "locationName": "The Dalles, Oregon, USA",
     "lat": 45.632511,
@@ -509,7 +569,7 @@
     "id": "us-west3",
     "locationName": "Salt Lake City, Utah, USA",
     "lat": 40.7608,
-    "lng": -111.8910,
+    "lng": -111.891,
     "approximate": true
   },
   {
@@ -519,16 +579,16 @@
     "lng": -115.010278
   },
   {
-    "id": "us-westX-reno",
-    "locationName": "Reno, Nevada, USA",
-    "lat": 39.501111,
-    "lng": -119.429444
-  },
-  {
     "id": "us-westX-mesa",
     "locationName": "Mesa, Arizona, USA",
     "lat": 33.3431,
     "lng": -111.6716,
     "approximate": true
+  },
+  {
+    "id": "us-westX-reno",
+    "locationName": "Reno, Nevada, USA",
+    "lat": 39.501111,
+    "lng": -119.429444
   }
 ]
