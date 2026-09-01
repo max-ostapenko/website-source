@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
-    "firebase-tools": "15.24.0",
+    "firebase-tools": "15.28.2",
     "typescript": "^7.0.2"
   },
   "engines": {
