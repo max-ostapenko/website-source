@@ -1,0 +1,74 @@
+---
+title: Google Cloud Radar
+description: Real-time pre-release intelligence and breaking change tracker for Google Cloud APIs and services.
+code-links:
+  - text: GitHub Repository
+    icon: github
+    href: https://github.com/max-ostapenko/google-cloud-radar
+other-links:
+  - text: Live Radar Feed
+    href: https://google-cloud-radar.com
+  - text: Velocity & Canary Benchmark
+    href: https://google-cloud-radar.com/stats
+---
+import Callout from '../../../components/Callout.astro';
+
+## Overview
+
+[Google Cloud Radar](https://google-cloud-radar.com) is an open-source, automated platform that tracks pre-release Google Cloud and Google API changes directly from the Google API Discovery Service before they appear in official release notes or documentation.
+
+By monitoring API definitions upstream, Google Cloud Radar detects silent method additions, parameter deprecations, and schema evolutions in real time, giving developers and platform engineers early warning about breaking changes across 46+ critical Google Cloud services.
+
+<Callout type="tip" title="Live Platform">
+Explore live updates, search across services, and inspect Canary lead times at [google-cloud-radar.com](https://google-cloud-radar.com).
+</Callout>
+
+---
+
+## Key Capabilities
+
+- **Automated Discovery Ingestion**: Runs continuous scheduled runs across 46+ monitored Google Cloud Discovery documents, maintaining normalized ASTs for accurate diffing.
+- **AIP-180 Breaking Change Heuristics**: Deterministic preprocessor detects removed parameters, added required fields, response schema mutations, and method deprecations following Google API design standards.
+- **Gemini-Powered Semantic Summaries**: Enriches technical schema diffs with high-signal, human-readable summaries, architectural context, and impact tiers (Low, Medium, High, Breaking).
+- **Release Note Correlation & Canary Lead Times**: Correlates discovery changes against official Google Cloud release notes, tracking empirical "Canary lead time" (the delta between when code hits production discovery and when public documentation catches up).
+- **Faceted Search & Interactive Feed**: Fast Astro static web interface featuring client-side MiniSearch indexing, timeline presets (30d, 60d, 90d, all-time), and faceted impact counters.
+- **Multi-Channel Notification Engine**: Free email alerts for breaking changes and weekly digest reports powered by Cloud Firestore and Resend.
+
+---
+
+## Architecture & Data Pipeline
+
+```
+Google Discovery API
+   │
+   ▼
+Ingestion Engine (Python / update_disco.py)
+   │
+   ▼
+Normalized Discovery ASTs (discoveries/)
+   │
+   ▼
+Diff Engine & AIP-180 Breaking Heuristic (diff_preprocessor.py)
+   │
+   ▼
+Semantic Enrichment (Vertex AI Gemini / llm_client.py)
+   │
+   ├──▶ Structured Change Documents (data/changes/*.json)
+   ├──▶ Release Note Correlator & Lead Time Tracker (correlate_releases.py)
+   ├──▶ Cloud Firestore & Resend Email Dispatch
+   │
+   ▼
+Astro Web App (web/ ➔ google-cloud-radar.com)
+```
+
+---
+
+## Tech Stack
+
+| Layer | Technologies |
+|---|---|
+| **Pipeline & Analytics** | Python 3.12+, Pydantic, Vertex AI (Gemini 2.5 Flash) |
+| **Data Sources** | Google API Discovery Service, Google Cloud Release Notes |
+| **Web Frontend** | Astro, TypeScript, MiniSearch, Vanilla CSS (Google Cloud Design tokens) |
+| **Storage & Hosting** | Cloud Firestore, Firebase Hosting, GitHub Actions |
+| **Alerting** | Resend API, Cloud Functions, LLMS.txt |
