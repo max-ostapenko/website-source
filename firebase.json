@@ -8,6 +8,23 @@
       ],
       "cleanUrls": true,
       "trailingSlash": true,
+      "redirects": [
+        {
+          "source": "/index.xml",
+          "destination": "/posts.xml",
+          "type": 301
+        },
+        {
+          "source": "/home",
+          "destination": "/",
+          "type": 301
+        },
+        {
+          "source": "/posts/httparchive_2024_upgrade/",
+          "destination": "/posts/httparchive-mcp/",
+          "type": 301
+        }
+      ],
       "headers": [
         {
           "source": "**/*.png",
