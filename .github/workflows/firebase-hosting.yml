@@ -33,7 +33,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
-    if: github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]'
+    if: >-
+      github.event_name == 'push' ||
+      (
+        github.event_name == 'pull_request' &&
+        github.event.pull_request.head.repo.full_name == github.repository &&
+        github.event.pull_request.user.login != 'dependabot[bot]'
+      )
     permissions:
       id-token: write
       contents: read
@@ -52,8 +58,8 @@ jobs:
       - id: auth
         uses: 'google-github-actions/auth@v3'
         with:
-          workload_identity_provider: 'projects/390347019852/locations/global/workloadIdentityPools/test/providers/github-runner'
-          service_account: 'github-action-website-source@max-ostapenko.iam.gserviceaccount.com'
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
           create_credentials_file: true
 
       - name: Deploy to Firebase Preview
